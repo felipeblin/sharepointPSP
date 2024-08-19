@@ -1,0 +1,117 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
+    "height": 120,
+    "width": 150,
+    "hideSelection": false,
+    "fillHorizontally": true,
+    "formatter": {
+      "elmType": "div",
+      "attributes": {
+        "class": "sp-card-container"
+      },
+      "style": {
+        "background-color": "=if([$TipoDocumento] == 'Arquitectura', '#FFA500', '#FFFFFF')"
+      },
+      "children": [
+        {
+          "elmType": "div",
+          "attributes": {
+            "class": "sp-card-defaultClickButton"
+          },
+          "customRowAction": {
+            "action": "defaultClick"
+          }
+        },
+        {
+          "elmType": "div",
+          "attributes": {
+            "class": "ms-bgColor-white sp-css-borderColor-neutralLight sp-card-borderHighlight sp-card-subContainer"
+          },
+          "children": [
+            {
+              "elmType": "div",
+              "attributes": {
+                "class": "sp-card-displayColumnContainer"
+              },
+              "children": [
+                {
+                  "elmType": "div",
+                  "attributes": {
+                    "class": "sp-card-imageContainer"
+                  },
+                  "children": [
+                    {
+                      "elmType": "div",
+                      "attributes": {
+                        "class": "=if([$TipoDocumento] == 'Arquitectura', 'sp-fileTypeIcon-architecture', 'sp-fileTypeIcon-default')"
+                      },
+                      "style": {
+                        "font-size": "50px",
+                        "height": "50px",
+                        "width": "50px",
+                        "margin": "0 auto"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "elmType": "p",
+                  "attributes": {
+                    "class": "ms-fontColor-neutralPrimary sp-card-content sp-card-highlightedContent sp-card-keyboard-focusable"
+                  },
+                  "style": {
+                    "text-align": "center",
+                    "font-size": "12px"
+                  },
+                  "txtContent": "[$FileLeafRef]",
+                  "defaultHoverField": "[$FileLeafRef]"
+                },
+                {
+                  "elmType": "p",
+                  "attributes": {
+                    "class": "ms-fontColor-neutralSecondary sp-card-label"
+                  },
+                  "style": {
+                    "text-align": "center",
+                    "font-size": "10px"
+                  },
+                  "txtContent": "[$TipoDocumento]"
+                },
+                {
+                  "elmType": "div",
+                  "attributes": {
+                    "title": "[$Estado]",
+                    "class": "ms-fontColor-neutralPrimary sp-card-content"
+                  },
+                  "style": {
+                    "text-align": "center",
+                    "font-size": "10px"
+                  },
+                  "children": [
+                    {
+                      "elmType": "span",
+                      "style": {
+                        "color": "green"
+                      },
+                      "txtContent": "=if([$Estado] == 'Completado', '✔️ ', '')"
+                    },
+                    {
+                      "elmType": "span",
+                      "style": {
+                        "color": "red"
+                      },
+                      "txtContent": "=if([$Estado] == 'Aplazada', '⏳ ', '')"
+                    },
+                    {
+                      "elmType": "span",
+                      "txtContent": "=if([$Estado] == '', '–', [$Estado])"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }

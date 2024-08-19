@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150">
+    <!-- Definición de estilos CSS dentro del SVG -->
+  <style>
+    .professional-font {
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+    }
+  </style>
+    <g transform="translate(300,0)">
+      <rect x="5" y="5" width="90" height="110" rx="10" fill="#ffe6e6" stroke="#000" stroke-width="2"/>
+      <rect x="15" y="15" width="70" height="90" rx="5" fill="#fff" stroke="#000" stroke-width="1"/>
+      <circle cx="15" cy="15" r="15" fill="#FF5252" stroke="#000" stroke-width="1"/>
+      <text x="17" y="15" font-size="18" class="professional-font" fill="#FFF" text-anchor="middle" dominant-baseline="middle">H<tspan dx="2" dy="6" font-size="12" fill="">1</tspan></text>
+  <!--Text Lines-->
+      <line x1="25" y1="25" x2="70" y2="25" stroke="#B0B0B0" stroke-width="2"/>
+      <line x1="25" y1="40" x2="70" y2="40" stroke="#B0B0B0" stroke-width="2"/>
+      <line x1="25" y1="55" x2="70" y2="55" stroke="#B0B0B0" stroke-width="2"/>
+      <line x1="25" y1="70" x2="70" y2="70" stroke="#B0B0B0" stroke-width="2"/>
+      <circle cx="85" cy="105" r="15" fill="#FF5252" stroke="#000" stroke-width="1"/>
+      <text x="85" y="108" font-size="24" fill="#FFF" text-anchor="middle" dominant-baseline="middle">✘</text>
+    </g>
+  <!--Documento Aprobado-->
+    <g transform="translate(150,0)">
+      <rect x="5" y="5" width="90" height="110" rx="10" fill="#e6ffe6" stroke="#000" stroke-width="2"/>
+      <rect x="15" y="15" width="70" height="90" rx="5" fill="#fff" stroke="#000" stroke-width="1"/>
+      <line x1="25" y1="30" x2="75" y2="30" stroke="#000" stroke-width="1"/>
+      <line x1="25" y1="45" x2="75" y2="45" stroke="#000" stroke-width="1"/>
+      <line x1="25" y1="60" x2="75" y2="60" stroke="#000" stroke-width="1"/>
+      <circle cx="85" cy="105" r="15" fill="#4CAF50" stroke="#000" stroke-width="1"/>
+      <text x="85" y="108" font-size="24" fill="#FFF" text-anchor="middle" dominant-baseline="middle">✔</text>
+    </g>
+    <path d="M3 1H1v18h18V1H3zm14 2v14H3V3h14zm4 18H5v2h18V5h-2v16zM15 5H5v2h10V5zM5 9h10v2H5V9zm7 4H5v2h7v-2z" fill="#FFF"/>
+
+  </svg>
+
+
+   
+  
