@@ -1,0 +1,52 @@
+# Ignora la configuración específica de Visual Studio Code para mantener el entorno de desarrollo independiente
+.vscode/
+.vscode/*
+
+# Ignora archivos de logs generados automáticamente para evitar la acumulación de datos innecesarios en el repositorio
+# Estos pueden incluir errores o información de depuración de npm y yarn
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignora carpetas de dependencias para evitar duplicar el almacenamiento, ya que estas pueden regenerarse con los archivos de configuración del proyecto (como package.json)
+node_modules/
+bower_components/
+
+# Ignora archivos específicos de PowerShell que contienen definiciones de cmdlets, manifestos y módulos
+# Estos suelen estar en máquinas locales y no son necesarios para el repositorio
+*.ps1xml
+*.psd1
+*.psm1
+
+# Ignora archivos generados o exportados por PowerShell o SharePoint PnP durante la ejecución del proyecto
+# Estos pueden incluir configuraciones o scripts generados para despliegue, generalmente innecesarios para control de versiones
+*.pnp
+*.pnpdata
+*.pnp.ps1
+*.pnp.setup.ps1
+
+# Ignora los registros generados por el proceso de aprovisionamiento de SharePoint PnP para evitar almacenar datos temporales en el repositorio
+PnP-Provisioning-Logs/
+PnP-Provisioning-Logs/*
+
+# Ignora archivos de configuración sensibles (opcional), como archivos de configuración y ajustes locales, que podrían contener datos sensibles
+config.json
+settings.json
+
+# Ignora archivos de archivos comprimidos para evitar incluir paquetes de archivos o backups en el repositorio
+*.zip
+*.rar
+*.7z
+
+# Ignora archivos binarios y temporales que podrían generarse en el proceso de desarrollo o despliegue
+# Son innecesarios en el repositorio y pueden aumentar el tamaño del repositorio innecesariamente
+# General
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.DS_Store
+*.Thumbs.db

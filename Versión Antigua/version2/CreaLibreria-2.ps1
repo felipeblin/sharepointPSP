@@ -1,26 +1,23 @@
 # Configuración
-$siteUrl = "https://socovesa.sharepoint.com/sites/PruebaPSP"
+
 $lists = @("Documentos Inmobiliarios", "Documentos Arquitectura", "Documentos Técnicos", "Documentos Comerciales", "Documentos ODI")
 $versionChoices = @("V.1", "V.2", "V.3", "V.4", "V.5", "V.6", "V.7", "V.8", "V.9", "V.10", "V.11", "V.12")
 $pageName = "BibliotecasDocumentos.aspx"
+
+
+# Función para conectar a SharePoint
+$SitioPrincipal = "https://socovesa.sharepoint.com/sites/PSP-EESS"
+$NombreProyecto = "Proyecto de Prueba"
+$UrlProyecto = "proyecto-prueba"
+# 1. Conexión al sitio principal
+Connect-PnPOnline -Url "$SitioPrincipal/$UrlProyecto" -Interactive -ClientId "87c053fe-3af4-4d2f-90fe-6df7bd28b450"
+Write-Host "Conectado exitosamente al sitio principal" -ForegroundColor Green
 
 # Función para el manejo de errores
 function Handle-Error {
     param($ErrorMessage)
     Write-Host "Error: $ErrorMessage" -ForegroundColor Red
     # Aquí podrías agregar más lógica de manejo de errores, como logging a un archivo
-}
-
-# Función para conectar a SharePoint
-function Connect-ToSharePoint {
-    try {
-        Write-Host "Conectando a SharePoint..." -ForegroundColor Cyan
-        Connect-PnPOnline -Url $siteUrl -Interactive
-        Write-Host "Conexión exitosa." -ForegroundColor Green
-    } catch {
-        Handle-Error "Error al conectar a SharePoint: $($_.Exception.Message)"
-        exit
-    }
 }
 
 # Función para crear o actualizar una biblioteca
@@ -43,7 +40,7 @@ function Create-Or-Update-Library {
         # Configurar alertas
         Add-PnPAlert -List $ListName -Title "$ListName - Nueva Versión" -ChangeType AddObject -DeliveryMethod Email -Frequency Immediate
     } catch {
-        Handle-Error "Error al crear/actualizar la biblioteca $ListName: $($_.Exception.Message)"
+        Handle-Error "Error al crear/actualizar la biblioteca $ListName $($_.Exception.Message)"
     }
 }
 
@@ -101,6 +98,6 @@ if (-not (Get-PnPView -List "Documentos Arquitectura" -Identity "Vista Personali
     Add-PnPView -List "Documentos Arquitectura" -Title "Vista Personalizada" -Fields @("Title", "Version", "Comentario", "Responsable") -Query "<OrderBy><FieldRef Name='Title' /></OrderBy>"
 }
 
-Create-Modern-Page
+#Create-Modern-Page
 
 Write-Host "Proceso completado." -ForegroundColor Green

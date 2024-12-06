@@ -1,0 +1,771 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
+    "height": 1000,
+    "width": 1200,
+    "hideSelection": false,
+    "fillHorizontally": true,
+    "formatter": {
+      "elmType": "div",
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "padding": "24px",
+        "background-color": "#ffffff",
+        "min-width": "1100px"
+      },
+      "children": [
+        {
+          "elmType": "div",
+          "style": {
+            "display": "flex",
+            "justify-content": "space-between",
+            "margin-bottom": "24px"
+          },
+          "children": [
+            {
+              "elmType": "div",
+              "style": {
+                "font-size": "24px",
+                "font-weight": "bold"
+              },
+              "txtContent": "[]"
+            },
+            {
+              "elmType": "div",
+              "style": {
+                "background-color": "#0078d4",
+                "color": "#ffffff",
+                "padding": "8px 16px",
+                "border-radius": "4px"
+              },
+              "txtContent": "[]"
+            }
+          ]
+        },
+        {
+          "elmType": "div",
+          "style": {
+            "display": "flex",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "elmType": "div",
+              "style": {
+                "flex": "1",
+                "display": "flex",
+                "flex-direction": "column",
+                "gap": "24px",
+                "min-width": "500px"
+              },
+              "children": [
+                {
+                  "elmType": "div",
+                  "style": {
+                    "background-color": "#f3f2f1",
+                    "padding": "20px",
+                    "border-radius": "4px"
+                  },
+                  "children": [
+                    {
+                      "elmType": "div",
+                      "style": {
+                        "font-size": "18px",
+                        "font-weight": "bold",
+                        "margin-bottom": "16px"
+                      },
+                      "txtContent": "Información General"
+                    },
+                    {
+                      "elmType": "div",
+                      "style": {
+                        "display": "flex",
+                        "flex-direction": "column",
+                        "gap": "12px"
+                      },
+                      "children": [
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Zona:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Superficie Neta:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Superficie Vendible:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Total Construido:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Constructibilidad Usada:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Incidencia:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Tipos de Departamentos:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable.lookupValue]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Inmobiliaria:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "elmType": "div",
+                  "style": {
+                    "background-color": "#f3f2f1",
+                    "padding": "20px",
+                    "border-radius": "4px"
+                  },
+                  "children": [
+                    {
+                      "elmType": "div",
+                      "style": {
+                        "font-size": "18px",
+                        "font-weight": "bold",
+                        "margin-bottom": "16px"
+                      },
+                      "txtContent": "Unidades y Estacionamientos"
+                    },
+                    {
+                      "elmType": "div",
+                      "style": {
+                        "display": "flex",
+                        "flex-direction": "column",
+                        "gap": "12px"
+                      },
+                      "children": [
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Unidades:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Estacionamientos:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Bodegas:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "elmType": "div",
+              "style": {
+                "flex": "1",
+                "display": "flex",
+                "flex-direction": "column",
+                "gap": "24px",
+                "min-width": "500px"
+              },
+              "children": [
+                {
+                  "elmType": "div",
+                  "style": {
+                    "background-color": "#f3f2f1",
+                    "padding": "20px",
+                    "border-radius": "4px"
+                  },
+                  "children": [
+                    {
+                      "elmType": "div",
+                      "style": {
+                        "font-size": "18px",
+                        "font-weight": "bold",
+                        "margin-bottom": "16px"
+                      },
+                      "txtContent": "Información Financiera"
+                    },
+                    {
+                      "elmType": "div",
+                      "style": {
+                        "display": "flex",
+                        "flex-direction": "column",
+                        "gap": "12px"
+                      },
+                      "children": [
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Costo Directo:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Costo Terreno:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Ingreso Total:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Margen IFRS:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "TIR:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "elmType": "div",
+                  "style": {
+                    "background-color": "#f3f2f1",
+                    "padding": "20px",
+                    "border-radius": "4px"
+                  },
+                  "children": [
+                    {
+                      "elmType": "div",
+                      "style": {
+                        "font-size": "18px",
+                        "font-weight": "bold",
+                        "margin-bottom": "16px"
+                      },
+                      "txtContent": "Fechas y Documentación"
+                    },
+                    {
+                      "elmType": "div",
+                      "style": {
+                        "display": "flex",
+                        "flex-direction": "column",
+                        "gap": "12px"
+                      },
+                      "children": [
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Rol Matriz:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "[]"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Firma Planos:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "=toLocaleDateString([])"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Permiso Edificación:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "=toLocaleDateString([])"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Inicio Ventas:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "=toLocaleDateString([])"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Inicio Excavación:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "=toLocaleDateString([])"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Resolución Recepción:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "=toLocaleDateString([])"
+                            }
+                          ]
+                        },
+                        {
+                          "elmType": "div",
+                          "style": {
+                            "display": "flex",
+                            "justify-content": "space-between",
+                            "padding": "4px 8px"
+                          },
+                          "children": [
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "font-weight": "500",
+                                "min-width": "200px"
+                              },
+                              "txtContent": "Entrega Departamentos:"
+                            },
+                            {
+                              "elmType": "div",
+                              "style": {
+                                "min-width": "250px"
+                              },
+                              "txtContent": "=toLocaleDateString([])"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }

@@ -1,0 +1,151 @@
+.filters-checkbox {
+    position: absolute; 
+    right: 30px; 
+    top: 20px;
+}
+.drawer-nav {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+.drawer-menu-item:hover {
+    background-color: #333333;
+}
+.btn-mobile {
+    display: none;
+}
+.prop-wrapper {
+    width: 95%;
+}
+.summary-row {
+    width: 95%;
+}
+.style1 {
+    float: right; position: absolute; top: -40px; right: 0; font-size:.9rem; padding-top: -1.7rem; font-weight: normal !important; margin-right:13rem; color: rgb(89,89,89) !important;
+}
+.label1 {
+    font-weight: normal; margin-right: 3px; font-size: .8rem; vertical-align: middle;
+}
+#map1 {
+    margin-top: 40px;
+}
+.prop-menu {
+    margin-top: 25px;
+}
+@media (min-width: 1281px) {
+.almagro-table td, .almagro-table th {
+        font-size: .9rem !important;
+    }
+
+    table, label, .dataTables_paginate, .dataTables_info {
+    font-size: .9rem !important;
+}
+
+.label1 {font-size: .9rem!important;}
+.mix1 {
+    margin-left: -50px;
+}
+.mix2 {
+    margin-left: 50px;
+}
+
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+  
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    
+}
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+}
+@media (min-width: 481px) and (max-width: 767px) {
+    .filters-checkbox {
+        top: 75px;
+    }
+    .mainTable {
+        margin-top: 85px;
+    }
+    .btn-mobile {
+        display: block;
+    }
+    .btn-desktop {
+        display: none;
+    }
+    .cp-ico {
+        margin-top: 8px;
+    }
+    .prop-wrapper {
+        width: 100%;
+    }
+    .summary-row {
+        width: 100%;
+    }
+
+    .bg-login-container .login-container .logo {
+        width: auto !important;
+    }
+
+   .header .user-info h3 {
+        width: auto;
+    }
+
+    #map1 {
+    margin-top: 0px;
+}
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    .filters-checkbox {
+        top: 75px;
+    }
+    .mainTable {
+        margin-top: 85px;
+    }
+    .btn-mobile {
+        display: block;
+    }
+    .btn-desktop {
+        display: none;
+    }
+    .cp-ico {
+        margin-top: 8px;
+    }
+    .prop-wrapper {
+        width: 100%;
+    }
+    .summary-row {
+        width: 100%;
+    }
+    .style1 {
+        float: none;
+        position: relative;
+        top: 0; 
+        right: 0; 
+        font-size: .9rem;
+        padding-top: 0;
+        font-weight: normal !important;
+        margin-right: 0;
+        color: rgb(89,89,89) !important;
+        text-align: center;
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
+    .bg-login-container .login-container .logo {
+        width: auto !important;
+    }
+
+    .header .user-info h3 {
+        width: auto;
+    }
+    
+    
+    #map1 {
+    margin-top: 0px;
+}
+}
+.im-doc  {
+width: 25px; height: 25px !important;
+}
+#dataTable {
+    width: 100%!important;
+}

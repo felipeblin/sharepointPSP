@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <title>Executive Project Gantt Chart</title>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-7xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+        <h1 class="text-3xl font-bold text-center py-6 bg-blue-600 text-white">Executive Project Gantt Chart</h1>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3">Proyecto</th>
+                        <th class="px-6 py-3">Avance (%)</th>
+                        <th class="px-6 py-3">Fecha Inicio</th>
+                        <th class="px-6 py-3">Fecha Estimada Término</th>
+                        <th class="px-6 py-3">Estado</th>
+                        <th class="px-6 py-3">Encargado</th>
+                        <th class="px-6 py-3">Responsable</th>
+                        <th class="px-6 py-3">Avances realizados durante la semana</th>
+                        <th class="px-6 py-3">Gantt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white border-b hover:bg-gray-50">
+                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Sistema de Postventa Corporativo</td>
+                        <td class="px-6 py-4">95%</td>
+                        <td class="px-6 py-4">20/08/2020</td>
+                        <td class="px-6 py-4">31/12/2024</td>
+                        <td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">En Desarrollo</span></td>
+                        <td class="px-6 py-4">Área de Desarrollo TI</td>
+                        <td class="px-6 py-4">Gianni Palmieri</td>
+                        <td class="px-6 py-4">• Con lo investigado sobre Azure Blob Storage analizar cómo pasar todos los archivos blob que existen en la base de datos hacia Azure Blob Storage y cambios que hay que realizar a los aplicativos que conforman el Sistema de PostVenta Corporativo. (100%).<br>• Crear informe Historial de Solicitudes por Proyecto / Etapa / Unidad (100% en QA).</td>
+                        <td class="px-6 py-4">
+                            <div class="w-64 bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b hover:bg-gray-50">
+                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Control de Costos y Proyectos Corporativo - Constructoras</td>
+                        <td class="px-6 py-4">10%</td>
+                        <td class="px-6 py-4">25/10/2022</td>
+                        <td class="px-6 py-4">31/12/2025</td>
+                        <td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">En Desarrollo</span></td>
+                        <td class="px-6 py-4">Área de Desarrollo TI</td>
+                        <td class="px-6 py-4">Gianni Palmieri</td>
+                        <td class="px-6 py-4">• Implementar pantallas asociadas al ABM de Cabecera de Traspasos. (90% en Des).<br>• Implementar pantallas asociadas al ABM de Detalle de Traspasos. (30% en Des).<br>• Análisis e implementación para que dentro del sistema Antiguo de Control de Costos de Almagro se pueda visualizar contabilidad de las obras subidas de la marca Socovesa Santiago (100% en Prod.)</td>
+                        <td class="px-6 py-4">
+                            <div class="w-64 bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 10%"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Add more rows for each project -->
+                    <tr class="bg-white border-b hover:bg-gray-50">
+                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Migración DataCenter de ENTEL IIA</td>
+                        <td class="px-6 py-4">100%</td>
+                        <td class="px-6 py-4">-</td>
+                        <td class="px-6 py-4">28/02/2024</td>
+                        <td class="px-6 py-4"><span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Terminado</span></td>
+                        <td class="px-6 py-4">Equipo Plataforma, SAP, Gerencia de TI</td>
+                        <td class="px-6 py-4">F.Blin</td>
+                        <td class="px-6 py-4">Terminado</td>
+                        <td class="px-6 py-4">
+                            <div class="w-64 bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to calculate and update Gantt chart widths based on project dates
+        document.addEventListener('DOMContentLoaded', function() {
+            const rows = document.querySelectorAll('tbody tr');
+            const now = moment();
+            const projectEnd = moment('2025-12-31'); // Furthest end date in the dataset
+
+            rows.forEach(row => {
+                const startDate = moment(row.children[2].textContent, 'DD/MM/YYYY');
+                const endDate = moment(row.children[3].textContent, 'DD/MM/YYYY');
+                const ganttBar = row.querySelector('.bg-blue-600');
+                
+                if (startDate.isValid() && endDate.isValid()) {
+                    const totalDays = endDate.diff(startDate, 'days');
+                    const elapsedDays = now.diff(startDate, 'days');
+                    const width = Math.min((elapsedDays / totalDays) * 100, 100);
+                    
+                    ganttBar.style.width = `${width}%`;
+                } else {
+                    // If dates are invalid, use the progress percentage
+                    const progress = parseInt(row.children[1].textContent);
+                    ganttBar.style.width = `${progress}%`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -87,4 +87,4 @@ Write-Host "Proceso de carga de archivos completado." -ForegroundColor Cyan
 
 # Desconectar de SharePoint
 #Disconnect-PnPOnline
-Write-Host "Desconectado de SharePoint." -ForegroundColor Green
+#Write-Host "Desconectado de SharePoint." -ForegroundColor Green
