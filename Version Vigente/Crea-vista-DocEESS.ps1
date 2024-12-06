@@ -18,115 +18,170 @@ if (-not $navigationNode) {
 try {
     $listName = "DocEESS"
     $viewName = 'Estructurada'
-
+    $proyectoFields = @("Categoria", "Clase","Subcategoria","Subcategoria2")
     # Verificar si la vista existe y eliminarla
     $existingView = Get-PnPView -List $listName -Identity $viewName -ErrorAction SilentlyContinue
     if ($existingView) {
-        #Remove-PnPView -List $listName -Identity $viewName -Force
-        Write-Host "Vista anterior no eliminada" -ForegroundColor Yellow
+        Remove-PnPView -List $listName -Identity $viewName -Force
+        Write-Host "Vista anterior  eliminada" -ForegroundColor Yellow
     }
-    else {
         # Crear la nueva vista
         $view = Add-PnPView -List $listName `
-            -Title $viewName `
-            -Fields $proyectoFields `
-            -SetAsDefault `
-            -Query "<OrderBy><FieldRef Name='ID' Ascending='FALSE'/></OrderBy>" 
+        -Title $viewName `
+        -Fields $proyectoFields `
+        -SetAsDefault `
+        -Query @"
+            <OrderBy>
+            <FieldRef Name='ID' Ascending='FALSE'/>
+            </OrderBy>
+            <GroupBy Collapse='TRUE' GroupLimit='30'>
+            <FieldRef Name='Categoria'/>
+            </GroupBy>
+"@
         
         $view = Get-PnPView -List  $listName -Identity $viewName
         # $view.ViewType = "GALLERY"
     
         Write-Host "Vista básica creada exitosamente" -ForegroundColor Green
-    }   
-    # Aplicar el formato
-    Set-PnPView -List $listName -Identity $viewName -Values @{
-        CustomFormatter = @' 
-            {"tileProps":{"$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
-                "height": 120,
-                "width": 150,
-                "hideSelection": false,
-                "fillHorizontally": true,
-                "formatter": {
+     
+# Primero almacenamos el JSON original
+$jsonFormat = @'
+{"tileProps":{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
+  "height": 150,
+  "width": 200,
+  "hideSelection": false,
+  "fillHorizontally": true,
+  "formatter": {
+    "elmType": "div",
+    "attributes": {
+      "class": "sp-card-container"
+    },
+    "style": {
+      "overflow": "hidden",
+      "display": "flex",
+      "border": "none",
+      "justify-content": "center",
+      "align-items": "center",
+      "margin": "0 auto",
+      "color": "#0078d4",
+      "box-shadow": "none"
+    },
+    "children": [
+      {
+        "elmType": "div",
+        "attributes": {
+          "class": "sp-card-defaultClickButton"
+        },
+        "customRowAction": {
+          "action": "defaultClick"
+        }
+      },
+      {
+        "elmType": "div",
+        "attributes": {
+          "class": "ms-bgColor-white sp-card-subContainer"
+        },
+        "style": {
+          "border": "none",
+          "box-shadow": "none"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-card-displayColumnContainer"
+            },
+            "style": {
+              "border": "none"
+            },
+            "children": [
+              {
                 "elmType": "div",
                 "attributes": {
-                    "class": "sp-card-container"
+                  "class": "sp-card-imageContainer"
+                },
+                "style": {
+                  "border": "none"
                 },
                 "children": [
-                    {
-                    "elmType": "div",
+                  {
+                    "elmType": "img",
                     "attributes": {
-                        "class": "sp-card-defaultClickButton"
+                      "src": "=if([$Clase] == 'PERMISOS', '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-si-PSP.png', if(indexOf([$Clase], 'INMOBILIARIOS') != -1 , '/sites//PSP-EESS/PruebaPSP/SiteAssets/documento-si-PCT.png', if(indexOf([$Clase], 'VERSIÓN OBRA') != -1, '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-no-PSP.png', if([$Clase] == 'DOC COM', '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-no-PSP.png', ''))))",
+                      "title": "[$Clase]"
                     },
-                    "customRowAction": {
-                        "action": "defaultClick"
+                    "style": {
+                      "overflow": "hidden",
+                      "display": "flex",
+                      "border": "none",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "width": "50px",
+                      "height": "50px",
+                      "margin": "0 auto",
+                      "bold": "true",
+                      "color": "#0078d4"
                     }
-                    },
-                    {
-                    "elmType": "div",
-                    "attributes": {
-                        "class": "ms-bgColor-white sp-css-borderColor-neutralLight sp-card-borderHighlight sp-card-subContainer"
-                    },
-                    "children": [
-                        {
-                        "elmType": "div",
-                        "attributes": {
-                            "class": "sp-card-displayColumnContainer"
-                        },
-                        "children": [
-                            {
-                            "elmType": "div",
-                            "attributes": {
-                                "class": "sp-card-imageContainer"
-                            },
-                            "children": [
-                                {
-                                "elmType": "img",
-                                "attributes": {
-                                    "src": "=if([$Clase] == 'PERMISOS', '/sites/PruebaPSP/SiteAssets/briefing.png', if([$Clase] == 'INMOBILIARIOS', '/sites/PruebaPSP/SiteAssets/inventory.png', if([$Clase] == 'VERSIÓN OBRA', '/sites/PruebaPSP/SiteAssets/completed-task.png', if([$Clase] == 'DOC COM', '/sites/PruebaPSP/SiteAssets/project-management.png', ''))))",
-                                    "title": "[$Clase]"
-                                },
-                                "style": {
-                                    "width": "50px",
-                                    "height": "50px",
-                                    "margin": "0 auto",
-                                    "color": "#0078d4"
-                                }
-                                }
-                            ]
-                            },
-                            {
-                            "elmType": "p",
-                            "attributes": {
-                                "class": "ms-fontColor-neutralPrimary sp-card-content sp-card-highlightedContent sp-card-keyboard-focusable"
-                            },
-                            "style": {
-                                "text-align": "center",
-                                "font-size": "11 px"
-                            },
-                            "txtContent": "[$FileLeafRef]",
-                            "defaultHoverField": "[$FileLeafRef]"
-                            },
-                            {
-                            "elmType": "p",
-                            "attributes": {
-                                "class": "ms-fontColor-neutralSecondary sp-card-label"
-                            },
-                            "style": {
-                                "text-align": "center",
-                                "font-size": "11 px"
-                            },
-                            "txtContent": "[$Clase]"
-                            }
-                        ]
-                        }
-                    ]
-                    }
+                  }
                 ]
-                }
-            }
-    }
+              },
+              {
+                "elmType": "p",
+                "attributes": {
+                  "class": "ms-fontColor-neutralPrimary sp-card-content sp-card-highlightedContent sp-card-keyboard-focusable"
+                },
+                "style": {
+                  "overflow": "hidden",
+                  "text-align": "center",
+                  "font-size": "9px",
+                  "border": "none"
+                },
+                "txtContent": "=if(length([$FileLeafRef]) > 20, substring([$FileLeafRef], 0, 20), [$FileLeafRef])",
+                "defaultHoverField": "[$FileLeafRef]"
+              },
+              {
+                "elmType": "div",
+                "attributes": {
+                  "class": "sp-card-title"
+                },
+                "style": {
+                  "overflow": "hidden",
+                  "text-align": "center",
+                  "font-size": "9px",
+                  "border": "none"
+                },
+                "txtContent": "[$Subcategoria]"
+              },
+              {
+                "elmType": "p",
+                "attributes": {
+                  "class": "ms-fontColor-neutralSecondary sp-card-subtitle"
+                },
+                "style": {
+                  "overflow": "hidden",
+                  "text-align": "center",
+                  "font-size": "9px",
+                  "border": "none"
+                },
+                "txtContent": "[$Clase]"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+}
 '@
-    }
+# Reemplazar PruebaPSP con el valor de $UrlProyecto
+$jsonFormatModified = $jsonFormat.Replace('PruebaPSP', $UrlProyecto)
+
+# Aplicar el formato modificado
+Set-PnPView -List $listName -Identity $viewName -Values @{
+    CustomFormatter = $jsonFormatModified
+}
     
     # @{
     #     CustomFormatter = $formatoJson
@@ -137,3 +192,35 @@ try {
 } catch {
     Write-Host "Error: $($_.Exception.Message)" -ForegroundColor Red
 }
+$destinationFolder = "SiteAssets" # Destination folder in SharePoint
+$localFolderPath = "./Version Vigente/iconos" # Local folder path
+$targetFolderPath = $destinationFolder
+    # Check if source folder exists
+    if (-not (Test-Path $localFolderPath)) {
+        throw "Local folder not found: $localFolderPath"
+    }
+
+    # Create SiteAssets folder debe existir
+    $folder = Get-PnPFolder -Url $targetFolderPath 
+    if (-not $folder) {
+        Write-Host "No existe carpeta quiza está direccionada"
+        
+    }
+
+    # Get all files from local folder
+    $files = Get-ChildItem -Path $localFolderPath -File
+
+    # Upload each file
+    foreach ($file in $files) {
+        Write-Host "Uploading $($file.Name)..." -ForegroundColor Cyan
+        
+        try {
+            $fileadded = Add-PnPFile -Path $file.FullName -Folder $targetFolderPath -ErrorAction Stop
+            Write-Host "Successfully uploaded $($file.Name)" -ForegroundColor Green
+        }
+        catch {
+            Write-Host "Error uploading $($file.Name): $($_.Exception.Message)" -ForegroundColor Red
+        }
+    }
+
+    Write-Host "File upload process completed" -ForegroundColor Green

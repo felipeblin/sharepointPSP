@@ -45,7 +45,45 @@ function EnsureField {
         Write-Host "El campo '$FieldName' ya existe." -ForegroundColor Green
     }
 }
+# Función para asegurar la existencia de un campo calculado
 
+function EnsureCalculatedField {
+    param (
+        [string]$ListTitle,
+        [string]$FieldName
+    )
+    
+    $field = Get-PnPField -List $ListTitle -Identity $FieldName -ErrorAction SilentlyContinue
+    if (-not $field) {
+        Write-Host "Creando campo calculado '$FieldName'..." -ForegroundColor Yellow
+        
+        $schemaXml = @"
+ <Field ID='{$(New-Guid)}' 
+       Type='Calculated' 
+       DisplayName='$FieldName' 
+       Name='$FieldName' 
+       Group='Custom Columns'
+       ResultType='Number'>
+    <Formula>=Count([Title])</Formula>
+    <FieldRefs>
+        <FieldRef Name='Title'/>
+    </FieldRefs>
+ </Field>
+"@
+ 
+        try {
+            $newCalculated = Add-PnPFieldFromXml -List $ListTitle -FieldXml $schemaXml
+            Write-Host "Campo calculado '$FieldName' creado exitosamente." -ForegroundColor Green
+            
+            $defaultView = Get-PnPView -List $ListTitle | Where-Object { $_.DefaultView -eq $true }
+            $fields = $defaultView.ViewFields + $FieldName
+            $seteado = Set-PnPView -List $ListTitle -Identity $defaultView.Id -Fields $fields
+        }
+        catch {
+            Write-Host "Error: $($_.Exception.Message)" -ForegroundColor Red
+        }
+    }
+ }
 # Nombre de la biblioteca
 $libraryName = "DocEESS"
 
@@ -72,11 +110,20 @@ Write-Host "Creando nueva biblioteca $libraryName..." -ForegroundColor Cyan
 New-PnPList -Title $libraryName -Template DocumentLibrary
 Write-Host "Nueva biblioteca $libraryName creada." -ForegroundColor Green
 
+# Agregar campo calculado para contar archivos en carpetas
+$calculatedFormula = "=COUNTA([FileLeafRef])"  # Fórmula para contar archivos
+EnsureCalculatedField -ListTitle $libraryName `
+    -FieldName "ConteoArchivos" `
+    -Formula $calculatedFormula `
+    -FieldType "Number"
+
+Write-Host "Campo calculado 'ConteoArchivos' creado exitosamente o ya existente." -ForegroundColor Green
 # Asegurar que los campos necesarios existen
 EnsureField -ListTitle $libraryName -FieldName "Categoria" -FieldType "Text"
 EnsureField -ListTitle $libraryName -FieldName "Subcategoria" -FieldType "Text"
 EnsureField -ListTitle $libraryName -FieldName "Subcategoria2" -FieldType "Text"
 EnsureField -ListTitle $libraryName -FieldName "Clase" -FieldType "Text"
+
 
 # Procesar los datos del CSV
 foreach ($row in $csvData) {
@@ -146,137 +193,4 @@ foreach ($row in $csvData) {
             }
         }
     }
-}
-# Después de crear la biblioteca DocEESS, agregar al menú de navegación
-$navigationNode = Get-PnPNavigationNode -Location QuickLaunch | Where-Object {$_.Title -eq "DocEESS"}
-
-if (-not $navigationNode) {
-   Add-PnPNavigationNode -Location QuickLaunch -Title "DocEESS" -Url "$webUrl/DocEESS"
-   Write-Host "DocEESS agregado al menú lateral" -ForegroundColor Green
-} else {
-   Write-Host "DocEESS ya existe en el menú lateral" -ForegroundColor Yellow
-}
-
-
-# Crear una vista más simple pero efectiva
-try {
-    $listName = "DocEESS"
-    $viewName = 'Estructurada'
-
-    # Verificar si la vista existe y eliminarla
-    $existingView = Get-PnPView -List $listName -Identity $viewName -ErrorAction SilentlyContinue
-    if ($existingView) {
-        #Remove-PnPView -List $listName -Identity $viewName -Force
-        Write-Host "Vista anterior no eliminada" -ForegroundColor Yellow
-    }
-    else {
-        # Crear la nueva vista
-        $view = Add-PnPView -List $listName `
-            -Title $viewName `
-            -Fields $proyectoFields `
-            -SetAsDefault `
-            -Query "<OrderBy><FieldRef Name='ID' Ascending='FALSE'/></OrderBy>" 
-        
-        $view = Get-PnPView -List  $listName -Identity $viewName
-        # $view.ViewType = "GALLERY"
-    
-        Write-Host "Vista básica creada exitosamente" -ForegroundColor Green
-    }   
-    # Aplicar el formato
-    Set-PnPView -List $listName -Identity $viewName -Values @{
-        CustomFormatter = @\' 
-            {"$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
-                "height": 120,
-                "width": 150,
-                "hideSelection": false,
-                "fillHorizontally": true,
-                "formatter": {
-                "elmType": "div",
-                "attributes": {
-                    "class": "sp-card-container"
-                },
-                "children": [
-                    {
-                    "elmType": "div",
-                    "attributes": {
-                        "class": "sp-card-defaultClickButton"
-                    },
-                    "customRowAction": {
-                        "action": "defaultClick"
-                    }
-                    },
-                    {
-                    "elmType": "div",
-                    "attributes": {
-                        "class": "ms-bgColor-white sp-css-borderColor-neutralLight sp-card-borderHighlight sp-card-subContainer"
-                    },
-                    "children": [
-                        {
-                        "elmType": "div",
-                        "attributes": {
-                            "class": "sp-card-displayColumnContainer"
-                        },
-                        "children": [
-                            {
-                            "elmType": "div",
-                            "attributes": {
-                                "class": "sp-card-imageContainer"
-                            },
-                            "children": [
-                                {
-                                "elmType": "img",
-                                "attributes": {
-                                    "src": "=if([$Clase] == 'PERMISOS', '/sites/PruebaPSP/SiteAssets/briefing.png', if([$Clase] == 'INMOBILIARIOS', '/sites/PruebaPSP/SiteAssets/inventory.png', if([$Clase] == 'VERSIÓN OBRA', '/sites/PruebaPSP/SiteAssets/completed-task.png', if([$Clase] == 'DOC COM', '/sites/PruebaPSP/SiteAssets/project-management.png', ''))))",
-                                    "title": "[$Clase]"
-                                },
-                                "style": {
-                                    "width": "50px",
-                                    "height": "50px",
-                                    "margin": "0 auto",
-                                    "color": "#0078d4"
-                                }
-                                }
-                            ]
-                            },
-                            {
-                            "elmType": "p",
-                            "attributes": {
-                                "class": "ms-fontColor-neutralPrimary sp-card-content sp-card-highlightedContent sp-card-keyboard-focusable"
-                            },
-                            "style": {
-                                "text-align": "center",
-                                "font-size": "11 px"
-                            },
-                            "txtContent": "[$FileLeafRef]",
-                            "defaultHoverField": "[$FileLeafRef]"
-                            },
-                            {
-                            "elmType": "p",
-                            "attributes": {
-                                "class": "ms-fontColor-neutralSecondary sp-card-label"
-                            },
-                            "style": {
-                                "text-align": "center",
-                                "font-size": "11 px"
-                            },
-                            "txtContent": "[$Clase]"
-                            }
-                        ]
-                        }
-                    ]
-                    }
-                ]
-                }
-            }
-        \'@
-    }
-    
-    # @{
-    #     CustomFormatter = $formatoJson
-    # }
-
-    Write-Host "Formato aplicado exitosamente" -ForegroundColor Green
-
-} catch {
-    Write-Host "Error: $($_.Exception.Message)" -ForegroundColor Red
 }
