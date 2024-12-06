@@ -40,6 +40,15 @@ try {
     
         Write-Host "Vista básica creada exitosamente" -ForegroundColor Green
     }   
+    # Después de crear la biblioteca DocEESS, agregar al menú de navegación
+    $navigationNode = Get-PnPNavigationNode -Location QuickLaunch | Where-Object {$_.Title -eq "Resumen Proyecto"}
+
+    if (-not $navigationNode) {
+    Add-PnPNavigationNode -Location QuickLaunch -Title "Resumen Proyecto" -Url "$webUrl/Lists/Proyecto Inmobiliario"
+    Write-Host "Proyecto Inmobiliario agregado al menú lateral" -ForegroundColor Green
+    } else {
+    Write-Host "Proyecto Inmobiliario ya existe en el menú lateral" -ForegroundColor Yellow
+    }
     # Aplicar un formato JSON más simple para probar
 #     $simpleFormat = @"
 # {
