@@ -1,15 +1,7 @@
 
-$yaml_ = Get-Content -Path "$PSScriptRoot/config.yaml"| ConvertFrom-Yaml
-#$yaml_ = ConvertFrom-Yaml -Yaml $yamlContent
-# $SitioPrincipal = "https://socovesa.sharepoint.com/sites/PSP-EESS"
-# $NombreProyecto = "Proyecto de Prueba"
-#$UrlProyecto = "proyecto-prueba"
-$SitioPrincipal = $yaml_.Datos.SitioPrincipal
-$NombreProyecto = $yaml_.Datos.NombreProyecto
-$UrlProyecto = $yaml_.Datos.UrlProyecto
-$IdProyecto = $yaml_.Datos.IdProyecto
-$Marca = $yaml_.Datos.Marca
-$Comuna = $yaml_.Datos.Comuna
+$SitioPrincipal = "https://socovesa.sharepoint.com/sites/PSP-EESS"
+$NombreProyecto = "Proyecto de Prueba"
+$UrlProyecto = "proyecto-prueba"
 # 1. Conexión al sitio principal
 Connect-PnPOnline -Url "$SitioPrincipal/$UrlProyecto" -Interactive -ClientId "87c053fe-3af4-4d2f-90fe-6df7bd28b450"
 Write-Host "Conectado exitosamente al sitio principal" -ForegroundColor Green
@@ -44,41 +36,9 @@ function Create-ListIfNotExists {
 }
 
 # Crear las listas principales
-# Create-ListIfNotExists "Proyecto Inmobiliario" "GenericList"
-# Create-ListIfNotExists "Tipos de Departamentos" "GenericList"
-function Create-List {
-    param (
-        [string]$ListName,
-        [string]$ListTemplate
-    )
-    
-    # Check if list exists and remove it
-    if (Get-PnPList -Identity $ListName -ErrorAction SilentlyContinue) {
-        try {
-            Remove-PnPList -Identity $ListName -Force
-            Write-Host "Lista '$ListName' eliminada exitosamente." -ForegroundColor Yellow
-            
-            # Clear from recycle bin
-            Get-PnPRecycleBinItem | Where-Object { $_.Title -eq $ListName } | Clear-PnPRecycleBinItem -Force
-            Write-Host "Lista '$ListName' eliminada del contenedor de reciclaje." -ForegroundColor Yellow
-        } catch {
-            Handle-Error "No se pudo eliminar la lista '$ListName': $($_.Exception.Message)"
-            return
-        }
-    }
+Create-ListIfNotExists "Proyecto Inmobiliario" "GenericList"
+Create-ListIfNotExists "Tipos de Departamentos" "GenericList"
 
-    # Create new list
-    try {
-        New-PnPList -Title $ListName -Template GenericList
-        Write-Host "Lista '$ListName' creada exitosamente." -ForegroundColor Green
-    } catch {
-        Handle-Error "No se pudo crear la lista '$ListName': $($_.Exception.Message)"
-    }
-}
-
-# Crear las listas principales y las borra si existen
-Create-List "Proyecto Inmobiliario" "GenericList"
-Create-List "Tipos de Departamentos" "GenericList"
 # Función para agregar un campo a una lista si no existe
 function Add-FieldIfNotExists {
     param (
@@ -90,7 +50,7 @@ function Add-FieldIfNotExists {
     $internalName = $FieldName.Replace(" ", "")
     if (!(Get-PnPField -List $ListName -Identity $internalName -ErrorAction SilentlyContinue)) {
         try {
-            $newfield = Add-PnPField -List $ListName -DisplayName $FieldName -InternalName $internalName -Type $FieldType @AdditionalProperties
+            Add-PnPField -List $ListName -DisplayName $FieldName -InternalName $internalName -Type $FieldType @AdditionalProperties
             Write-Host "Campo '$FieldName' agregado a la lista '$ListName'." -ForegroundColor Green
         } catch {
             Handle-Error "No se pudo agregar el campo '$FieldName' a la lista '$ListName': $($_.Exception.Message)"
@@ -128,7 +88,7 @@ $proyectoFields = @(
 )
 
 foreach ($field in $proyectoFields) {
-    $newfield = Add-FieldIfNotExists "Proyecto Inmobiliario" $field.Name $field.Type
+    Add-FieldIfNotExists "Proyecto Inmobiliario" $field.Name $field.Type
 }
 
 # Agregar campos a la lista "Tipos de Departamentos"
@@ -139,7 +99,7 @@ $tiposFields = @(
 )
 
 foreach ($field in $tiposFields) {
-    $newfield = Add-FieldIfNotExists "Tipos de Departamentos" $field.Name $field.Type
+    Add-FieldIfNotExists "Tipos de Departamentos" $field.Name $field.Type
 }
 
 # Crear una relación entre las listas
@@ -148,7 +108,7 @@ try {
     $lookupField = "TipoDep"
     $schemaXml = "<Field Type='Lookup' DisplayName='Tipos de Departamentos' Required='FALSE' EnforceUniqueValues='FALSE' List='{$($lookupList.Id)}' ShowField='$lookupField' UnlimitedLengthInDocumentLibrary='FALSE' RelationshipDeleteBehavior='None' ID='{$(New-Guid)}' StaticName='TiposDepartamentos' Name='TiposDepartamentos' />"
     
-    $newfield = Add-PnPFieldFromXml -List "Proyecto Inmobiliario" -FieldXml $schemaXml
+    Add-PnPFieldFromXml -List "Proyecto Inmobiliario" -FieldXml $schemaXml
     Write-Host "Relación creada entre 'Proyecto Inmobiliario' y 'Tipos de Departamentos'." -ForegroundColor Green
 } catch {
     Handle-Error "No se pudo crear la relación entre las listas: $($_.Exception.Message)"
@@ -182,6 +142,7 @@ function Get-CustomFields {
 
 
 
+# Añadir datos a la lista "Tipos de Departamentos"
 $tiposDepartamentos = @(
     @{TipoDep = "1D1B"; Metraje = 36.4; Unidades = 105},
     @{TipoDep = "2D1B"; Metraje = 47.0; Unidades = 45},
@@ -189,14 +150,14 @@ $tiposDepartamentos = @(
     @{TipoDep = "3D2B"; Metraje = 60.4; Unidades = 30}
 )
 
-# Modificar la consulta de Get-PnPListItem
+# Opción 1: Usando ViewXml
 foreach ($tipo in $tiposDepartamentos) {
-    $query = "<View><Query><Where><Eq><FieldRef Name='TipoDep'/><Value Type='Text'>$($tipo.TipoDep)</Value></Eq></Where></Query></View>"
-    $existingItem = Get-PnPListItem -List "Tipos de Departamentos" -Query $query -ErrorAction SilentlyContinue
+    $camlQuery = "<View><Query><Where><Eq><FieldRef Name='TipoDep'/><Value Type='Text'>$($tipo.TipoDep)</Value></Eq></Where></Query></View>"
+    $existingItems = Get-PnPListItem -List "Tipos de Departamentos" -Query $camlQuery
     
-    if (-not $existingItem) {
+    if ($existingItems.Count -eq 0) {
         try {
-            $itemAdded = Add-PnPListItem -List "Tipos de Departamentos" -Values $tipo
+            Add-PnPListItem -List "Tipos de Departamentos" -Values $tipo
             Write-Host "Datos añadidos a 'Tipos de Departamentos': $($tipo.TipoDep)" -ForegroundColor Green
         } catch {
             Handle-Error "No se pudieron añadir datos a 'Tipos de Departamentos': $($_.Exception.Message)"
@@ -205,7 +166,6 @@ foreach ($tipo in $tiposDepartamentos) {
         Write-Host "El dato '$($tipo.TipoDep)' ya existe en 'Tipos de Departamentos'." -ForegroundColor Yellow
     }
 }
-
 
 # Añadir datos a la lista "Proyecto Inmobiliario"
 $proyectoData = @{

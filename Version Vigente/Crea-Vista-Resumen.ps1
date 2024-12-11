@@ -1,6 +1,15 @@
 # Conectar a SharePoint (asegúrate de que estás conectado primero)
-$SitioPrincipal = "https://socovesa.sharepoint.com/sites/PSP-EESS"
-$UrlProyecto = "proyecto-prueba"
+$yaml_ = Get-Content -Path "$PSScriptRoot/config.yaml"| ConvertFrom-Yaml
+#$yaml_ = ConvertFrom-Yaml -Yaml $yamlContent
+# $SitioPrincipal = "https://socovesa.sharepoint.com/sites/PSP-EESS"
+# $NombreProyecto = "Proyecto de Prueba"
+#$UrlProyecto = "proyecto-prueba"
+$SitioPrincipal = $yaml_.Datos.SitioPrincipal
+$NombreProyecto = $yaml_.Datos.NombreProyecto
+$UrlProyecto = $yaml_.Datos.UrlProyecto
+$IdProyecto = $yaml_.Datos.IdProyecto
+$Marca = $yaml_.Datos.Marca
+$Comuna = $yaml_.Datos.Comuna
 
 Connect-PnPOnline -Url "$SitioPrincipal/$UrlProyecto" -Interactive -ClientId "87c053fe-3af4-4d2f-90fe-6df7bd28b450"
 
@@ -17,10 +26,10 @@ $proyectoFields = @(
   "MargenIFRS","TIR","RolMatriz","FirmaPlanos","PermisoEdificacion","InicioVentas","InicioExcavacion","ResolucionRecepcion","EntregaDepartamentos" 
 )
 # Crear una vista más simple pero efectiva
-try {
+# try {
     $listName = "Proyecto Inmobiliario"
-    $viewName = 'Galería 3'
-
+    $viewName = 'Galeria 3'
+    
     # Verificar si la vista existe y eliminarla
     $existingView = Get-PnPView -List $listName -Identity $viewName -ErrorAction SilentlyContinue
     if ($existingView) {
@@ -40,46 +49,7 @@ try {
     
         Write-Host "Vista básica creada exitosamente" -ForegroundColor Green
     }   
-    # Después de crear la biblioteca DocEESS, agregar al menú de navegación
-    $navigationNode = Get-PnPNavigationNode -Location QuickLaunch | Where-Object {$_.Title -eq "Resumen Proyecto"}
-
-    if (-not $navigationNode) {
-    Add-PnPNavigationNode -Location QuickLaunch -Title "Resumen Proyecto" -Url "$webUrl/Lists/Proyecto Inmobiliario"
-    Write-Host "Proyecto Inmobiliario agregado al menú lateral" -ForegroundColor Green
-    } else {
-    Write-Host "Proyecto Inmobiliario ya existe en el menú lateral" -ForegroundColor Yellow
-    }
-    # Aplicar un formato JSON más simple para probar
-#     $simpleFormat = @"
-# {
-#     "hideSelection": true,
-#     "hideColumnHeader": true,
-#     "formatter": {
-#         "elmType": "div",
-#         "style": {
-#             "padding": "10px"
-#         },
-#         "children": [
-#             {
-#                 "elmType": "div",
-#                 "style": {
-#                     "display": "flex",
-#                     "flex-direction": "column",
-#                     "gap": "10px"
-#                 },
-#                 "children": [
-#                     {
-#                         "elmType": "div",
-#                         "txtContent": "=@currentField.displayName + ': ' + @currentField"
-#                     }
-#                 ]
-#             }
-#         ]
-#     }
-# }
-# "@
-    # $vx = (Get-PnPView -List $ListName -Identity "Vista Galeria" -Includes ListViewXml).ListViewXml
-    # Write-Host $vx
+ 
     # Aplicar el formato
     Set-PnPView -List $listName -Identity $viewName -Values @{
         CustomFormatter = @'
@@ -863,10 +833,24 @@ try {
     # }
 
     Write-Host "Formato aplicado exitosamente" -ForegroundColor Green
+    # Get the list and its ID
+    $list = Get-PnPList -Identity "Proyecto Inmobiliario"
+    $listId = $list.Id
+    $listUrl = $list.RootFolder.ServerRelativeUrl
 
-} catch {
-    Write-Host "Error: $($_.Exception.Message)" -ForegroundColor Red
-}
+    Write-Host "List ID: $listId"
+    Write-Host "List URL: $listUrl"
+
+    # Después de crear la biblioteca DocEESS, agregar al menú de navegación
+    $navigationNode = Get-PnPNavigationNode -Location QuickLaunch | Where-Object {$_.Title -eq "Resumen Proyecto"}
+
+    if (-not $navigationNode) {
+      Add-PnPNavigationNode -Location QuickLaunch -Title "Resumen Proyecto" -Url $listUrl
+    Write-Host "Proyecto Inmobiliario ya existe en el menú lateral" -ForegroundColor Yellow
+      Write-Host "Proyecto Inmobiliario agregado al menú lateral" -ForegroundColor Green
+    } else {
+       Write-Host "Proyecto Inmobiliario ya existe en el menú lateral" -ForegroundColor Yellow
+    }
 # Add-PnPView -List $listaProyectos -Title "Galería 2" -SetAsDefault:$false -Fields "Title","CentroCosto","Zona",
 #  "SuperficieNeta","SuperficieVendible","TotalConstruido","ConstructibilidadUsada","Incidencia","TiposDepartamentos",
 #  "Inmobiliaria","Unidades","EstacionamientosVendibles","Bodegas","CostoDirecto","CostoTerreno","IngresoTotal",

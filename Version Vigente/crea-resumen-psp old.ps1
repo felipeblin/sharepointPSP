@@ -1,21 +1,11 @@
+# Configuración inicial del sitio
+$SitioPrincipal = "https://socovesa.sharepoint.com/sites/PSP-EESS"
+$NombreProyecto = "Proyecto de Prueba"
+$UrlProyecto = "proyecto-prueba"
 
-$yaml_ = Get-Content -Path "$PSScriptRoot/config.yaml"| ConvertFrom-Yaml
-#$yaml_ = ConvertFrom-Yaml -Yaml $yamlContent
-# $SitioPrincipal = "https://socovesa.sharepoint.com/sites/PSP-EESS"
-# $NombreProyecto = "Proyecto de Prueba"
-#$UrlProyecto = "proyecto-prueba"
-$SitioPrincipal = $yaml_.Datos.SitioPrincipal
-$NombreProyecto = $yaml_.Datos.NombreProyecto
-$UrlProyecto = $yaml_.Datos.UrlProyecto
-$IdProyecto = $yaml_.Datos.IdProyecto
-$Marca = $yaml_.Datos.Marca
-$Comuna = $yaml_.Datos.Comuna
 # 1. Conexión al sitio principal
 Connect-PnPOnline -Url "$SitioPrincipal/$UrlProyecto" -Interactive -ClientId "87c053fe-3af4-4d2f-90fe-6df7bd28b450"
 Write-Host "Conectado exitosamente al sitio principal" -ForegroundColor Green
-
-
-
 
 # Función para manejar errores
 function Handle-Error {
@@ -43,42 +33,11 @@ function Create-ListIfNotExists {
     }
 }
 
+
 # Crear las listas principales
-# Create-ListIfNotExists "Proyecto Inmobiliario" "GenericList"
-# Create-ListIfNotExists "Tipos de Departamentos" "GenericList"
-function Create-List {
-    param (
-        [string]$ListName,
-        [string]$ListTemplate
-    )
-    
-    # Check if list exists and remove it
-    if (Get-PnPList -Identity $ListName -ErrorAction SilentlyContinue) {
-        try {
-            Remove-PnPList -Identity $ListName -Force
-            Write-Host "Lista '$ListName' eliminada exitosamente." -ForegroundColor Yellow
-            
-            # Clear from recycle bin
-            Get-PnPRecycleBinItem | Where-Object { $_.Title -eq $ListName } | Clear-PnPRecycleBinItem -Force
-            Write-Host "Lista '$ListName' eliminada del contenedor de reciclaje." -ForegroundColor Yellow
-        } catch {
-            Handle-Error "No se pudo eliminar la lista '$ListName': $($_.Exception.Message)"
-            return
-        }
-    }
+Create-ListIfNotExists "Proyecto Inmobiliario" "GenericList"
+Create-ListIfNotExists "Tipos de Departamentos" "GenericList"
 
-    # Create new list
-    try {
-        New-PnPList -Title $ListName -Template GenericList
-        Write-Host "Lista '$ListName' creada exitosamente." -ForegroundColor Green
-    } catch {
-        Handle-Error "No se pudo crear la lista '$ListName': $($_.Exception.Message)"
-    }
-}
-
-# Crear las listas principales y las borra si existen
-Create-List "Proyecto Inmobiliario" "GenericList"
-Create-List "Tipos de Departamentos" "GenericList"
 # Función para agregar un campo a una lista si no existe
 function Add-FieldIfNotExists {
     param (
@@ -90,7 +49,7 @@ function Add-FieldIfNotExists {
     $internalName = $FieldName.Replace(" ", "")
     if (!(Get-PnPField -List $ListName -Identity $internalName -ErrorAction SilentlyContinue)) {
         try {
-            $newfield = Add-PnPField -List $ListName -DisplayName $FieldName -InternalName $internalName -Type $FieldType @AdditionalProperties
+            Add-PnPField -List $ListName -DisplayName $FieldName -InternalName $internalName -Type $FieldType @AdditionalProperties
             Write-Host "Campo '$FieldName' agregado a la lista '$ListName'." -ForegroundColor Green
         } catch {
             Handle-Error "No se pudo agregar el campo '$FieldName' a la lista '$ListName': $($_.Exception.Message)"
@@ -98,6 +57,55 @@ function Add-FieldIfNotExists {
     } else {
         Write-Host "El campo '$FieldName' ya existe en la lista '$ListName'." -ForegroundColor Yellow
     }
+}
+
+# Función para crear campos lookup si no existen (versión corregida)
+function Add-LookupFieldIfNotExists {
+    param (
+        [string]$ListName,
+        [string]$FieldName,
+        [string]$LookupList,
+        [string]$LookupField,
+        [string[]]$ProjectedFields
+    )
+
+    try {
+        # First, create the main lookup field
+        $lookupField = Add-PnPField -List $ListName `
+            -DisplayName $FieldName `
+            -InternalName ($FieldName -replace ' ','') `
+            -Type Lookup `
+            -AddToDefaultView `
+            -Required $false `
+            -LookupListId $LookupList `
+            -LookupField $LookupField `
+            -Multiple $true
+
+        # Then add each projected field
+        foreach ($projectedField in $ProjectedFields) {
+            $projectedFieldName = "$FieldName $projectedField"
+            Add-PnPField -List $ListName `
+                -DisplayName $projectedFieldName `
+                -InternalName ($projectedFieldName -replace ' ','') `
+                -Type Lookup `
+                -AddToDefaultView `
+                -Required $false `
+                -LookupListId $LookupList `
+                -LookupField $projectedField
+        }
+
+        Write-Host "Lookup field '$FieldName' and its projected fields added successfully." -ForegroundColor Green
+    }
+    catch {
+        Handle-Error "Error adding lookup field '$FieldName': $($_.Exception.Message)"
+    }
+}
+# Función para obtener el nombre interno de un campo
+function Get-InternalFieldName {
+    param (
+        [string]$DisplayName
+    )
+    return $DisplayName.Replace(" ", "")
 }
 
 # Agregar campos a la lista "Proyecto Inmobiliario"
@@ -110,6 +118,7 @@ $proyectoFields = @(
     @{Name="Incidencia"; Type="Number"},
     @{Name="Unidades"; Type="Number"},
     @{Name="Estacionamientos Vendibles"; Type="Number"},
+
     @{Name="Bodegas"; Type="Number"},
     @{Name="Costo Directo"; Type="Currency"},
     @{Name="Costo Terreno"; Type="Currency"},
@@ -128,7 +137,7 @@ $proyectoFields = @(
 )
 
 foreach ($field in $proyectoFields) {
-    $newfield = Add-FieldIfNotExists "Proyecto Inmobiliario" $field.Name $field.Type
+    Add-FieldIfNotExists "Proyecto Inmobiliario" $field.Name $field.Type
 }
 
 # Agregar campos a la lista "Tipos de Departamentos"
@@ -139,23 +148,26 @@ $tiposFields = @(
 )
 
 foreach ($field in $tiposFields) {
-    $newfield = Add-FieldIfNotExists "Tipos de Departamentos" $field.Name $field.Type
+    Add-FieldIfNotExists "Tipos de Departamentos" $field.Name $field.Type
 }
 
-# Crear una relación entre las listas
-try {
-    $lookupList = Get-PnPList -Identity "Tipos de Departamentos"
-    $lookupField = "TipoDep"
-    $schemaXml = "<Field Type='Lookup' DisplayName='Tipos de Departamentos' Required='FALSE' EnforceUniqueValues='FALSE' List='{$($lookupList.Id)}' ShowField='$lookupField' UnlimitedLengthInDocumentLibrary='FALSE' RelationshipDeleteBehavior='None' ID='{$(New-Guid)}' StaticName='TiposDepartamentos' Name='TiposDepartamentos' />"
-    
-    $newfield = Add-PnPFieldFromXml -List "Proyecto Inmobiliario" -FieldXml $schemaXml
-    Write-Host "Relación creada entre 'Proyecto Inmobiliario' y 'Tipos de Departamentos'." -ForegroundColor Green
-} catch {
-    Handle-Error "No se pudo crear la relación entre las listas: $($_.Exception.Message)"
+# Obtener el ID de la lista Tipos de Departamentos y crear campos lookup
+$tiposDepartamentosList = Get-PnPList -Identity "Tipos de Departamentos"
+if ($tiposDepartamentosList) {
+    # Crear campos lookup con campos proyectados
+    Add-LookupFieldIfNotExists `
+    -ListName "Proyecto Inmobiliario" `
+    -FieldName "Tipo Departamento" `
+    -LookupList $tiposDepartamentosList.Id `
+    -LookupField "TipoDep" `
+    -ProjectedFields @("Metraje", "Unidades")
+}
+else {
+    Handle-Error "No se encontró la lista 'Tipos de Departamentos'"
 }
 
 # Función para verificar si un campo existe
-function Field-Exists-Name {
+function Field-Exists {
     param (
         [string]$ListName,
         [string]$FieldName
@@ -163,14 +175,7 @@ function Field-Exists-Name {
     $field = Get-PnPField -List $ListName -Identity $FieldName -ErrorAction SilentlyContinue
     return $null -ne $field
 }
-function Field-Exists {
-    param (
-        [string]$ListName,
-        [string]$InternalName
-    )
-    $field = Get-PnPField -List $ListName -Identity $InternalName -ErrorAction SilentlyContinue
-    return $null -ne $field
-}
+
 # Función para obtener todos los campos personalizados de una lista
 function Get-CustomFields {
     param (
@@ -180,8 +185,54 @@ function Get-CustomFields {
     return $allFields | Where-Object { -not $_.Hidden -and -not $_.ReadOnlyField -and $_.InternalName -notin @("ContentType", "Attachments") }
 }
 
+# Añadir datos a la lista "Proyecto Inmobiliario"
+$proyectoData = @{
+    "Title" = $NombreProyecto
+    "Zona" = "Z-AA+CB/CM"
+    "SuperficieNeta" = 2429.9
+    "SuperficieVendible" = 10320.6
+    "Unidades" = 236
+    "CostoTerreno" = 128880
+    "MargenIFRS" = 31.5
+    "IngresoTotal" = 625129
+    "TIR" = 10.8
+    "Inmobiliaria" = "PILARES"
+    "CentroCosto" = "2289"
+    "RolMatriz" = "479-1"
+    "FirmaPlanos" = "2019-08-28"
+    "PermisoEdificacion" = "2020-09-23"
+    "InicioVentas" = "2021-09-16"
+    "ResolucionRecepcion" = "2023-07-26"
+    "EntregaDepartamentos" = "2023-07-26"
+}
+
+# Verificar que los campos existen antes de intentar agregar datos
+$validData = @{}
+foreach ($key in $proyectoData.Keys) {
+    # Obtener el campo de la lista para verificar su existencia
+    $field = Get-PnPField -List "Proyecto Inmobiliario" -Identity $key -ErrorAction SilentlyContinue
+    if ($field) {
+        $validData[$key] = $proyectoData[$key]
+    } else {
+        Write-Host "Campo '$key' no encontrado en la lista 'Proyecto Inmobiliario'. Se omitirá este dato." -ForegroundColor Yellow
+    }
+}
 
 
+# Agregar los datos validados
+if ($validData.Count -gt 0) {
+    try {
+        Add-PnPListItem -List "Proyecto Inmobiliario" -Values $validData
+        Write-Host "Datos añadidos exitosamente a 'Proyecto Inmobiliario'." -ForegroundColor Green
+    } catch {
+        Handle-Error "No se pudieron añadir datos a 'Proyecto Inmobiliario': $($_.Exception.Message)"
+    }
+} else {
+    Write-Host "No se encontraron campos válidos para agregar datos." -ForegroundColor Yellow
+}
+
+
+# Añadir datos a la lista "Tipos de Departamentos"
 $tiposDepartamentos = @(
     @{TipoDep = "1D1B"; Metraje = 36.4; Unidades = 105},
     @{TipoDep = "2D1B"; Metraje = 47.0; Unidades = 45},
@@ -206,51 +257,14 @@ foreach ($tipo in $tiposDepartamentos) {
     }
 }
 
-
-# Añadir datos a la lista "Proyecto Inmobiliario"
-$proyectoData = @{
-    "Title" = $NombreProyecto
-    "Zona" = "Z-AA+CB/CM"
-    "SuperficieNeta" = 2429.9
-    "SuperficieVendible" = 10320.6
-    "Unidades" = 236
-    "CostoTerreno" = 128880
-    "MargenIFRS" = 31.5
-    "IngresoTotal" = 625129
-    "TIR" = 10.8
-    "Inmobiliaria" = "PILARES"
-    "CentroCosto" = "2289"
-    "RolMatriz" = "479-1"
-    "FirmaPlanos" = "2019-08-28"
-    "PermisoEdificacion" = "2020-09-23"
-    "InicioVentas" = "2021-09-16"
-    "ResolucionRecepcion" = "2023-07-26"
-    "EntregaDepartamentos" = "2023-07-26"
-}
-$validData = @{}
-foreach ($key in $proyectoData.Keys) {
-    if (Field-Exists -ListName "Proyecto Inmobiliario" -InternalName $key) {
-        $validData[$key] = $proyectoData[$key]
-    } else {
-        Write-Host "Campo '$key' no encontrado en la lista 'Proyecto Inmobiliario'. Se omitirá este dato." -ForegroundColor Yellow
-    }
-}
-
-try {
-    Add-PnPListItem -List "Proyecto Inmobiliario" -Values $validData
-    Write-Host "Datos añadidos a 'Proyecto Inmobiliario'." -ForegroundColor Green
-} catch {
-    Handle-Error "No se pudieron añadir datos a 'Proyecto Inmobiliario': $($_.Exception.Message)"
-}
-
 # Crear una vista de formulario para la lista "Proyecto Inmobiliario"
 try {
     $customFields = Get-CustomFields -ListName "Proyecto Inmobiliario"
     $fieldNames = $customFields | ForEach-Object { $_.InternalName }
+    
     # Verificar si la vista ya existe
     $existingView = Get-PnPView -List "Proyecto Inmobiliario" -Identity "Vista Completa Formulario" -ErrorAction SilentlyContinue
     
-
     if ($existingView) {
         Write-Host "Actualizando vista existente..." -ForegroundColor Yellow
         # Remover la vista existente
@@ -274,14 +288,12 @@ try {
 # Crear una vista estándar para la lista "Tipos de Departamentos"
 try {
     $customFields = Get-CustomFields -ListName "Tipos de Departamentos"
-    $fieldNames = $customFields | ForEach-Object { if ($_.InternalName -ne "Title") { $_.InternalName } }
+    $fieldNames = $customFields | ForEach-Object { $_.InternalName }
     
     # Crear la vista estándar
-    $view = Add-PnPView -List "Tipos de Departamentos" -Title "Vista Completa" -Fields $fieldNames -SetAsDefault
+    Add-PnPView -List "Tipos de Departamentos" -Title "Vista Completa" -Fields $fieldNames -SetAsDefault
     
     Write-Host "Vista estándar 'Vista Completa' creada para 'Tipos de Departamentos'." -ForegroundColor Green
 } catch {
     Handle-Error "No se pudo crear la vista para 'Tipos de Departamentos': $($_.Exception.Message)"
 }
-
-

@@ -1,6 +1,14 @@
-$SitioPrincipal = "https://socovesa.sharepoint.com/sites/PSP-EESS"
-$NombreProyecto = "Proyecto de Prueba"
-$UrlProyecto = "proyecto-prueba"
+$yaml_ = Get-Content -Path "$PSScriptRoot/config.yaml"| ConvertFrom-Yaml -ErrorAction Stop
+#$yaml_ = ConvertFrom-Yaml -Yaml $yamlContent
+# $SitioPrincipal = "https://socovesa.sharepoint.com/sites/PSP-EESS"
+# $NombreProyecto = "Proyecto de Prueba"
+#$UrlProyecto = "proyecto-prueba"
+$SitioPrincipal = $yaml_.Datos.SitioPrincipal
+$NombreProyecto = $yaml_.Datos.NombreProyecto
+$UrlProyecto = $yaml_.Datos.UrlProyecto
+$IdProyecto = $yaml_.Datos.IdProyecto
+$Marca = $yaml_.Datos.Marca
+$Comuna = $yaml_.Datos.Comuna
 
 # Importar y limpiar los datos del CSV
 $csvData = Import-Csv "Version Vigente/EstructuraArquitectura3.csv" | ForEach-Object {
@@ -148,8 +156,14 @@ foreach ($row in $csvData) {
             $parentPath = $currentPath.Substring(0, $currentPath.LastIndexOf('/'))
             Write-Host "Creando carpeta: $folder en $parentPath" -ForegroundColor Yellow
      #       try {
-                $newfolder =Add-PnPFolder -Name $folder -Folder $parentPath
-                Write-Host "Carpeta '$folder' creada exitosamente." -ForegroundColor Green
+                try {
+                    $newfolder =Add-PnPFolder -Name $folder -Folder $parentPath
+                    Write-Host "Carpeta '$folder' creada exitosamente." -ForegroundColor Green
+                }
+                catch {
+                    Write-Host "Error al crear la carpeta '$folder': $($_.Exception.Message)" -ForegroundColor Red
+                }
+                
                 
                 # Agregar metadatos
                 $folderItem = Get-PnPFolder -Url $currentPath
