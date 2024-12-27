@@ -42,17 +42,95 @@ function EnsureField {
     param (
         [string]$ListTitle,
         [string]$FieldName,
-        [string]$FieldType
+        [string]$FieldType,
+        [bool]$InDefaultView = $true,
+        [string[]]$ChoiceValues = @(),
+        [string]$InternalName = $null
     )
     $field = Get-PnPField -List $ListTitle -Identity $FieldName -ErrorAction SilentlyContinue
+    if ($InternalName -eq $null -or $InternalName -eq "") {
+        $InternalName = $FieldName
+    }
     if (-not $field) {
         Write-Host "Creando campo '$FieldName'..." -ForegroundColor Yellow
-        $newField = Add-PnPField -List $ListTitle -DisplayName $FieldName -InternalName $FieldName -Type $FieldType -AddToDefaultView
-        Write-Host "Campo '$FieldName' creado exitosamente." -ForegroundColor Green
+        if ($FieldType -eq "Choice") {
+            $newField = Add-PnPField -List $ListTitle -DisplayName $FieldName -InternalName $InternalName -Type $FieldType -Choices $ChoiceValues -AddToDefaultView:$InDefaultView
+        } else {
+            $newField = Add-PnPField -List $ListTitle -DisplayName $FieldName -InternalName $InternalName -Type $FieldType -AddToDefaultView
+        }
+        # $newField = Add-PnPField -List $ListTitle -DisplayName $FieldName -InternalName $FieldName -Type $FieldType -AddToDefaultView
+        Write-Host "Campo '$FieldName' con Nombre interno '$InternalName' creado exitosamente." -ForegroundColor Green
     } else {
         Write-Host "El campo '$FieldName' ya existe." -ForegroundColor Green
     }
 }
+
+function Add-StatusToggleButton {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$ListTitle,
+        
+        [Parameter(Mandatory = $true)]
+        [string]$FieldInternalName,
+        
+        [Parameter(Mandatory = $false)]
+        [string]$Status1 = "En Revisión",
+        
+        [Parameter(Mandatory = $false)]
+        [string]$Status2 = "Aprobado",
+        
+        [Parameter(Mandatory = $false)]
+        [string]$ButtonLabel = "Cambiar Estado"
+    )
+
+    # try {
+
+        # Get the list ID
+        $list = Get-PnPList -Identity $ListTitle
+        $listId = $list.Id
+
+        # Create the JavaScript function
+        $scriptBlock = @"
+function toggleEstado() {
+    var context = SP.ClientContext.get_current();
+    var list = context.get_web().get_lists().getByTitle('$ListTitle');
+    var selectedItems = SP.ListOperation.Selection.getSelectedItems(context);
+    
+    for (var i in selectedItems) {
+        var itemId = selectedItems[i].id;
+        var listItem = list.getItemById(itemId);
+        
+        context.load(listItem, '$FieldInternalName');
+        context.executeQueryAsync(
+            function() {
+                var currentStatus = listItem.get_item('$FieldInternalName');
+                var newStatus = (currentStatus === '$Status1') ? '$Status2' : '$Status1';
+                
+                listItem.set_item('$FieldInternalName', newStatus);
+                listItem.update();
+                context.executeQueryAsync(
+                    function() { 
+                        location.reload(); 
+                    },
+                    function(sender, args) { 
+                        alert('Error updating status: ' + args.get_message()); 
+                    }
+                );
+            },
+            function(sender, args) {
+                alert('Error loading item: ' + args.get_message());
+            }
+        );
+    }
+}
+"@
+
+    # }
+    # catch {
+    #     Write-Host "Error: $($_.Exception.Message)" -ForegroundColor Red
+    # }
+}
+
 # Función para asegurar la existencia de un campo calculado
 
 function EnsureCalculatedField {
@@ -115,9 +193,14 @@ if ($library) {
 
 # Crear la nueva biblioteca
 Write-Host "Creando nueva biblioteca $libraryName..." -ForegroundColor Cyan
-New-PnPList -Title $libraryName -Template DocumentLibrary
-Write-Host "Nueva biblioteca $libraryName creada." -ForegroundColor Green
+$existingLibrary = Get-PnPList -Identity $libraryName -ErrorAction SilentlyContinue
+if ($existingLibrary) {
+    Write-Host "La biblioteca $libraryName ya existe." -ForegroundColor Yellow
 
+} else {
+    New-PnPList -Title $libraryName -Template DocumentLibrary
+    Write-Host "Nueva biblioteca $libraryName creada." -ForegroundColor Green
+}
 # Agregar campo calculado para contar archivos en carpetas
 $calculatedFormula = "=COUNTA([FileLeafRef])"  # Fórmula para contar archivos
 EnsureCalculatedField -ListTitle $libraryName `
@@ -131,7 +214,53 @@ EnsureField -ListTitle $libraryName -FieldName "Categoria" -FieldType "Text"
 EnsureField -ListTitle $libraryName -FieldName "Subcategoria" -FieldType "Text"
 EnsureField -ListTitle $libraryName -FieldName "Subcategoria2" -FieldType "Text"
 EnsureField -ListTitle $libraryName -FieldName "Clase" -FieldType "Text"
+EnsureField -ListTitle $libraryName -FieldName "Estado Documentos" -InternalName "EstadoDocumentos" -FieldType "Choice" -ChoiceValues @("En Revisión", "Aprobada") 
 
+
+$EditListItems = "ViewListItems, AddListItems, EditListItems,BrowseDirectories"
+# Create the custom action
+# Link the JavaScript file
+# Add-PnPJavaScriptLink -Name "ToggleEstadoScript" `
+#     -Url "$SitioPrincipal/SiteAssets/toggleEstado.js" `
+#     -Sequence 1000 `
+#     -Scope Web
+
+# # Add the custom action for the button
+# Add-PnPCustomAction -Name "ToggleEstado" `
+#     -Title "Cambiar Estado" `
+#     -Location "CommandUI.Ribbon" `
+#     -RegistrationType List `
+#     -Description "Button to toggle document status" `
+#     -Group "SiteActions" `
+#     -Rights @("EditListItems") `
+#     -Scope Web `
+#     -CommandUIExtension @"
+#     <CommandUIExtension>
+#     <CommandUIDefinitions>
+#     <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+#         <Button 
+#             Id="Ribbon.ListItem.ToggleEstado"
+#             Command="ToggleEstado"
+#             Image32by32="/_layouts/15/images/placeholder32x32.png"
+#             LabelText="Cambiar Estado"
+#             Description="Toggle between En Revisión and Aprobado"
+#             TemplateAlias="o1" />
+#     </CommandUIDefinition>
+#     </CommandUIDefinitions>
+#     <CommandUIHandlers>
+#     <CommandUIHandler
+#         Command="ToggleEstado"
+#         CommandAction="javascript:toggleEstado();" />
+#     </CommandUIHandlers>
+#     </CommandUIExtension>
+# "@
+
+# Write-Host "Button successfully added to the list!" -ForegroundColor Green
+
+# # Basic usage with minimum required parameters
+# Add-StatusToggleButton `
+#     -ListTitle $libraryName `
+#     -FieldInternalName "EstadoDocumentos"
 
 # Procesar los datos del CSV
 foreach ($row in $csvData) {
@@ -179,6 +308,19 @@ foreach ($row in $csvData) {
                 try {
                     # Aplicar todos los metadatos acumulados hasta este punto
                     $setMeta = Set-PnPListItem -List $libraryName -Identity $folderItem.ListItemAllFields.Id -Values $metadata
+                    # After successfully setting folder metadata, set default column values
+                        try {
+                            # Get the relative folder path from the current path
+                            $relativeFolder = $currentPath.Replace("$libraryName/", "")
+                            
+                            # Set default column values for the current folder
+                            foreach ($key in $metadata.Keys) {
+                                Set-PnPDefaultColumnValues -List $libraryName -Field $key -Value $metadata[$key] -Folder $relativeFolder
+                            }
+                            Write-Host "Default column values set for folder '$folder'" -ForegroundColor Green
+                        } catch {
+                            Write-Host "Error setting default column values for folder '$folder': $($_.Exception.Message)" -ForegroundColor Red
+                        }
 
                     Write-Host "Metadatos agregados para la carpeta '$folder': $($metadata | ConvertTo-Json -Compress)" -ForegroundColor Green
                 }

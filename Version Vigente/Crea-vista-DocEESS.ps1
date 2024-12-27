@@ -25,7 +25,7 @@ if (-not $navigationNode) {
 try {
     $listName = "DocEESS"
     $viewName = 'Estructurada'
-    $proyectoFields = @("Categoria", "Clase","Subcategoria","Subcategoria2")
+    $proyectoFields = @("Categoria", "Subcategoria","Subcategoria2","Clase","Estado Documentos")
     # Verificar si la vista existe y eliminarla
     $existingView = Get-PnPView -List $listName -Identity $viewName -ErrorAction SilentlyContinue
     if ($existingView) {
@@ -115,19 +115,18 @@ $jsonFormat = @'
                   {
                     "elmType": "img",
                     "attributes": {
-                      "src": "=if([$Clase] == 'PERMISOS', '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-si-PSP.png', if(indexOf([$Clase], 'INMOBILIARIOS') != -1 , '/sites//PSP-EESS/PruebaPSP/SiteAssets/documento-si-PCT.png', if(indexOf([$Clase], 'VERSIÓN OBRA') != -1, '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-no-PSP.png', if([$Clase] == 'DOC COM', '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-no-PSP.png', ''))))",
-                      "title": "[$Clase]"
+                      "src": "=if([$File_x0020_Type] == '', if([$FolderChildCount] > 0, '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-si-PSP.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-no-PSP.png'), if([$File_x0020_Type] == 'pdf', '/sites/PSP-EESS/PruebaPSP/SiteAssets/xls.png', if([$File_x0020_Type] == 'xlsx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/xls.png', if([$File_x0020_Type] == 'pdf', '/sites/PSP-EESS/PruebaPSP/SiteAssets/pdf.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/blank.png'))) )",
+                      "title": "=if([$File_x0020_Type] == '', [$Clase], '')"
                     },
                     "style": {
+                      "display": "=if([$File_x0020_Type] == '', 'flex', 'none')",
                       "overflow": "hidden",
-                      "display": "flex",
                       "border": "none",
                       "justify-content": "center",
                       "align-items": "center",
-                      "width": "50px",
-                      "height": "50px",
+                      "width": "40px",
+                      "height": "40px",
                       "margin": "0 auto",
-                      "bold": "true",
                       "color": "#0078d4"
                     }
                   }
@@ -142,7 +141,12 @@ $jsonFormat = @'
                   "overflow": "hidden",
                   "text-align": "center",
                   "font-size": "9px",
-                  "border": "none"
+                  "border": "none",
+                  "margin-top":"8px",
+                  "margin-width":"150px",
+                  "white-space":"nowrap", 
+                  "overflow":"hidden",
+                  "text-overflow":"ellipsis"
                 },
                 "txtContent": "=if(length([$FileLeafRef]) > 20, substring([$FileLeafRef], 0, 20), [$FileLeafRef])",
                 "defaultHoverField": "[$FileLeafRef]"
@@ -150,7 +154,20 @@ $jsonFormat = @'
               {
                 "elmType": "div",
                 "attributes": {
-                  "class": "sp-card-title"
+                  "class": "sp-card-subtitle"
+                },
+                "style": {
+                  "overflow": "hidden",
+                  "text-align": "center",
+                  "font-size": "8px",
+                  "border": "none"
+                },
+                "txtContent": ""
+              },
+              {
+                "elmType": "div",
+                "attributes": {
+                  "class": "ms-fontColor-Secondary sp-card-subtitle"
                 },
                 "style": {
                   "overflow": "hidden",
@@ -158,20 +175,79 @@ $jsonFormat = @'
                   "font-size": "9px",
                   "border": "none"
                 },
-                "txtContent": "[$Subcategoria]"
+                "txtContent": "=if([$SubCategoria2] != [$Name], [$SubCategoria2], '')"
               },
               {
                 "elmType": "p",
                 "attributes": {
-                  "class": "ms-fontColor-neutralSecondary sp-card-subtitle"
+                  "class": "ms-fontColor-gray150 sp-card-subtitle"
                 },
                 "style": {
                   "overflow": "hidden",
                   "text-align": "center",
                   "font-size": "9px",
-                  "border": "none"
+                  "border": "none",
+                  "margin-top":"1px",
+                  "margin-width":"150px",
+                  "white-space":"nowrap", 
+                  "overflow":"hidden",
+                  "text-overflow":"ellipsis"
                 },
                 "txtContent": "[$Clase]"
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "flex",
+                  "align-items": "center",
+                  "justify-content": "space-around",
+                  "width": "100%",
+                  "padding": "8px"
+                },
+                "children": [
+                  {
+                    "elmType": "img",
+                    "attributes": {
+                      "src": "=if([$File_x0020_Type] == 'pdf', '/sites/PSP-EESS/PruebaPSP/SiteAssets/pdf.png', if([$File_x0020_Type] == 'xlsx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/xls.png', if([$File_x0020_Type] == 'docx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/docx.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/blank.png')))"
+                    },
+                    "style": {
+                      "width": "=if([$File_x0020_Type] == '', '0px', '60px')",
+                      "height": "60px",
+                      "filter": "grayscale(100%)",
+                      "margin-right": "8px"
+                    }
+                  },
+                  {
+                    "elmType": "button",
+                    "style": {
+                      "background-color": "=if([$EstadoDocumentos] == 'En Revisión', '#e81123' , if([$EstadoDocumentos] == 'Aprobada', '#28a745', '#FFA500'))",
+                      "color": "white",
+                      "padding": "4px 8px",
+                      "font-size": "16px",
+                      "border": "none",
+                      "border-radius": "50%",
+                      "margin-top": "8px",
+                      "cursor": "pointer",
+                      "width": "25px",
+                      "height": "25px",
+                      "display": "=if([$FolderChildCount] > 0, 'flex', 'block')",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "position": "relative",
+                      "z-index": "1",
+                      "margin-left": "auto",
+                      "margin-right": "auto"
+                    },
+                    "txtContent": "=if([$EstadoDocumentos] == '', [$FolderChildCount],if([$EstadoDocumentos] == 'En Revisión', '?', '✓'))",
+                    "customRowAction": {
+                      "action": "setValue",
+                      "stopPropagation": true,
+                      "actionInput": {
+                        "EstadoDocumentos": "=if([$EstadoDocumentos] == 'En Revisión', 'Aprobada', 'En Revisión')"
+                      }
+                    }
+                  }
+                ]
               }
             ]
           }

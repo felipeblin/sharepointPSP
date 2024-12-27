@@ -3,6 +3,7 @@ EL directorio de versión vigente es el directorio donde deberían estasr los co
 Hasta el mometo lo validado es:
 **** Se creó el sitio maestro:
      "https://socovesa.sharepoint.com/sites/PSP-EESS"  notar que quedo con el nombre PSP como titulo
+     Nota: en Sharepoint Admin Center se debe habilitar Custom Script. Buscar en Active Sites->Seleccionar el sitio y en settings está la opción de habilitar
      Bajo este sitio se crearán los subsitios
      **** Se debe usar crea-proyecto.ps1 que llama a los scripts:
      **** Crea-estructura crea el árbol del proyecto y los metadatos asociados  
