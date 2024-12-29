@@ -212,7 +212,7 @@ $jsonFormat = @'
                     },
                     "style": {
                       "width": "=if([$File_x0020_Type] == '', '0px', '60px')",
-                      "height": "60px",
+                      "height": "45px",
                       "filter": "grayscale(100%)",
                       "margin-right": "8px"
                     }
@@ -228,8 +228,8 @@ $jsonFormat = @'
                       "border-radius": "50%",
                       "margin-top": "8px",
                       "cursor": "pointer",
-                      "width": "25px",
-                      "height": "25px",
+                      "width": "28px",
+                      "height": "28px",
                       "display": "=if([$FolderChildCount] > 0, 'flex', 'block')",
                       "justify-content": "center",
                       "align-items": "center",
