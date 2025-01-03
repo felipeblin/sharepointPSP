@@ -187,11 +187,14 @@
     Invoke-CustomScript -ScriptPath "$PSScriptRoot/crea-estructura.ps1" 
     Write-Host "✓ Estructura creada exitosamente" -ForegroundColor Green
 
-    Invoke-CustomScript -ScriptPath "$PSScriptRoot/Crea-vista-DocEESS.ps1.ps1" 
+    Invoke-CustomScript -ScriptPath "$PSScriptRoot/Crea-vista-DocEESS.ps1" 
     Write-Host "✓ Vista de DocEESS creada exitosamente" -ForegroundColor Green
 
-    Invoke-CustomScript -ScriptPath "$PSScriptRoot/crea-resumen-psp.ps1.ps1" 
+    Invoke-CustomScript -ScriptPath "$PSScriptRoot/crea-resumen-psp.ps1" 
     Write-Host "✓ Resumen PSP creado exitosamente" -ForegroundColor Green
 
     Invoke-CustomScript -ScriptPath "$PSScriptRoot/crea-home-page.ps1"
+    Write-Host "✓ Página de inicio creada exitosamente" -ForegroundColor Green
+
+    Invoke-CustomScript -ScriptPath "$PSScriptRoot/Crea-Vista-Resumen.ps1"
     Write-Host "✓ Página de inicio creada exitosamente" -ForegroundColor Green

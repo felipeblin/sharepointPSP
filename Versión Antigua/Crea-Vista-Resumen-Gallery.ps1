@@ -1,5 +1,105 @@
-{
-    "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
+# Módulos requeridos
+# $requiredModules = @("Microsoft.Graph", "powershell-yaml")
+
+# foreach ($module in $requiredModules) {
+#     if (-not (Get-Module -ListAvailable -Name $module)) {
+#         try {
+#             Install-Module $module -Scope CurrentUser -Force -ErrorAction Stop
+#             Write-Host "Módulo $module instalado correctamente" -ForegroundColor Green
+#         } catch {
+#             Write-Host "Error al instalar $module $_ " -ForegroundColor Red
+#             exit
+#         }
+#     }
+#     Import-Module $module
+# }
+# exit
+# Configuración
+$ErrorActionPreference = "Stop"
+#$VerbosePreference = "Continue"
+
+try {
+    # Cargar configuración YAML
+    $yamlPath = "$PSScriptRoot/config.yaml"
+    if (-not (Test-Path $yamlPath)) {
+        throw "No se encuentra el archivo de configuración: $yamlPath"
+    }
+    
+    $yaml_ = Get-Content -Path $yamlPath -Raw | ConvertFrom-Yaml
+    $SitioPrincipal = $yaml_.Datos.SitioPrincipal
+    $UrlProyecto = $yaml_.Datos.UrlProyecto
+
+    if (-not $SitioPrincipal -or -not $UrlProyecto) {
+        throw "Configuración YAML incompleta. Verifique SitioPrincipal y UrlProyecto"
+    }
+
+    Write-Host "Configuración YAML cargada correctamente" -ForegroundColor Green
+
+    #Instalar módulos específicos de Graph que necesitamos
+$graphModules = @(
+    "Microsoft.Graph.Sites",
+    "Microsoft.Graph.Authentication",
+    "Microsoft.Graph.Core"
+)
+
+foreach ($module in $graphModules) {
+    if (-not (Get-Module -ListAvailable -Name $module)) {
+        try {
+            Install-Module $module -Scope CurrentUser -Force -ErrorAction Stop
+            Write-Host "Módulo $module instalado correctamente" -ForegroundColor Green
+        } catch {
+            Write-Host "Error al instalar $module $_" -ForegroundColor Red
+            exit
+        }
+    }
+    Import-Module $module
+}
+
+    # Conectar a Graph API
+    Connect-MgGraph -ClientId "517333ad-3e65-4983-af5e-d4b965418278" -Scopes "Sites.ReadWrite.All"
+    Write-Host "Conexión a Graph API exitosa" -ForegroundColor Green
+
+    # Extraer la última parte de la URL después de "/sites/"
+if ($SitioPrincipal -match "/sites/([^/]+)") {
+  $siteName = $matches[1]
+  Write-Host "El sitio es: $siteName"
+}
+    # Obtener Site ID
+    $siteUrl = "socovesa.sharepoint.com:/sites/"+"$siteName/$UrlProyecto"
+    
+    $site = Get-MgSite -SiteId $siteUrl
+    
+    if (-not $site) {
+        throw "No se encontró el sitio: $siteUrl"
+    }
+    $siteId = $site.Id
+    Write-Host "Site ID obtenido: $siteId" -ForegroundColor Green
+
+    # Obtener List ID con manejo de errores mejorado
+    $list = Get-MgSiteList -SiteId $siteId | Where-Object DisplayName -eq "Proyecto Inmobiliario"
+    if (-not $list) {
+        throw "No se encontró la lista 'Proyecto Inmobiliario' en el sitio"
+    }
+    $listId = $list.Id
+    Write-Host "List ID obtenido: $listId" -ForegroundColor Green
+
+    # # Verificar y leer el archivo JSON
+    # $jsonPath = "./Version Vigente/formatoResumen.json"
+    # if (-not (Test-Path $jsonPath)) {
+    #     throw "No se encuentra el archivo de formato: $jsonPath"
+    # }
+    # $formatoJson = Get-Content -Path $jsonPath -Raw
+    
+    # # Validar que el JSON sea válido
+    # try {
+    #     $null = $formatoJson | ConvertFrom-Json
+    # } catch {
+    #     throw "El archivo JSON no es válido: $_"
+    # }
+     # Aplicar el formato
+    
+     $formatoJson = @'
+{"tileProps":{"$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
     "height": 1000,
     "width": 1200,
     "hideSelection": false,
@@ -28,7 +128,7 @@
                 "font-size": "24px",
                 "font-weight": "bold"
               },
-              "txtContent": "[]"
+              "txtContent": "[$Title]"
             },
             {
               "elmType": "div",
@@ -38,7 +138,7 @@
                 "padding": "8px 16px",
                 "border-radius": "4px"
               },
-              "txtContent": "[]"
+              "txtContent": "[$CentroCosto]"
             }
           ]
         },
@@ -105,7 +205,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$Zona]"
                             }
                           ]
                         },
@@ -130,7 +230,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$SuperficieNeta]"
                             }
                           ]
                         },
@@ -155,7 +255,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$SuperficieVendible]"
                             }
                           ]
                         },
@@ -180,7 +280,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$TotalConstruido]"
                             }
                           ]
                         },
@@ -205,7 +305,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$ConstructibilidadUsada]"
                             }
                           ]
                         },
@@ -230,7 +330,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$Incidencia]"
                             }
                           ]
                         },
@@ -255,7 +355,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable.lookupValue]"
+                              "txtContent": "[$TiposDepartamentos.lookupValue]"
                             }
                           ]
                         },
@@ -280,7 +380,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$Inmobiliaria]"
                             }
                           ]
                         }
@@ -334,7 +434,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$Unidades]"
                             }
                           ]
                         },
@@ -359,7 +459,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$EstacionamientosVendibles]"
                             }
                           ]
                         },
@@ -384,7 +484,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$Bodegas]"
                             }
                           ]
                         }
@@ -450,7 +550,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$CostoDirecto]"
                             }
                           ]
                         },
@@ -475,7 +575,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$CostoTerreno]"
                             }
                           ]
                         },
@@ -500,7 +600,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$IngresoTotal]"
                             }
                           ]
                         },
@@ -525,7 +625,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$MargenIFRS]"
                             }
                           ]
                         },
@@ -550,7 +650,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$TIR]"
                             }
                           ]
                         }
@@ -604,7 +704,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "[]"
+                              "txtContent": "[$RolMatriz]"
                             }
                           ]
                         },
@@ -629,7 +729,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "=toLocaleDateString([])"
+                              "txtContent": "=toLocaleDateString([$FirmaPlanos])"
                             }
                           ]
                         },
@@ -654,7 +754,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "=toLocaleDateString([])"
+                              "txtContent": "=toLocaleDateString([$PermisoEdificacion])"
                             }
                           ]
                         },
@@ -679,7 +779,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "=toLocaleDateString([])"
+                              "txtContent": "=toLocaleDateString([$InicioVentas])"
                             }
                           ]
                         },
@@ -704,7 +804,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "=toLocaleDateString([])"
+                              "txtContent": "=toLocaleDateString([$InicioExcavacion])"
                             }
                           ]
                         },
@@ -729,7 +829,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "=toLocaleDateString([])"
+                              "txtContent": "=toLocaleDateString([$ResolucionRecepcion])"
                             }
                           ]
                         },
@@ -754,7 +854,7 @@
                               "style": {
                                 "min-width": "250px"
                               },
-                              "txtContent": "=toLocaleDateString([])"
+                              "txtContent": "=toLocaleDateString([$EntregaDepartamentos])"
                             }
                           ]
                         }
@@ -769,3 +869,85 @@
       ]
     }
   }
+    }
+
+'@
+    
+    # Definir campos con validación
+    $proyectoFields = @(
+        "Title","CentroCosto","Zona",
+        "SuperficieNeta","SuperficieVendible","TotalConstruido",
+        "ConstructibilidadUsada","Incidencia","TiposDepartamentos",
+        "Inmobiliaria","Unidades","EstacionamientosVendibles",
+        "Bodegas","CostoDirecto","CostoTerreno","IngresoTotal",
+        "MargenIFRS","TIR","RolMatriz","FirmaPlanos",
+        "PermisoEdificacion","InicioVentas","InicioExcavacion",
+        "ResolucionRecepcion","EntregaDepartamentos"
+    )
+
+    # Verificar si la vista ya existe
+    #$existingView = Get-MgSiteListView -SiteId $siteId -ListId $listId | Where-Object DisplayName -eq "Galeria 3"
+    
+
+    # Recupera todas las vistas de la lista
+    $allViews = Invoke-MgGraphRequest -Uri "/v1.0/sites/$siteId/lists/$listId/views" -Method GET
+
+    # Filtra la vista "Galeria 3"
+    $existingView = $allViews.value | Where-Object { $_.displayName -eq "Galeria 3" }
+
+    if ($existingView) {
+        Write-Host "La vista 'Galeria 3' ya existe. Se actualizará." -ForegroundColor Yellow
+        
+        # Actualizar vista existente
+        $updateUrl = "https://graph.microsoft.com/v1.0/sites/$siteId/lists/$listId/views/$($existingView.Id)"
+        $updateBody = @{
+            displayName = "Galeria 3"
+            fields = $proyectoFields
+            formatter = $formatoJson
+        }
+        
+        $response = Invoke-MgGraphRequest -Uri $updateUrl -Method PATCH -Body $updateBody
+        Write-Host "Vista actualizada exitosamente" -ForegroundColor Green
+    } else {
+        # Crear nueva vista
+        $createBody = @{
+            displayName = "Galeria 3"
+            viewType = "html"
+            fields = $proyectoFields
+            formatter = $formatoJson
+        }
+
+        $createUrl = "https://graph.microsoft.com/v1.0/sites/$siteId/lists/$listId/views"
+        $response = Invoke-MgGraphRequest -Uri $createUrl -Method POST -Body $createBody
+        Write-Host "Vista creada exitosamente" -ForegroundColor Green
+    }
+
+    # Verificar navegación
+    $navNodes = Invoke-MgGraphRequest -Uri "https://graph.microsoft.com/v1.0/sites/$siteId/navigation/quickLaunch" -Method GET
+    $existingNode = $navNodes.value | Where-Object displayName -eq "Resumen Proyecto"
+
+    if (-not $existingNode) {
+        $navBody = @{
+            displayName = "Resumen Proyecto"
+            url = $list.WebUrl
+            isDocLib = $true
+        }
+        
+        Invoke-MgGraphRequest -Uri "https://graph.microsoft.com/v1.0/sites/$siteId/navigation/quickLaunch" -Method POST -Body $navBody
+        Write-Host "Enlace agregado al menú de navegación" -ForegroundColor Green
+    } else {
+        Write-Host "El enlace ya existe en el menú de navegación" -ForegroundColor Yellow
+    }
+
+} catch {
+    Write-Host "`nError durante la ejecución:" -ForegroundColor Red
+    Write-Host $_.Exception.Message -ForegroundColor Red
+    Write-Host "`nDetalles del error:" -ForegroundColor Red
+    Write-Host $_.Exception.StackTrace -ForegroundColor Red
+} finally {
+    # Desconectar de Graph API
+    if (Get-MgContext) {
+        Disconnect-MgGraph
+        Write-Host "`nDesconexión de Graph API completada" -ForegroundColor Green
+    }
+}

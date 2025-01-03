@@ -215,6 +215,8 @@ EnsureField -ListTitle $libraryName -FieldName "Subcategoria" -FieldType "Text"
 EnsureField -ListTitle $libraryName -FieldName "Subcategoria2" -FieldType "Text"
 EnsureField -ListTitle $libraryName -FieldName "Clase" -FieldType "Text"
 EnsureField -ListTitle $libraryName -FieldName "Estado Documentos" -InternalName "EstadoDocumentos" -FieldType "Choice" -ChoiceValues @("En Revisión", "Aprobada") 
+EnsureField -ListTitle $libraryName -FieldName "ConteoArchivos" -FieldType "Number"
+EnsureField -ListTitle $libraryName -FieldName "ShowDetails" -FieldType "Boolean" 
 
 
 $EditListItems = "ViewListItems, AddListItems, EditListItems,BrowseDirectories"

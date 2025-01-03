@@ -1,183 +1,203 @@
-{
-    "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
-    "height": 150,
-    "width": 200,
-    "hideSelection": false,
-    "fillHorizontally": true,
-    "formatter": {
-      "elmType": "div",
-      "attributes": {
-        "class": "sp-card-container"
-      },
-      "style": {
-        "overflow": "hidden",
-        "display": "flex",
-        "border": "none",
-        "justify-content": "center",
-        "align-items": "center",
-        "margin": "0 auto",
-        "color": "#0078d4",
-        "box-shadow": "none"
-      },
-      "children": [
-        {
-          "elmType": "div",
-          "attributes": {
-            "class": "sp-card-defaultClickButton"
-          },
-          "customRowAction": {
-            "action": "defaultClick"
-          }
+{"tileProps":{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
+  "height": 150,
+  "width": 200,
+  "hideSelection": false,
+  "fillHorizontally": true,
+  "formatter": {
+    "elmType": "div",
+    "attributes": {
+      "class": "sp-card-container"
+    },
+    "style": {
+      "overflow": "hidden",
+      "display": "flex",
+      "border": "none",
+      "justify-content": "center",
+      "align-items": "center",
+      "margin": "0 auto",
+      "color": "#0078d4",
+      "box-shadow": "none"
+    },
+    "children": [
+      {
+        "elmType": "div",
+        "attributes": {
+          "class": "sp-card-defaultClickButton"
         },
-        {
-          "elmType": "div",
-          "attributes": {
-            "class": "ms-bgColor-white sp-card-subContainer"
-          },
-          "style": {
-            "border": "none",
-            "box-shadow": "none"
-          },
-          "children": [
-            {
-              "elmType": "div",
-              "attributes": {
-                "class": "sp-card-displayColumnContainer"
-              },
-              "style": {
-                "border": "none"
-              },
-              "children": [
-                {
-                  "elmType": "div",
-                  "attributes": {
-                    "class": "sp-card-imageContainer"
-                  },
-                  "style": {
-                    "border": "none"
-                  },
-                  "children": [
-                    {
-                      "elmType": "img",
-                      "attributes": {
-                        "src": "=if([$File_x0020_Type] == '', if([$FolderChildCount] > 0, '/sites/PSP-EESS/proyecto-prueba-2/SiteAssets/documento-si-PSP.png', '/sites/PSP-EESS/proyecto-prueba-2/SiteAssets/documento-no-PSP.png'),'')",
-                        "title": "=if([$File_x0020_Type] == '', [$Clase], '')"
-                      },
-                      "style": {
-                        "overflow": "hidden",
-                        "display": "flex",
-                        "border": "none",
-                        "justify-content": "center",
-                        "align-items": "center",
-                        "width": "40px",
-                        "height": "40px",
-                        "margin": "0 auto",
-                        "bold": "true",
-                        "color": "#0078d4"
-                      }
-                    }
-                  ]
+        "customRowAction": {
+          "action": "defaultClick"
+        }
+      },
+      {
+        "elmType": "div",
+        "attributes": {
+          "class": "ms-bgColor-white sp-card-subContainer"
+        },
+        "style": {
+          "border": "none",
+          "box-shadow": "none"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-card-displayColumnContainer"
+            },
+            "style": {
+              "border": "none"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "attributes": {
+                  "class": "sp-card-imageContainer"
                 },
-                {
-                  "elmType": "p",
-                  "attributes": {
-                    "class": "ms-fontColor-neutralPrimary sp-card-content sp-card-highlightedContent sp-card-keyboard-focusable"
-                  },
-                  "style": {
-                    "overflow": "hidden",
-                    "text-align": "center",
-                    "font-size": "9px",
-                    "border": "none"
-                  },
-                  "txtContent": "=if(length([$FileLeafRef]) > 20, substring([$FileLeafRef], 0, 20), [$FileLeafRef])",
-                  "defaultHoverField": "[$FileLeafRef]"
+                "style": {
+                  "border": "none"
                 },
-                {
-                  "elmType": "div",
-                  "attributes": {
-                    "class": "sp-card-subtitle"
-                  },
-                  "style": {
-                    "overflow": "hidden",
-                    "text-align": "center",
-                    "font-size": "8px",
-                    "border": "none"
-                  },
-                  "txtContent": "[$Name]"
-                },
-                {
-                  "elmType": "div",
-                  "attributes": {
-                    "class": "sp-card-title"
-                  },
-                  "style": {
-                    "overflow": "hidden",
-                    "text-align": "center",
-                    "font-size": "8px",
-                    "border": "none"
-                  },
-                  "txtContent": "[$Subcategoria]"
-                },
-                {
-                  "elmType": "div",
-                  "attributes": {
-                    "class": "ms-fontColor-Secondary sp-card-subtitle"
-                  },
-                  "style": {
-                    "overflow": "hidden",
-                    "text-align": "center",
-                    "font-size": "9px",
-                    "border": "none"
-                  },
-                  "txtContent": "[$Subcategoria2]"
-                },
-                {
-                  "elmType": "p",
-                  "attributes": {
-                    "class": "ms-fontColor-gray150 sp-card-subtitle"
-                  },
-                  "style": {
-                    "overflow": "hidden",
-                    "text-align": "center",
-                    "font-size": "9px",
-                    "border": "none"
-                  },
-                  "txtContent": "[$Clase]"
-                },
-                {
-                  "elmType": "button",
-                  "style": {
-                    "background-color": "=if([$EstadoDocumentos] == 'En Revisión', '#e81123' , if([$EstadoDocumentos] == 'Aprobada', '#28a745', '#FFA500'))",
-                    "color": "white",
-                    "padding": "4px 8px",
-                    "font-size": "16px",
-                    "border": "none",
-                    "border-radius": "50%",
-                    "margin-top": "8px",
-                    "cursor": "pointer",
-                    "width": "25px",
-                    "height": "25px",
-                    "display": "=if([$FolderChildCount] > 0, 'flex', 'block')",
-                    "justify-content": "center",
-                    "align-items": "center",
-                    "position": "relative",
-                    "z-index": "1",
-                    "margin-left": "auto",
-                    "margin-right": "auto"
-                  },
-                  "txtContent": "=if([$EstadoDocumentos] == '', [$FolderChildCount],if([$EstadoDocumentos] == 'En Revisión', '?', '✓'))",
-                  "customRowAction": {
-                    "action": "setValue",
-                    "stopPropagation": true,
-                    "actionInput": {
-                      "EstadoDocumentos": "=if([$EstadoDocumentos] == 'En Revisión', 'Aprobada', 'En Revisión')"
+                "children": [
+                  {
+                    "elmType": "img",
+                    "attributes": {
+                      "src": "=if([$File_x0020_Type] == '', if([$FolderChildCount] > 0, '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-si-PSP.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-no-PSP.png'), if([$File_x0020_Type] == 'pdf', '/sites/PSP-EESS/PruebaPSP/SiteAssets/xls.png', if([$File_x0020_Type] == 'xlsx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/xls.png', if([$File_x0020_Type] == 'pdf', '/sites/PSP-EESS/PruebaPSP/SiteAssets/pdf.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/blank.png'))) )",
+                      "title": "=if([$File_x0020_Type] == '', [$Clase], '')"
+                    },
+                    "style": {
+                      "display": "=if([$File_x0020_Type] == '', 'flex', 'none')",
+                      "overflow": "hidden",
+                      "border": "none",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "width": "40px",
+                      "height": "40px",
+                      "margin": "0 auto",
+                      "color": "#0078d4"
                     }
                   }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
+                ]
+              },
+              {
+                "elmType": "p",
+                "attributes": {
+                  "class": "ms-fontColor-neutralPrimary sp-card-content sp-card-highlightedContent sp-card-keyboard-focusable"
+                },
+                "style": {
+                  "overflow": "hidden",
+                  "text-align": "center",
+                  "font-size": "9px",
+                  "border": "none",
+                  "margin-top":"8px",
+                  "margin-width":"150px",
+                  "white-space":"nowrap", 
+                  "overflow":"hidden",
+                  "text-overflow":"ellipsis"
+                },
+                "txtContent": "=if(length([$FileLeafRef]) > 20, substring([$FileLeafRef], 0, 20), [$FileLeafRef])",
+                "defaultHoverField": "[$FileLeafRef]"
+              },
+              {
+                "elmType": "div",
+                "attributes": {
+                  "class": "sp-card-subtitle"
+                },
+                "style": {
+                  "overflow": "hidden",
+                  "text-align": "center",
+                  "font-size": "8px",
+                  "border": "none"
+                },
+                "txtContent": ""
+              },
+              {
+                "elmType": "div",
+                "attributes": {
+                  "class": "ms-fontColor-Secondary sp-card-subtitle"
+                },
+                "style": {
+                  "overflow": "hidden",
+                  "text-align": "center",
+                  "font-size": "9px",
+                  "border": "none"
+                },
+                "txtContent": "=if([$SubCategoria2] != [$Name], [$SubCategoria2], '')"
+              },
+              {
+                "elmType": "p",
+                "attributes": {
+                  "class": "ms-fontColor-gray150 sp-card-subtitle"
+                },
+                "style": {
+                  "overflow": "hidden",
+                  "text-align": "center",
+                  "font-size": "9px",
+                  "border": "none",
+                  "margin-top":"1px",
+                  "margin-width":"150px",
+                  "white-space":"nowrap", 
+                  "overflow":"hidden",
+                  "text-overflow":"ellipsis"
+                },
+                "txtContent": "[$Clase]"
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "flex",
+                  "align-items": "center",
+                  "justify-content": "space-around",
+                  "width": "100%",
+                  "padding": "8px"
+                },
+                "children": [
+                  {
+                    "elmType": "img",
+                    "attributes": {
+                      "src": "=if([$File_x0020_Type] == 'pdf', '/sites/PSP-EESS/PruebaPSP/SiteAssets/pdf.png', if([$File_x0020_Type] == 'xlsx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/xls.png', if([$File_x0020_Type] == 'docx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/docx.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/blank.png')))"
+                    },
+                    "style": {
+                      "width": "=if([$File_x0020_Type] == '', '0px', '60px')",
+                      "height": "45px",
+                      "filter": "grayscale(100%)",
+                      "margin-right": "8px"
+                    }
+                  },
+                  {
+                    "elmType": "button",
+                    "style": {
+                      "background-color": "=if([$EstadoDocumentos] == 'En Revisión', '#e81123' , if([$EstadoDocumentos] == 'Aprobada', '#28a745', '#FFA500'))",
+                      "color": "white",
+                      "padding": "4px 8px",
+                      "font-size": "16px",
+                      "border": "none",
+                      "border-radius": "50%",
+                      "margin-top": "8px",
+                      "cursor": "pointer",
+                      "width": "28px",
+                      "height": "28px",
+                      "display": "=if([$FolderChildCount] > 0, 'flex', 'block')",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "position": "relative",
+                      "z-index": "1",
+                      "margin-left": "auto",
+                      "margin-right": "auto"
+                    },
+                    "txtContent": "=if([$EstadoDocumentos] == '', [$FolderChildCount],if([$EstadoDocumentos] == 'En Revisión', '?', '✓'))",
+                    "customRowAction": {
+                      "action": "setValue",
+                      "stopPropagation": true,
+                      "actionInput": {
+                        "EstadoDocumentos": "=if([$EstadoDocumentos] == 'En Revisión', 'Aprobada', 'En Revisión')"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
+}

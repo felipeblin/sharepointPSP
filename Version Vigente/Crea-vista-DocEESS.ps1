@@ -16,7 +16,7 @@ Write-Host "Conectado exitosamente al nuevo subsitio $UrlProyecto" -ForegroundCo
 $navigationNode = Get-PnPNavigationNode -Location QuickLaunch | Where-Object {$_.Title -eq "DocEESS"}
 
 if (-not $navigationNode) {
-   Add-PnPNavigationNode -Location QuickLaunch -Title "DocEESS" -Url "$webUrl/DocEESS"
+   Add-PnPNavigationNode -Location QuickLaunch -Title "DocEESS" -Url "$SitioPrincipal/$UrlProyecto/DocEESS"
    Write-Host "DocEESS agregado al menú lateral" -ForegroundColor Green
 } else {
    Write-Host "DocEESS ya existe en el menú lateral" -ForegroundColor Yellow
@@ -25,7 +25,7 @@ if (-not $navigationNode) {
 try {
     $listName = "DocEESS"
     $viewName = 'Estructurada'
-    $proyectoFields = @("Categoria", "Subcategoria","Subcategoria2","Clase","Estado Documentos")
+    $proyectoFields = @("Categoria", "Subcategoria","Subcategoria2","Clase","Estado Documentos","Version","Editor","ShowDetails")
     # Verificar si la vista existe y eliminarla
     $existingView = Get-PnPView -List $listName -Identity $viewName -ErrorAction SilentlyContinue
     if ($existingView) {
@@ -55,26 +55,48 @@ try {
 $jsonFormat = @'
 {"tileProps":{
   "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
-  "height": 150,
   "width": 200,
+  "height": 230,
   "hideSelection": false,
   "fillHorizontally": true,
+  "overflow": "visible",
   "formatter": {
     "elmType": "div",
     "attributes": {
       "class": "sp-card-container"
     },
     "style": {
-      "overflow": "hidden",
       "display": "flex",
-      "border": "none",
-      "justify-content": "center",
-      "align-items": "center",
+      "flex-direction": "column",
+      "overflow": "visible",
+      "border": "1px solid #f8f0f0",
+      "border-radius": "24px",
+      "justify-content": "flex-start",
+      "align-items": "stretch",
       "margin": "0 auto",
       "color": "#0078d4",
       "box-shadow": "none"
     },
     "children": [
+      {
+        "elmType": "div",
+        "style": {
+          "position": "fixed",
+          "top": "0",
+          "left": "0",
+          "right": "0",
+          "bottom": "0",
+          "display": "=if([$ShowDetails], 'block', 'none')",
+          "z-index": "999"
+        },
+        "customRowAction": {
+          "action": "setValue",
+          "stopPropagation": true,
+          "actionInput": {
+            "ShowDetails": "false"
+          }
+        }
+      },
       {
         "elmType": "div",
         "attributes": {
@@ -91,7 +113,12 @@ $jsonFormat = @'
         },
         "style": {
           "border": "none",
-          "box-shadow": "none"
+          "box-shadow": "none",
+          "overflow": "visible",
+          "height": "auto",
+          "display": "flex",
+          "flex-direction": "column",
+          "z-index": "1000"
         },
         "children": [
           {
@@ -100,7 +127,8 @@ $jsonFormat = @'
               "class": "sp-card-displayColumnContainer"
             },
             "style": {
-              "border": "none"
+              "border": "none",
+              "overflow": "visible"
             },
             "children": [
               {
@@ -109,7 +137,8 @@ $jsonFormat = @'
                   "class": "sp-card-imageContainer"
                 },
                 "style": {
-                  "border": "none"
+                  "border": "none",
+                  "overflow": "visible"
                 },
                 "children": [
                   {
@@ -120,7 +149,7 @@ $jsonFormat = @'
                     },
                     "style": {
                       "display": "=if([$File_x0020_Type] == '', 'flex', 'none')",
-                      "overflow": "hidden",
+                      "overflow": "visible",
                       "border": "none",
                       "justify-content": "center",
                       "align-items": "center",
@@ -138,15 +167,14 @@ $jsonFormat = @'
                   "class": "ms-fontColor-neutralPrimary sp-card-content sp-card-highlightedContent sp-card-keyboard-focusable"
                 },
                 "style": {
-                  "overflow": "hidden",
+                  "overflow": "visible",
                   "text-align": "center",
                   "font-size": "9px",
                   "border": "none",
-                  "margin-top":"8px",
-                  "margin-width":"150px",
-                  "white-space":"nowrap", 
-                  "overflow":"hidden",
-                  "text-overflow":"ellipsis"
+                  "margin-top": "8px",
+                  "margin-width": "150px",
+                  "white-space": "nowrap",
+                  "text-overflow": "ellipsis"
                 },
                 "txtContent": "=if(length([$FileLeafRef]) > 20, substring([$FileLeafRef], 0, 20), [$FileLeafRef])",
                 "defaultHoverField": "[$FileLeafRef]"
@@ -157,7 +185,7 @@ $jsonFormat = @'
                   "class": "sp-card-subtitle"
                 },
                 "style": {
-                  "overflow": "hidden",
+                  "overflow": "visible",
                   "text-align": "center",
                   "font-size": "8px",
                   "border": "none"
@@ -170,10 +198,10 @@ $jsonFormat = @'
                   "class": "ms-fontColor-Secondary sp-card-subtitle"
                 },
                 "style": {
-                  "overflow": "hidden",
                   "text-align": "center",
                   "font-size": "9px",
-                  "border": "none"
+                  "border": "none",
+                  "overflow": "visible"
                 },
                 "txtContent": "=if([$SubCategoria2] != [$Name], [$SubCategoria2], '')"
               },
@@ -183,15 +211,14 @@ $jsonFormat = @'
                   "class": "ms-fontColor-gray150 sp-card-subtitle"
                 },
                 "style": {
-                  "overflow": "hidden",
                   "text-align": "center",
                   "font-size": "9px",
                   "border": "none",
-                  "margin-top":"1px",
-                  "margin-width":"150px",
-                  "white-space":"nowrap", 
-                  "overflow":"hidden",
-                  "text-overflow":"ellipsis"
+                  "margin-top": "8px",
+                  "margin-width": "150px",
+                  "white-space": "nowrap",
+                  "text-overflow": "ellipsis",
+                  "overflow": "visible"
                 },
                 "txtContent": "[$Clase]"
               },
@@ -202,7 +229,8 @@ $jsonFormat = @'
                   "align-items": "center",
                   "justify-content": "space-around",
                   "width": "100%",
-                  "padding": "8px"
+                  "padding": "8px",
+                  "overflow": "visible"
                 },
                 "children": [
                   {
@@ -211,16 +239,17 @@ $jsonFormat = @'
                       "src": "=if([$File_x0020_Type] == 'pdf', '/sites/PSP-EESS/PruebaPSP/SiteAssets/pdf.png', if([$File_x0020_Type] == 'xlsx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/xls.png', if([$File_x0020_Type] == 'docx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/docx.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/blank.png')))"
                     },
                     "style": {
-                      "width": "=if([$File_x0020_Type] == '', '0px', '60px')",
+                      "width": "=if([$File_x0020_Type] == '', '0px', '40px')",
                       "height": "45px",
                       "filter": "grayscale(100%)",
-                      "margin-right": "8px"
+                      "margin-right": "8px",
+                      "overflow": "visible"
                     }
                   },
                   {
                     "elmType": "button",
                     "style": {
-                      "background-color": "=if([$EstadoDocumentos] == 'En Revisión', '#e81123' , if([$EstadoDocumentos] == 'Aprobada', '#28a745', '#FFA500'))",
+                      "background-color": "=if([$EstadoDocumentos] == 'En Revisión', '#FFFFFF' , if([$EstadoDocumentos] == 'Aprobada', '#28a745', '#FFA500'))",
                       "color": "white",
                       "padding": "4px 8px",
                       "font-size": "16px",
@@ -228,17 +257,18 @@ $jsonFormat = @'
                       "border-radius": "50%",
                       "margin-top": "8px",
                       "cursor": "pointer",
-                      "width": "28px",
-                      "height": "28px",
+                      "width": "30px",
+                      "height": "30px",
                       "display": "=if([$FolderChildCount] > 0, 'flex', 'block')",
                       "justify-content": "center",
                       "align-items": "center",
                       "position": "relative",
                       "z-index": "1",
                       "margin-left": "auto",
-                      "margin-right": "auto"
+                      "margin-right": "auto",
+                      "overflow": "visible"
                     },
-                    "txtContent": "=if([$EstadoDocumentos] == '', [$FolderChildCount],if([$EstadoDocumentos] == 'En Revisión', '?', '✓'))",
+                    "txtContent": "=if([$EstadoDocumentos] == '', [$FolderChildCount], if([$EstadoDocumentos] == 'En Revisión', '🔍', '✓'))",
                     "customRowAction": {
                       "action": "setValue",
                       "stopPropagation": true,
@@ -246,6 +276,77 @@ $jsonFormat = @'
                         "EstadoDocumentos": "=if([$EstadoDocumentos] == 'En Revisión', 'Aprobada', 'En Revisión')"
                       }
                     }
+                  },
+                  {
+  "elmType": "button",
+  "style": {
+    "background-color": "#0078d4",
+    "color": "white",
+    "padding": "0",
+    "font-size": "14px",
+    "border": "none",
+    "border-radius": "50%",
+    "margin-top": "8px",
+    "cursor": "pointer",
+    "display": "flex",
+    "position": "relative",
+    "z-index": "1",
+    "margin-left": "auto",
+    "margin-right": "auto",
+    "width": "20px",
+    "height": "20px",
+    "justify-content": "center",
+    "align-items": "center",
+    "font-weight": "bold",
+    "font-style": "italic"
+  },
+  "txtContent": "i",
+  "customRowAction": {
+    "action": "setValue",
+    "stopPropagation": true,
+    "actionInput": {
+      "ShowDetails": "=if([$ShowDetails] == true, false, true)"
+    }
+  }
+}
+                ]
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "=if([$ShowDetails], 'block', 'none')",
+                  "background-color": "#f8f8f8",
+                  "border": "1px solid #ccc",
+                  "border-radius": "6px",
+                  "padding-left": "10px",
+                  "padding-right": "3px",
+                  "margin": "1px",
+                  "font-size": "10px",
+                  "overflow": "visible",
+                  "position": "relative",
+                  "z-index": "1000"
+                },
+                "children": [
+                  {
+                    "elmType": "p",
+                    "style": {
+                      "margin": "4px 0"
+                    },
+                    "txtContent": "= 'Última modificación: ' + toLocaleString([$Modified])"
+                  },
+                  {
+                    "elmType": "p",
+                    "style": {
+                      "margin": "4px 0"
+                    },
+                    "txtContent": "= 'Modificó: ' + [$Editor.title]"
+                  },
+                  {
+                    "elmType": "p",
+                    "style": {
+                      "margin": "4px 0"
+                    },
+                    "txtContent": "= 'Versión actual: ' + [$_UIVersionString]"
                   }
                 ]
               }
@@ -307,3 +408,5 @@ $targetFolderPath = $destinationFolder
     }
 
     Write-Host "File upload process completed" -ForegroundColor Green
+    # Agrega esta biblioteca a la barra de navegación
+   
