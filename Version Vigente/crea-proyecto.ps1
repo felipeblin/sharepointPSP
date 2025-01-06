@@ -20,17 +20,16 @@
             Write-Host "  ID Proyecto: $IdProyecto" -ForegroundColor Gray
             
             # Construir la consulta CAML para buscar por múltiples criterios
-            $camlQuery = "<View><Query><Or>
+            $camlQuery = "<View><Query><Where><And>
                 <And>
-                    <Eq><FieldRef Name='Title'/><Value Type='Text'>$Title</Value></Eq>
+                    <Eq><FieldRef Name='Proyecto'/><Value Type='Text'>$Title</Value></Eq>
                     <Eq><FieldRef Name='Marca'/><Value Type='Text'>$Marca</Value></Eq>
                 </And>
                 <Eq><FieldRef Name='IdProyecto'/><Value Type='Text'>$IdProyecto</Value></Eq>
-            </Or></Query></View>"
+            </And></Where></Query></View>"
             
             # Buscar items que coincidan
             $existingItems = Get-PnPListItem -List $ListName -Query $camlQuery
-            
             if ($null -ne $existingItems -and $existingItems.Count -gt 0) {
                 Write-Host "✕ Proyecto ya existe:" -ForegroundColor Red
                 foreach ($item in $existingItems) {
@@ -145,6 +144,7 @@
         # Crear el proyecto si no existe
         $itemValues = @{
             "Title" = $NombreProyecto
+            "Proyecto" = $NombreProyecto
             "Marca" = $Marca
             "IdProyecto" = $IdProyecto
             "Comuna" = $Comuna

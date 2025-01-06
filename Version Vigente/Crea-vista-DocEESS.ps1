@@ -39,7 +39,7 @@ try {
         -SetAsDefault `
         -Query @"
             <OrderBy>
-            <FieldRef Name='ID' Ascending='FALSE'/>
+            <FieldRef Name='Clase' Ascending='FALSE'/>
             </OrderBy>
             <GroupBy Collapse='TRUE' GroupLimit='30'>
             <FieldRef Name='Categoria'/>
@@ -162,24 +162,6 @@ $jsonFormat = @'
                 ]
               },
               {
-                "elmType": "p",
-                "attributes": {
-                  "class": "ms-fontColor-neutralPrimary sp-card-content sp-card-highlightedContent sp-card-keyboard-focusable"
-                },
-                "style": {
-                  "overflow": "visible",
-                  "text-align": "center",
-                  "font-size": "9px",
-                  "border": "none",
-                  "margin-top": "8px",
-                  "margin-width": "150px",
-                  "white-space": "nowrap",
-                  "text-overflow": "ellipsis"
-                },
-                "txtContent": "=if(length([$FileLeafRef]) > 20, substring([$FileLeafRef], 0, 20), [$FileLeafRef])",
-                "defaultHoverField": "[$FileLeafRef]"
-              },
-              {
                 "elmType": "div",
                 "attributes": {
                   "class": "sp-card-subtitle"
@@ -193,26 +175,13 @@ $jsonFormat = @'
                 "txtContent": ""
               },
               {
-                "elmType": "div",
-                "attributes": {
-                  "class": "ms-fontColor-Secondary sp-card-subtitle"
-                },
-                "style": {
-                  "text-align": "center",
-                  "font-size": "9px",
-                  "border": "none",
-                  "overflow": "visible"
-                },
-                "txtContent": "=if([$SubCategoria2] != [$Name], [$SubCategoria2], '')"
-              },
-              {
                 "elmType": "p",
                 "attributes": {
                   "class": "ms-fontColor-gray150 sp-card-subtitle"
                 },
                 "style": {
                   "text-align": "center",
-                  "font-size": "9px",
+                  "font-size": "12px",
                   "border": "none",
                   "margin-top": "8px",
                   "margin-width": "150px",
@@ -220,7 +189,7 @@ $jsonFormat = @'
                   "text-overflow": "ellipsis",
                   "overflow": "visible"
                 },
-                "txtContent": "[$Clase]"
+                "txtContent": "=if(indexOf([$Subcategoria2] + '|','|') > 20, substring([$Subcategoria2],0,20) +'...' ,[$Subcategoria2]) +'\n'+ if(indexOf([$Subcategoria] + '|','|') > 20, substring([$Subcategoria],0,20) +'...' ,[$Subcategoria]) "
               },
               {
                 "elmType": "div",
@@ -278,37 +247,37 @@ $jsonFormat = @'
                     }
                   },
                   {
-  "elmType": "button",
-  "style": {
-    "background-color": "#0078d4",
-    "color": "white",
-    "padding": "0",
-    "font-size": "14px",
-    "border": "none",
-    "border-radius": "50%",
-    "margin-top": "8px",
-    "cursor": "pointer",
-    "display": "flex",
-    "position": "relative",
-    "z-index": "1",
-    "margin-left": "auto",
-    "margin-right": "auto",
-    "width": "20px",
-    "height": "20px",
-    "justify-content": "center",
-    "align-items": "center",
-    "font-weight": "bold",
-    "font-style": "italic"
-  },
-  "txtContent": "i",
-  "customRowAction": {
-    "action": "setValue",
-    "stopPropagation": true,
-    "actionInput": {
-      "ShowDetails": "=if([$ShowDetails] == true, false, true)"
-    }
-  }
-}
+                    "elmType": "button",
+                    "style": {
+                      "background-color": "#0078d4",
+                      "color": "white",
+                      "padding": "0",
+                      "font-size": "14px",
+                      "border": "none",
+                      "border-radius": "50%",
+                      "margin-top": "8px",
+                      "cursor": "pointer",
+                      "display": "flex",
+                      "position": "relative",
+                      "z-index": "1",
+                      "margin-left": "auto",
+                      "margin-right": "auto",
+                      "width": "20px",
+                      "height": "20px",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "font-weight": "bold",
+                      "font-style": "italic"
+                    },
+                    "txtContent": "i",
+                    "customRowAction": {
+                      "action": "setValue",
+                      "stopPropagation": true,
+                      "actionInput": {
+                        "ShowDetails": "=if([$ShowDetails] == true, false, true)"
+                      }
+                    }
+                  }
                 ]
               },
               {
@@ -349,6 +318,25 @@ $jsonFormat = @'
                     "txtContent": "= 'Versión actual: ' + [$_UIVersionString]"
                   }
                 ]
+              },
+              {
+                "elmType": "p",
+                "attributes": {
+                  "class": "ms-fontColor-gray150 sp-card-subtitle"
+                },
+                "style": {
+                  "text-align": "center",
+                  "font-size": "9px",
+                  "border": "none",
+                  "margin-top": "8px",
+                  "margin-width": "150px",
+                  "white-space": "nowrap",
+                  "text-overflow": "ellipsis",
+                  "overflow": "visible",
+                  "align-self": "flex-end",
+                  "font-weight": "bold"
+                },
+                  "txtContent": "=if([$File_x0020_Type] == '',if(indexOf([$Clase] + '|','|') > 20, substring([$Clase], 0, 20) + '...', [$Clase]),'')"
               }
             ]
           }
