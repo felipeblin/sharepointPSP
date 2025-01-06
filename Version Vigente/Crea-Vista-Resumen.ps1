@@ -36,25 +36,25 @@ try {
   $list = Get-PnPList -Identity $listName -ErrorAction Stop
   $view = Get-PnPView -List $list -Identity $viewName -ErrorAction Stop
   
-  if ($view.ViewType -ne "GALLERY") {
-      Write-Host @"
-==================================================================
-                      ¡ATENCIÓN!
-==================================================================
-La vista 'Galeria 3' existe pero NO es de tipo Galería.
-Por favor, siga estos pasos:
+#   if ($view.ViewType -ne "GALLERY") {
+#       Write-Host @"
+# ==================================================================
+#                       ¡ATENCIÓN!
+# ==================================================================
+# La vista 'Galeria 3' existe pero NO es de tipo Galería.
+# Por favor, siga estos pasos:
 
-1. Vaya al sitio de SharePoint
-2. Abra la lista 'Proyecto Inmobiliario'
-3. Cree una nueva vista de tipo Galería
-4. Nómbrela exactamente como 'Galeria 3'
+# 1. Vaya al sitio de SharePoint
+# 2. Abra la lista 'Proyecto Inmobiliario'
+# 3. Cree una nueva vista de tipo Galería
+# 4. Nómbrela exactamente como 'Galeria 3'
 
-La automatización no puede continuar hasta que se cree 
-correctamente la vista de tipo Galería.
-==================================================================
-"@ -ForegroundColor Red
-      exit
-  }
+# La automatización no puede continuar hasta que se cree 
+# correctamente la vista de tipo Galería.
+# ==================================================================
+# "@ -ForegroundColor Red
+#       exit
+#   }
 } catch {
   Write-Host @"
 ==================================================================
