@@ -25,7 +25,7 @@ if (-not $navigationNode) {
 try {
     $listName = "DocEESS"
     $viewName = 'Estructurada'
-    $proyectoFields = @("Categoria", "Subcategoria","Subcategoria2","Clase","Estado Documentos","Version","Editor","ShowDetails")
+    $proyectoFields = @("Name","Categoria", "Subcategoria","Subcategoria2","Clase","Estado Documentos","Version","Editor","ShowDetails")
     # Verificar si la vista existe y eliminarla
     $existingView = Get-PnPView -List $listName -Identity $viewName -ErrorAction SilentlyContinue
     if ($existingView) {
@@ -56,7 +56,7 @@ $jsonFormat = @'
 {"tileProps":{
   "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
   "width": 200,
-  "height": 230,
+  "height": 130,
   "hideSelection": false,
   "fillHorizontally": true,
   "overflow": "visible",
@@ -69,278 +69,181 @@ $jsonFormat = @'
       "display": "flex",
       "flex-direction": "column",
       "overflow": "visible",
-      "border": "1px solid #f8f0f0",
       "border-radius": "24px",
       "justify-content": "flex-start",
-      "align-items": "stretch",
+      "align-items": "center",
       "margin": "0 auto",
       "color": "#0078d4",
-      "box-shadow": "none"
+      "box-shadow": "none",
+      "position": "relative"
     },
     "children": [
       {
         "elmType": "div",
         "style": {
-          "position": "fixed",
-          "top": "0",
-          "left": "0",
-          "right": "0",
-          "bottom": "0",
-          "display": "=if([$ShowDetails], 'block', 'none')",
-          "z-index": "999"
-        },
-        "customRowAction": {
-          "action": "setValue",
-          "stopPropagation": true,
-          "actionInput": {
-            "ShowDetails": "false"
-          }
-        }
-      },
-      {
-        "elmType": "div",
-        "attributes": {
-          "class": "sp-card-defaultClickButton"
-        },
-        "customRowAction": {
-          "action": "defaultClick"
-        }
-      },
-      {
-        "elmType": "div",
-        "attributes": {
-          "class": "ms-bgColor-white sp-card-subContainer"
-        },
-        "style": {
-          "border": "none",
-          "box-shadow": "none",
-          "overflow": "visible",
-          "height": "auto",
-          "display": "flex",
-          "flex-direction": "column",
-          "z-index": "1000"
+          "position": "relative",
+          "width": "40px",
+          "height": "40px",
+          "margin-top": "40px"
         },
         "children": [
           {
-            "elmType": "div",
+            "elmType": "img",
             "attributes": {
-              "class": "sp-card-displayColumnContainer"
+              "src": "=if([$File_x0020_Type] == '', if([$FolderChildCount] > 0, '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-si-PSP.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-no-PSP.png'), if([$File_x0020_Type] == 'pdf', '/sites/PSP-EESS/PruebaPSP/SiteAssets/pdf.png', if([$File_x0020_Type] == 'xlsx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/xls.png', if([$File_x0020_Type] == 'docx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/docx.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/blank.png'))))",
+              "title": "=if([$File_x0020_Type] == '', [$Clase], '')"
             },
             "style": {
+              "width": "40px",
+              "height": "40px",
+              "object-fit": "contain",
+              
+              "border": "none"
+            }
+          },
+          {
+            "elmType": "button",
+            "style": {
+              "position": "absolute",
+              "bottom": "-6px",
+              "left": "-6px",
+              "background-color": "=if([$EstadoDocumentos] == 'En Revisión', '#FFFFFF', if([$EstadoDocumentos] == 'Aprobada', '#28a745', '#FFA500'))",
+              "color": "white",
+              "padding": "0",
+              "font-size": "14px",
               "border": "none",
+              "border-radius": "50%",
+              "cursor": "pointer",
+              "width": "20px",
+              "height": "20px",
+              "display": "=if([$FolderChildCount] > 0, 'flex', 'block')",
+              "justify-content": "center",
+              "align-items": "center",
+              "z-index": "1",
               "overflow": "visible"
             },
-            "children": [
-              {
-                "elmType": "div",
-                "attributes": {
-                  "class": "sp-card-imageContainer"
-                },
-                "style": {
-                  "border": "none",
-                  "overflow": "visible"
-                },
-                "children": [
-                  {
-                    "elmType": "img",
-                    "attributes": {
-                      "src": "=if([$File_x0020_Type] == '', if([$FolderChildCount] > 0, '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-si-PSP.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-no-PSP.png'), if([$File_x0020_Type] == 'pdf', '/sites/PSP-EESS/PruebaPSP/SiteAssets/xls.png', if([$File_x0020_Type] == 'xlsx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/xls.png', if([$File_x0020_Type] == 'pdf', '/sites/PSP-EESS/PruebaPSP/SiteAssets/pdf.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/blank.png'))) )",
-                      "title": "=if([$File_x0020_Type] == '', [$Clase], '')"
-                    },
-                    "style": {
-                      "display": "=if([$File_x0020_Type] == '', 'flex', 'none')",
-                      "overflow": "visible",
-                      "border": "none",
-                      "justify-content": "center",
-                      "align-items": "center",
-                      "width": "40px",
-                      "height": "40px",
-                      "margin": "0 auto",
-                      "color": "#0078d4"
-                    }
-                  }
-                ]
-              },
-              {
-                "elmType": "div",
-                "attributes": {
-                  "class": "sp-card-subtitle"
-                },
-                "style": {
-                  "overflow": "visible",
-                  "text-align": "center",
-                  "font-size": "8px",
-                  "border": "none"
-                },
-                "txtContent": ""
-              },
-              {
-                "elmType": "p",
-                "attributes": {
-                  "class": "ms-fontColor-gray150 sp-card-subtitle"
-                },
-                "style": {
-                  "text-align": "center",
-                  "font-size": "12px",
-                  "border": "none",
-                  "margin-top": "8px",
-                  "margin-width": "150px",
-                  "white-space": "nowrap",
-                  "text-overflow": "ellipsis",
-                  "overflow": "visible"
-                },
-                "txtContent": "=if(indexOf([$Subcategoria2] + '|','|') > 20, substring([$Subcategoria2],0,20) +'...' ,[$Subcategoria2]) +'\n'+ if(indexOf([$Subcategoria] + '|','|') > 20, substring([$Subcategoria],0,20) +'...' ,[$Subcategoria]) "
-              },
-              {
-                "elmType": "div",
-                "style": {
-                  "display": "flex",
-                  "align-items": "center",
-                  "justify-content": "space-around",
-                  "width": "100%",
-                  "padding": "8px",
-                  "overflow": "visible"
-                },
-                "children": [
-                  {
-                    "elmType": "img",
-                    "attributes": {
-                      "src": "=if([$File_x0020_Type] == 'pdf', '/sites/PSP-EESS/PruebaPSP/SiteAssets/pdf.png', if([$File_x0020_Type] == 'xlsx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/xls.png', if([$File_x0020_Type] == 'docx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/docx.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/blank.png')))"
-                    },
-                    "style": {
-                      "width": "=if([$File_x0020_Type] == '', '0px', '40px')",
-                      "height": "45px",
-                      "filter": "grayscale(100%)",
-                      "margin-right": "8px",
-                      "overflow": "visible"
-                    }
-                  },
-                  {
-                    "elmType": "button",
-                    "style": {
-                      "background-color": "=if([$EstadoDocumentos] == 'En Revisión', '#FFFFFF' , if([$EstadoDocumentos] == 'Aprobada', '#28a745', '#FFA500'))",
-                      "color": "white",
-                      "padding": "4px 8px",
-                      "font-size": "16px",
-                      "border": "none",
-                      "border-radius": "50%",
-                      "margin-top": "8px",
-                      "cursor": "pointer",
-                      "width": "30px",
-                      "height": "30px",
-                      "display": "=if([$FolderChildCount] > 0, 'flex', 'block')",
-                      "justify-content": "center",
-                      "align-items": "center",
-                      "position": "relative",
-                      "z-index": "1",
-                      "margin-left": "auto",
-                      "margin-right": "auto",
-                      "overflow": "visible"
-                    },
-                    "txtContent": "=if([$EstadoDocumentos] == '', [$FolderChildCount], if([$EstadoDocumentos] == 'En Revisión', '🔍', '✓'))",
-                    "customRowAction": {
-                      "action": "setValue",
-                      "stopPropagation": true,
-                      "actionInput": {
-                        "EstadoDocumentos": "=if([$EstadoDocumentos] == 'En Revisión', 'Aprobada', 'En Revisión')"
-                      }
-                    }
-                  },
-                  {
-                    "elmType": "button",
-                    "style": {
-                      "background-color": "#0078d4",
-                      "color": "white",
-                      "padding": "0",
-                      "font-size": "14px",
-                      "border": "none",
-                      "border-radius": "50%",
-                      "margin-top": "8px",
-                      "cursor": "pointer",
-                      "display": "flex",
-                      "position": "relative",
-                      "z-index": "1",
-                      "margin-left": "auto",
-                      "margin-right": "auto",
-                      "width": "20px",
-                      "height": "20px",
-                      "justify-content": "center",
-                      "align-items": "center",
-                      "font-weight": "bold",
-                      "font-style": "italic"
-                    },
-                    "txtContent": "i",
-                    "customRowAction": {
-                      "action": "setValue",
-                      "stopPropagation": true,
-                      "actionInput": {
-                        "ShowDetails": "=if([$ShowDetails] == true, false, true)"
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "elmType": "div",
-                "style": {
-                  "display": "=if([$ShowDetails], 'block', 'none')",
-                  "background-color": "#f8f8f8",
-                  "border": "1px solid #ccc",
-                  "border-radius": "6px",
-                  "padding-left": "10px",
-                  "padding-right": "3px",
-                  "margin": "1px",
-                  "font-size": "10px",
-                  "overflow": "visible",
-                  "position": "relative",
-                  "z-index": "1000"
-                },
-                "children": [
-                  {
-                    "elmType": "p",
-                    "style": {
-                      "margin": "4px 0"
-                    },
-                    "txtContent": "= 'Última modificación: ' + toLocaleString([$Modified])"
-                  },
-                  {
-                    "elmType": "p",
-                    "style": {
-                      "margin": "4px 0"
-                    },
-                    "txtContent": "= 'Modificó: ' + [$Editor.title]"
-                  },
-                  {
-                    "elmType": "p",
-                    "style": {
-                      "margin": "4px 0"
-                    },
-                    "txtContent": "= 'Versión actual: ' + [$_UIVersionString]"
-                  }
-                ]
-              },
-              {
-                "elmType": "p",
-                "attributes": {
-                  "class": "ms-fontColor-gray150 sp-card-subtitle"
-                },
-                "style": {
-                  "text-align": "center",
-                  "font-size": "9px",
-                  "border": "none",
-                  "margin-top": "8px",
-                  "margin-width": "150px",
-                  "white-space": "nowrap",
-                  "text-overflow": "ellipsis",
-                  "overflow": "visible",
-                  "align-self": "flex-end",
-                  "font-weight": "bold"
-                },
-                  "txtContent": "=if([$File_x0020_Type] == '',if(indexOf([$Clase] + '|','|') > 20, substring([$Clase], 0, 20) + '...', [$Clase]),'')"
+            "txtContent": "=if([$EstadoDocumentos] == '', [$FolderChildCount], if([$EstadoDocumentos] == 'En Revisión', '🔍', '✓'))",
+            "customRowAction": {
+              "action": "setValue",
+              "stopPropagation": true,
+              "actionInput": {
+                "EstadoDocumentos": "=if([$EstadoDocumentos] == 'En Revisión', 'Aprobada', 'En Revisión')"
               }
-            ]
+            }
+          },
+          {
+            "elmType": "button",
+            "style": {
+              "position": "absolute",
+              "top": "-6px",
+              "right": "-6px",
+              "background-color": "#0078d4",
+              "color": "white",
+              "padding": "0",
+              "font-size": "14px",
+              "border": "none",
+              "border-radius": "50%",
+              "cursor": "pointer",
+              "width": "20px",
+              "height": "20px",
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "z-index": "1",
+              "overflow": "visible"
+            },
+            "txtContent": "i",
+            "customRowAction": {
+              "action": "setValue",
+              "stopPropagation": true,
+              "actionInput": {
+                "ShowDetails": "=if([$ShowDetails] == true, false, true)"
+              }
+            }
           }
         ]
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "width": "40px",
+          "height": "40px",
+          "display": "=if([$File_x0020_Type] == '', 'block', 'none')"
+        }
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "text-align": "center",
+          "font-size": "12px",
+          "font-weight": "bold",
+          "margin-top": "=if([$File_x0020_Type] == '', '-30px', '10px')",
+          "width": "100%",
+          "overflow": "hidden",
+          "white-space": "nowrap",
+          "text-overflow": "ellipsis"
+        },
+        "txtContent": "[$FileLeafRef]"
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "display": "=if([$ShowDetails], 'block', 'none')",
+          "background-color": "#f8f8f8",
+          "border": "1px solid #ccc",
+          "border-radius": "6px",
+          "padding-left": "10px",
+          "padding-right": "3px",
+          "margin": "1px",
+          "margin-top": "-50px",
+          "font-size": "10px",
+          "overflow": "visible",
+          "position": "relative",
+          "z-index": "1000",
+          "width": "90%"
+        },
+        "children": [
+          {
+            "elmType": "p",
+            "style": {
+              "margin": "2px 0"
+            },
+            "txtContent": "= 'Última modificación: ' + toLocaleString([$Modified])"
+          },
+          {
+            "elmType": "p",
+            "style": {
+              "margin": "2px 0"
+            },
+            "txtContent": "= 'Modificó: ' + [$Editor.title]"
+          },
+          {
+            "elmType": "p",
+            "style": {
+              "margin": "2px 0"
+            },
+            "txtContent": "= 'Versión actual: ' + [$_UIVersionString]"
+          }
+        ]
+      },
+      {
+        "elmType": "p",
+        "attributes": {
+          "class": "ms-fontColor-gray150 sp-card-subtitle"
+        },
+        "style": {
+          "text-align": "center",
+          "font-size": "9px",
+          "border": "none",
+          "margin-top": "-90px",
+          "width": "150px",
+          "white-space": "nowrap",
+          "text-overflow": "ellipsis",
+          "overflow": "hidden",
+          "align-self": "center",
+          "font-weight": "bold"
+        },
+        "txtContent": "=if([$File_x0020_Type] == '', if(length([$Clase]) > 20, substring([$Clase], 0, 20) + '...', [$Clase]), '')"
       }
     ]
   }
