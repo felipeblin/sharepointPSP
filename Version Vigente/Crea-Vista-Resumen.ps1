@@ -10,7 +10,7 @@ $IdProyecto = $yaml_.Datos.IdProyecto
 $Marca = $yaml_.Datos.Marca
 $Comuna = $yaml_.Datos.Comuna
 
-Connect-PnPOnline -Url "$SitioPrincipal/$UrlProyecto" -Interactive -ClientId "87c053fe-3af4-4d2f-90fe-6df7bd28b450"
+#Connect-PnPOnline -Url "$SitioPrincipal/$UrlProyecto" -Interactive -ClientId "87c053fe-3af4-4d2f-90fe-6df7bd28b450"
 
 # Leemos el archivo JSON del directorio actual
 $formatoJson = [String](Get-Content -Path "./Version Vigente/formatoResumen.json" -Raw)
@@ -24,61 +24,38 @@ $proyectoFields = @(
   "Inmobiliaria","Unidades","EstacionamientosVendibles","Bodegas","CostoDirecto","CostoTerreno","IngresoTotal",
   "MargenIFRS","TIR","RolMatriz","FirmaPlanos","PermisoEdificacion","InicioVentas","InicioExcavacion","ResolucionRecepcion","EntregaDepartamentos" 
 )
-# Crear una vista más simple pero efectiva
-# try {
-    $listName = "Proyecto Inmobiliario"
-    $viewName = 'Galeria 3'
-    
-    # Verificar si la vista existe y eliminarla
-    $existingView = Get-PnPView -List $listName -Identity $viewName -ErrorAction SilentlyContinue
-# Validar existencia y tipo de la vista Galeria 3
-try {
-  $list = Get-PnPList -Identity $listName -ErrorAction Stop
-  $view = Get-PnPView -List $list -Identity $viewName -ErrorAction Stop
-  
-#   if ($view.ViewType -ne "GALLERY") {
-#       Write-Host @"
-# ==================================================================
-#                       ¡ATENCIÓN!
-# ==================================================================
-# La vista 'Galeria 3' existe pero NO es de tipo Galería.
-# Por favor, siga estos pasos:
 
-# 1. Vaya al sitio de SharePoint
-# 2. Abra la lista 'Proyecto Inmobiliario'
-# 3. Cree una nueva vista de tipo Galería
-# 4. Nómbrela exactamente como 'Galeria 3'
+$listName = "Proyecto Inmobiliario"
+$viewName = 'Galeria3'
 
-# La automatización no puede continuar hasta que se cree 
-# correctamente la vista de tipo Galería.
-# ==================================================================
-# "@ -ForegroundColor Red
-#       exit
-#   }
-} catch {
-  Write-Host @"
-==================================================================
-                      ¡ATENCIÓN!
-==================================================================
-No se encontró la vista 'Galeria 3'.
-Por favor, siga estos pasos:
-
-1. Vaya al sitio de SharePoint
-2. Abra la lista 'Proyecto Inmobiliario'
-3. Cree una nueva vista de tipo Galería
-4. Nómbrela exactamente como 'Galeria 3'
-
-La automatización no puede continuar hasta que se cree 
-la vista manualmente.
-==================================================================
-"@ -ForegroundColor Red
-  exit
+# Verificar si la vista existe y eliminarla
+$existingView = Get-PnPView -List $listName -Identity $viewName -ErrorAction SilentlyContinue
+if ($existingView) {
+    Remove-PnPView -List $listName -Identity $viewName -Force
+    Remove-PnPView -List $listName -Identity $viewName -Force
+    Write-Host "Vista anterior  eliminada" -ForegroundColor Yellow
 }
+# Crear la nueva vista
+$view = Add-PnPView -List $listName -Title $viewName -Fields $proyectoFields 
+
+Set-PnPView -List $listName -Identity $view.Id -Values @{       
+            ViewType   = "GALLERY"
+            ViewType2   = "TILES"
+            DefaultView = $true
+}
+
+            #DefaultView = $true }
+
+
+Get-PnPView -List $listName | Select-Object Title, ViewType, ViewType2, DefaultView, Id                           
+
+$list = Get-PnPList -Identity $listName -ErrorAction Stop
+$view = Get-PnPView -List $listName -Identity $viewName  #-ErrorAction Stop
 
  
    
      # Aplicar el formato
-    Set-PnPView -List $listName -Identity $viewName -Values @{
+Set-PnPView -List $listName -Identity $viewName -Values @{
         CustomFormatter = @'
 {"tileProps":{"$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
     "height": 1000,

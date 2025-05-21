@@ -1,0 +1,539 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{Presentación}{1}{}%
+\contentsline {section}{\numberline {1}\textcolor {blue}{Comercial}}{2}{}%
+\contentsline {subsection}{\numberline {1.1}\textcolor {teal}{Comercial}:{Acta de entrega al cliente}}{2}{}%
+\contentsline {subsection}{\numberline {1.2}\textcolor {teal}{Comercial}:{Acta de lectura de medidores}}{2}{}%
+\contentsline {subsection}{\numberline {1.3}\textcolor {teal}{Comercial}:{Administración de gastos comunes}}{2}{}%
+\contentsline {subsection}{\numberline {1.4}\textcolor {teal}{Comercial}:{Administración de la comunidad}}{2}{}%
+\contentsline {subsection}{\numberline {1.5}\textcolor {teal}{Comercial}:{Agencia de marketing}}{2}{}%
+\contentsline {subsection}{\numberline {1.6}\textcolor {teal}{Comercial}:{Always on (AO)}}{2}{}%
+\contentsline {subsection}{\numberline {1.7}\textcolor {teal}{Comercial}:{Apertura de cuenta corriente y obtención de rol de la comunidad}}{2}{}%
+\contentsline {subsection}{\numberline {1.8}\textcolor {teal}{Comercial}:{Asamblea de Copropietarios}}{2}{}%
+\contentsline {subsection}{\numberline {1.9}\textcolor {teal}{Comercial}:{Asignación de roles SCI}}{3}{}%
+\contentsline {subsection}{\numberline {1.10}\textcolor {teal}{Comercial}:{Backlink (retroenlace)}}{3}{}%
+\contentsline {subsection}{\numberline {1.11}\textcolor {teal}{Comercial}:{Calidad experiencia en la cotización/compra sala de ventas (cliente incógnito)}}{3}{}%
+\contentsline {subsection}{\numberline {1.12}\textcolor {teal}{Comercial}:{Cambio de administración}}{3}{}%
+\contentsline {subsection}{\numberline {1.13}\textcolor {teal}{Comercial}:{Campaña de marketing}}{3}{}%
+\contentsline {subsection}{\numberline {1.14}\textcolor {teal}{Comercial}:{Cliente incógnito (mystery shopper)}}{3}{}%
+\contentsline {subsection}{\numberline {1.15}\textcolor {teal}{Comercial}:{Cliente referido}}{3}{}%
+\contentsline {subsection}{\numberline {1.16}\textcolor {teal}{Comercial}:{Clusterización}}{4}{}%
+\contentsline {subsection}{\numberline {1.17}\textcolor {teal}{Comercial}:{Cobros anticipados o prorrogas de pagos al cliente}}{4}{}%
+\contentsline {subsection}{\numberline {1.18}\textcolor {teal}{Comercial}:{Comisión vendedores}}{4}{}%
+\contentsline {subsection}{\numberline {1.19}\textcolor {teal}{Comercial}:{Compraventa, Escritura de Compraventa o Borrador de Escritura}}{4}{}%
+\contentsline {subsection}{\numberline {1.20}\textcolor {teal}{Comercial}:{Comunicaciones con el cliente - Posventa}}{4}{}%
+\contentsline {subsection}{\numberline {1.21}\textcolor {teal}{Comercial}:{Comunidad de copropietarios}}{4}{}%
+\contentsline {subsection}{\numberline {1.22}\textcolor {teal}{Comercial}:{Comunity manager}}{4}{}%
+\contentsline {subsection}{\numberline {1.23}\textcolor {teal}{Comercial}:{Configuración comercial SCI}}{5}{}%
+\contentsline {subsection}{\numberline {1.24}\textcolor {teal}{Comercial}:{Costo por adquisición (CPA)}}{5}{}%
+\contentsline {subsection}{\numberline {1.25}\textcolor {teal}{Comercial}:{Creación de proyecto en SCI}}{5}{}%
+\contentsline {subsection}{\numberline {1.26}\textcolor {teal}{Comercial}:{Crédito Directo Socovesa (CDS)}}{5}{}%
+\contentsline {subsection}{\numberline {1.27}\textcolor {teal}{Comercial}:{Datos de análisis de campañas de Google Ads}}{5}{}%
+\contentsline {subsection}{\numberline {1.28}\textcolor {teal}{Comercial}:{Datos de análisis de redes sociales}}{5}{}%
+\contentsline {subsection}{\numberline {1.29}\textcolor {teal}{Comercial}:{Datos de análisis de SEO}}{5}{}%
+\contentsline {subsection}{\numberline {1.30}\textcolor {teal}{Comercial}:{Datos de contacto del cotizante}}{6}{}%
+\contentsline {subsection}{\numberline {1.31}\textcolor {teal}{Comercial}:{Datos de cotizantes (Enlace inmobiliario)}}{6}{}%
+\contentsline {subsection}{\numberline {1.32}\textcolor {teal}{Comercial}:{Datos de cotizantes (leads de Meta)}}{6}{}%
+\contentsline {subsection}{\numberline {1.33}\textcolor {teal}{Comercial}:{Datos de cotizantes (sitio web)}}{6}{}%
+\contentsline {subsection}{\numberline {1.34}\textcolor {teal}{Comercial}:{Datos de identificación del cotizante}}{6}{}%
+\contentsline {subsection}{\numberline {1.35}\textcolor {teal}{Comercial}:{Datos del cotizantes (Portal Inmobiliario)}}{6}{}%
+\contentsline {subsection}{\numberline {1.36}\textcolor {teal}{Comercial}:{Datos del referido (sitio web)}}{7}{}%
+\contentsline {subsection}{\numberline {1.37}\textcolor {teal}{Comercial}:{Desistimiento reserva de inmueble}}{7}{}%
+\contentsline {subsection}{\numberline {1.38}\textcolor {teal}{Comercial}:{Elección de la primera administración}}{7}{}%
+\contentsline {subsection}{\numberline {1.39}\textcolor {teal}{Comercial}:{Encuesta calidad de servicio de la entrega}}{7}{}%
+\contentsline {subsection}{\numberline {1.40}\textcolor {teal}{Comercial}:{Encuesta calidad de servicio de la espera}}{7}{}%
+\contentsline {subsection}{\numberline {1.41}\textcolor {teal}{Comercial}:{Encuesta de calidad de servicio de la posventa}}{7}{}%
+\contentsline {subsection}{\numberline {1.42}\textcolor {teal}{Comercial}:{Encuesta de evaluación de campañas de marcas}}{8}{}%
+\contentsline {subsection}{\numberline {1.43}\textcolor {teal}{Comercial}:{Encuesta desempeño de producto}}{8}{}%
+\contentsline {subsection}{\numberline {1.44}\textcolor {teal}{Comercial}:{Encuesta Perfil de cotizantes y preferencia de clientes}}{8}{}%
+\contentsline {subsection}{\numberline {1.45}\textcolor {teal}{Comercial}:{Encuesta Radiografía del Comprador}}{8}{}%
+\contentsline {subsection}{\numberline {1.46}\textcolor {teal}{Comercial}:{Entrega de la comunidad a los propietarios}}{8}{}%
+\contentsline {subsection}{\numberline {1.47}\textcolor {teal}{Comercial}:{Estatus de entrega de la propiedad}}{8}{}%
+\contentsline {subsection}{\numberline {1.48}\textcolor {teal}{Comercial}:{Estudio de cliente incógnito}}{9}{}%
+\contentsline {subsection}{\numberline {1.49}\textcolor {teal}{Comercial}:{Estudio de no compra}}{9}{}%
+\contentsline {subsection}{\numberline {1.50}\textcolor {teal}{Comercial}:{Estudio de valor corporativo}}{9}{}%
+\contentsline {subsection}{\numberline {1.51}\textcolor {teal}{Comercial}:{Estudio de valor de proyectos}}{9}{}%
+\contentsline {subsection}{\numberline {1.52}\textcolor {teal}{Comercial}:{Estudio e imagen de marca}}{9}{}%
+\contentsline {subsection}{\numberline {1.53}\textcolor {teal}{Comercial}:{Estudio etnográfico (entrevista insight)}}{9}{}%
+\contentsline {subsection}{\numberline {1.54}\textcolor {teal}{Comercial}:{Estudio etnográfico (entrevista insitu)}}{10}{}%
+\contentsline {subsection}{\numberline {1.55}\textcolor {teal}{Comercial}:{Evaluación del cliente - atributos, imagen y evaluación de marca}}{10}{}%
+\contentsline {subsection}{\numberline {1.56}\textcolor {teal}{Comercial}:{Evaluación del cliente - venta de valor corporativo}}{10}{}%
+\contentsline {subsection}{\numberline {1.57}\textcolor {teal}{Comercial}:{Evaluación del cliente - venta de valor proyecto}}{10}{}%
+\contentsline {subsection}{\numberline {1.58}\textcolor {teal}{Comercial}:{Evaluación en público objetivo de la campaña, imagen proyectada, nivel de alcance y retención}}{10}{}%
+\contentsline {subsection}{\numberline {1.59}\textcolor {teal}{Comercial}:{Experiencia clientes calidad de servicio en la entrega de la vivienda}}{10}{}%
+\contentsline {subsection}{\numberline {1.60}\textcolor {teal}{Comercial}:{Experiencia clientes calidad de servicio en la espera de la vivienda}}{11}{}%
+\contentsline {subsection}{\numberline {1.61}\textcolor {teal}{Comercial}:{Experiencia clientes calidad de servicio en la posventa de la vivienda}}{11}{}%
+\contentsline {subsection}{\numberline {1.62}\textcolor {teal}{Comercial}:{Fallas en la revisión calidad/obra de la unidad}}{11}{}%
+\contentsline {subsection}{\numberline {1.63}\textcolor {teal}{Comercial}:{Fecha estimada de entrega al cliente}}{11}{}%
+\contentsline {subsection}{\numberline {1.64}\textcolor {teal}{Comercial}:{Feedback del Cliente - Posventa}}{11}{}%
+\contentsline {subsection}{\numberline {1.65}\textcolor {teal}{Comercial}:{Flujo de cotizantes}}{11}{}%
+\contentsline {subsection}{\numberline {1.66}\textcolor {teal}{Comercial}:{Folleto (Brochure)}}{11}{}%
+\contentsline {subsection}{\numberline {1.67}\textcolor {teal}{Comercial}:{Fondos de reserva comunidad}}{11}{}%
+\contentsline {subsection}{\numberline {1.68}\textcolor {teal}{Comercial}:{Funnel de ventas}}{12}{}%
+\contentsline {subsection}{\numberline {1.69}\textcolor {teal}{Comercial}:{Garantías de posventa}}{12}{}%
+\contentsline {subsection}{\numberline {1.70}\textcolor {teal}{Comercial}:{Google Addwords}}{12}{}%
+\contentsline {subsection}{\numberline {1.71}\textcolor {teal}{Comercial}:{Indicadores de campañas de marketing}}{12}{}%
+\contentsline {subsection}{\numberline {1.72}\textcolor {teal}{Comercial}:{Información del cliente Posventa}}{12}{}%
+\contentsline {subsection}{\numberline {1.73}\textcolor {teal}{Comercial}:{Información etnográfica de cotizantes y compradores (inside)}}{12}{}%
+\contentsline {subsection}{\numberline {1.74}\textcolor {teal}{Comercial}:{Información etnográfica de residentes (insitu)}}{12}{}%
+\contentsline {subsection}{\numberline {1.75}\textcolor {teal}{Comercial}:{Intención de búsqueda (keywords - kws)}}{13}{}%
+\contentsline {subsection}{\numberline {1.76}\textcolor {teal}{Comercial}:{Journey Builder}}{13}{}%
+\contentsline {subsection}{\numberline {1.77}\textcolor {teal}{Comercial}:{Leads}}{13}{}%
+\contentsline {subsection}{\numberline {1.78}\textcolor {teal}{Comercial}:{Linkbuilding (construcción de enlaces)}}{13}{}%
+\contentsline {subsection}{\numberline {1.79}\textcolor {teal}{Comercial}:{Llamado de coordinación}}{13}{}%
+\contentsline {subsection}{\numberline {1.80}\textcolor {teal}{Comercial}:{Marketing orgánico}}{13}{}%
+\contentsline {subsection}{\numberline {1.81}\textcolor {teal}{Comercial}:{Mensajes de Mailing masivo}}{13}{}%
+\contentsline {subsection}{\numberline {1.82}\textcolor {teal}{Comercial}:{Mensajes de SMS masivo}}{14}{}%
+\contentsline {subsection}{\numberline {1.83}\textcolor {teal}{Comercial}:{Mensajes de Whatsapp masivo}}{14}{}%
+\contentsline {subsection}{\numberline {1.84}\textcolor {teal}{Comercial}:{Modificaciones promesa de compraventa}}{14}{}%
+\contentsline {subsection}{\numberline {1.85}\textcolor {teal}{Comercial}:{Motivos de no compra}}{14}{}%
+\contentsline {subsection}{\numberline {1.86}\textcolor {teal}{Comercial}:{Nivel de recomendación o Net Promoter Score (NPS)}}{14}{}%
+\contentsline {subsection}{\numberline {1.87}\textcolor {teal}{Comercial}:{Nota revisión de calidad a la constructora}}{14}{}%
+\contentsline {subsection}{\numberline {1.88}\textcolor {teal}{Comercial}:{Nutrición de leads (Lead nurturing)}}{14}{}%
+\contentsline {subsection}{\numberline {1.89}\textcolor {teal}{Comercial}:{Observaciones durante la entrega al cliente}}{15}{}%
+\contentsline {subsection}{\numberline {1.90}\textcolor {teal}{Comercial}:{Órdenes de compra de marketing}}{15}{}%
+\contentsline {subsection}{\numberline {1.91}\textcolor {teal}{Comercial}:{Ordenes de trabajo para reparaciones y mantenimientos - Posventa}}{15}{}%
+\contentsline {subsection}{\numberline {1.92}\textcolor {teal}{Comercial}:{Pedido de materiales - Posventa}}{15}{}%
+\contentsline {subsection}{\numberline {1.93}\textcolor {teal}{Comercial}:{Perfil de cliente}}{15}{}%
+\contentsline {subsection}{\numberline {1.94}\textcolor {teal}{Comercial}:{Perfilamiento de clientes}}{15}{}%
+\contentsline {subsection}{\numberline {1.95}\textcolor {teal}{Comercial}:{Piezas de marketing digital}}{15}{}%
+\contentsline {subsection}{\numberline {1.96}\textcolor {teal}{Comercial}:{Planilla de entregas}}{16}{}%
+\contentsline {subsection}{\numberline {1.97}\textcolor {teal}{Comercial}:{Póliza de seguro venta en verde}}{16}{}%
+\contentsline {subsection}{\numberline {1.98}\textcolor {teal}{Comercial}:{Portal de información inmobiliaria}}{16}{}%
+\contentsline {subsection}{\numberline {1.99}\textcolor {teal}{Comercial}:{Posventa}}{16}{}%
+\contentsline {subsection}{\numberline {1.100}\textcolor {teal}{Comercial}:{Pre reserva de inmueble}}{16}{}%
+\contentsline {subsection}{\numberline {1.101}\textcolor {teal}{Comercial}:{Preferencias de los cotizantes (propios y del mercado)}}{16}{}%
+\contentsline {subsection}{\numberline {1.102}\textcolor {teal}{Comercial}:{Proceso de licitación de administraciones}}{16}{}%
+\contentsline {subsection}{\numberline {1.103}\textcolor {teal}{Comercial}:{Promesa de Compraventa}}{16}{}%
+\contentsline {subsection}{\numberline {1.104}\textcolor {teal}{Comercial}:{Promociones y acuerdos comerciales al cliente }}{17}{}%
+\contentsline {subsection}{\numberline {1.105}\textcolor {teal}{Comercial}:{Propiedad en parte de pago}}{17}{}%
+\contentsline {subsection}{\numberline {1.106}\textcolor {teal}{Comercial}:{Proyectos con unidades por entregar}}{17}{}%
+\contentsline {subsection}{\numberline {1.107}\textcolor {teal}{Comercial}:{Recaudación de saldos reales por diferencia de UF}}{17}{}%
+\contentsline {subsection}{\numberline {1.108}\textcolor {teal}{Comercial}:{Recuperación de subsidios y ahorro}}{17}{}%
+\contentsline {subsection}{\numberline {1.109}\textcolor {teal}{Comercial}:{Remarketing}}{17}{}%
+\contentsline {subsection}{\numberline {1.110}\textcolor {teal}{Comercial}:{Render}}{17}{}%
+\contentsline {subsection}{\numberline {1.111}\textcolor {teal}{Comercial}:{Resciliación de promesa compraventa}}{17}{}%
+\contentsline {subsection}{\numberline {1.112}\textcolor {teal}{Comercial}:{Reserva de inmueble}}{18}{}%
+\contentsline {subsection}{\numberline {1.113}\textcolor {teal}{Comercial}:{Retargeting}}{18}{}%
+\contentsline {subsection}{\numberline {1.114}\textcolor {teal}{Comercial}:{Revisiones de calidad/ obra de la unidad}}{18}{}%
+\contentsline {subsection}{\numberline {1.115}\textcolor {teal}{Comercial}:{Satisfacción del cliente desempeño del producto (vivienda)}}{18}{}%
+\contentsline {subsection}{\numberline {1.116}\textcolor {teal}{Comercial}:{Search Engine Marketing (SEM)}}{18}{}%
+\contentsline {subsection}{\numberline {1.117}\textcolor {teal}{Comercial}:{Search Engine Optimization (SEO)}}{18}{}%
+\contentsline {subsection}{\numberline {1.118}\textcolor {teal}{Comercial}:{Segmentación de mercado}}{18}{}%
+\contentsline {subsection}{\numberline {1.119}\textcolor {teal}{Comercial}:{Seguimiento de escrituración posfirma}}{19}{}%
+\contentsline {subsection}{\numberline {1.120}\textcolor {teal}{Comercial}:{Seguimiento de escrituración pre-firma}}{19}{}%
+\contentsline {subsection}{\numberline {1.121}\textcolor {teal}{Comercial}:{Servicio al cliente (SAC)}}{19}{}%
+\contentsline {subsection}{\numberline {1.122}\textcolor {teal}{Comercial}:{Sitio web}}{19}{}%
+\contentsline {subsection}{\numberline {1.123}\textcolor {teal}{Comercial}:{Social adds}}{19}{}%
+\contentsline {subsection}{\numberline {1.124}\textcolor {teal}{Comercial}:{Solicitudes de posventa}}{19}{}%
+\contentsline {subsection}{\numberline {1.125}\textcolor {teal}{Comercial}:{Stock de material - Posventa}}{19}{}%
+\contentsline {subsection}{\numberline {1.126}\textcolor {teal}{Comercial}:{Tasa de apertura}}{19}{}%
+\contentsline {subsection}{\numberline {1.127}\textcolor {teal}{Comercial}:{Tasa de conversión}}{20}{}%
+\contentsline {subsection}{\numberline {1.128}\textcolor {teal}{Comercial}:{Tasa de rebote}}{20}{}%
+\contentsline {subsection}{\numberline {1.129}\textcolor {teal}{Comercial}:{Tipos de falla - Árbol de fallas}}{20}{}%
+\contentsline {subsection}{\numberline {1.130}\textcolor {teal}{Comercial}:{Tráfico web}}{20}{}%
+\contentsline {subsection}{\numberline {1.131}\textcolor {teal}{Comercial}:{Unidades entregadas}}{20}{}%
+\contentsline {subsection}{\numberline {1.132}\textcolor {teal}{Comercial}:{Visto bueno de entrega al cliente}}{20}{}%
+\contentsline {section}{\numberline {2}\textcolor {blue}{Construcción}}{20}{}%
+\contentsline {subsection}{\numberline {2.1}\textcolor {teal}{Construcción}:{Análisis físico financiero (AFF)}}{20}{}%
+\contentsline {subsection}{\numberline {2.2}\textcolor {teal}{Construcción}:{Análisis precio unitario (APU)}}{20}{}%
+\contentsline {subsection}{\numberline {2.3}\textcolor {teal}{Construcción}:{Anexo proveedores}}{21}{}%
+\contentsline {subsection}{\numberline {2.4}\textcolor {teal}{Construcción}:{Arriendo de equipos y maquinarias I-Construye}}{21}{}%
+\contentsline {subsection}{\numberline {2.5}\textcolor {teal}{Construcción}:{Avance estados de pago obra}}{21}{}%
+\contentsline {subsection}{\numberline {2.6}\textcolor {teal}{Construcción}:{Avance físico de obra}}{21}{}%
+\contentsline {subsection}{\numberline {2.7}\textcolor {teal}{Construcción}:{Benchmark obra gruesa}}{21}{}%
+\contentsline {subsection}{\numberline {2.8}\textcolor {teal}{Construcción}:{Benchmark terminaciones}}{21}{}%
+\contentsline {subsection}{\numberline {2.9}\textcolor {teal}{Construcción}:{Carátula de pago}}{21}{}%
+\contentsline {subsection}{\numberline {2.10}\textcolor {teal}{Construcción}:{Centros de gestión IConstruye}}{21}{}%
+\contentsline {subsection}{\numberline {2.11}\textcolor {teal}{Construcción}:{Código de producto iConstruye}}{22}{}%
+\contentsline {subsection}{\numberline {2.12}\textcolor {teal}{Construcción}:{Convenios con proveedores}}{22}{}%
+\contentsline {subsection}{\numberline {2.13}\textcolor {teal}{Construcción}:{Costo contable proyecto}}{22}{}%
+\contentsline {subsection}{\numberline {2.14}\textcolor {teal}{Construcción}:{Cotizaciones de materiales}}{22}{}%
+\contentsline {subsection}{\numberline {2.15}\textcolor {teal}{Construcción}:{Cuadro de cotizaciones subcontratos}}{22}{}%
+\contentsline {subsection}{\numberline {2.16}\textcolor {teal}{Construcción}:{Cubicación}}{22}{}%
+\contentsline {subsection}{\numberline {2.17}\textcolor {teal}{Construcción}:{Cubicación de fierro}}{22}{}%
+\contentsline {subsection}{\numberline {2.18}\textcolor {teal}{Construcción}:{Cubicación de moldaje}}{22}{}%
+\contentsline {subsection}{\numberline {2.19}\textcolor {teal}{Construcción}:{Cubicaciones de hormigón}}{23}{}%
+\contentsline {subsection}{\numberline {2.20}\textcolor {teal}{Construcción}:{Cubicaciones de terminaciones}}{23}{}%
+\contentsline {subsection}{\numberline {2.21}\textcolor {teal}{Construcción}:{Datos de identificación de proveedores}}{23}{}%
+\contentsline {subsection}{\numberline {2.22}\textcolor {teal}{Construcción}:{Datos planos de respaldo de cubicaciones}}{23}{}%
+\contentsline {subsection}{\numberline {2.23}\textcolor {teal}{Construcción}:{Desviación del ritmo de actividades}}{23}{}%
+\contentsline {subsection}{\numberline {2.24}\textcolor {teal}{Construcción}:{Elementos de imputación}}{23}{}%
+\contentsline {subsection}{\numberline {2.25}\textcolor {teal}{Construcción}:{Estados de pago}}{23}{}%
+\contentsline {subsection}{\numberline {2.26}\textcolor {teal}{Construcción}:{Evaluaciones de subcontratistas}}{23}{}%
+\contentsline {subsection}{\numberline {2.27}\textcolor {teal}{Construcción}:{Factura}}{24}{}%
+\contentsline {subsection}{\numberline {2.28}\textcolor {teal}{Construcción}:{Gastos del proyecto}}{24}{}%
+\contentsline {subsection}{\numberline {2.29}\textcolor {teal}{Construcción}:{Gastos generales (GG)}}{24}{}%
+\contentsline {subsection}{\numberline {2.30}\textcolor {teal}{Construcción}:{Gastos-ingresos departamentos internos constructora}}{24}{}%
+\contentsline {subsection}{\numberline {2.31}\textcolor {teal}{Construcción}:{Gestión de bodegas I-Construye}}{24}{}%
+\contentsline {subsection}{\numberline {2.32}\textcolor {teal}{Construcción}:{Guía de despacho}}{24}{}%
+\contentsline {subsection}{\numberline {2.33}\textcolor {teal}{Construcción}:{Hombre día (HD)}}{24}{}%
+\contentsline {subsection}{\numberline {2.34}\textcolor {teal}{Construcción}:{Indicador de terminalidad}}{24}{}%
+\contentsline {subsection}{\numberline {2.35}\textcolor {teal}{Construcción}:{Indicador PSC}}{25}{}%
+\contentsline {subsection}{\numberline {2.36}\textcolor {teal}{Construcción}:{Indicador seguridad y salud ocupacional (SSO)}}{25}{}%
+\contentsline {subsection}{\numberline {2.37}\textcolor {teal}{Construcción}:{Indicador uso de tecnología obra}}{25}{}%
+\contentsline {subsection}{\numberline {2.38}\textcolor {teal}{Construcción}:{Indicadores de gestión documental I-Construye}}{25}{}%
+\contentsline {subsection}{\numberline {2.39}\textcolor {teal}{Construcción}:{Índice remoción de restricciones}}{25}{}%
+\contentsline {subsection}{\numberline {2.40}\textcolor {teal}{Construcción}:{Informe variación de proyecciones de costos}}{25}{}%
+\contentsline {subsection}{\numberline {2.41}\textcolor {teal}{Construcción}:{Inventario}}{25}{}%
+\contentsline {subsection}{\numberline {2.42}\textcolor {teal}{Construcción}:{Línea de balance de gastos generales (LOB GG)}}{25}{}%
+\contentsline {subsection}{\numberline {2.43}\textcolor {teal}{Construcción}:{Línea de balance oficial (LOB)}}{25}{}%
+\contentsline {subsection}{\numberline {2.44}\textcolor {teal}{Construcción}:{Maestro de recursos - Arquitectura (IConstruye)}}{26}{}%
+\contentsline {subsection}{\numberline {2.45}\textcolor {teal}{Construcción}:{Maestro de recursos - Desarrollo (IConstruye)}}{26}{}%
+\contentsline {subsection}{\numberline {2.46}\textcolor {teal}{Construcción}:{Maestro de recursos - Gastos de Administración y Ventas (IConstruye)}}{26}{}%
+\contentsline {subsection}{\numberline {2.47}\textcolor {teal}{Construcción}:{Maestro de recursos - Maestro de materiales (MM)}}{26}{}%
+\contentsline {subsection}{\numberline {2.48}\textcolor {teal}{Construcción}:{Maestro de recursos - Marketing (IConstruye)}}{26}{}%
+\contentsline {subsection}{\numberline {2.49}\textcolor {teal}{Construcción}:{Maestro de recursos - Sala de ventas (IConstruye)}}{26}{}%
+\contentsline {subsection}{\numberline {2.50}\textcolor {teal}{Construcción}:{Mano de obra directa (M.O.D.)}}{27}{}%
+\contentsline {subsection}{\numberline {2.51}\textcolor {teal}{Construcción}:{Mano de obra subcontratada (M.O.S.)}}{27}{}%
+\contentsline {subsection}{\numberline {2.52}\textcolor {teal}{Construcción}:{Matriz de terminalidad de actividades}}{27}{}%
+\contentsline {subsection}{\numberline {2.53}\textcolor {teal}{Construcción}:{Nómina de pagos}}{27}{}%
+\contentsline {subsection}{\numberline {2.54}\textcolor {teal}{Construcción}:{Notas genéricas al presupuesto}}{27}{}%
+\contentsline {subsection}{\numberline {2.55}\textcolor {teal}{Construcción}:{Notas técnicas al presupuesto}}{27}{}%
+\contentsline {subsection}{\numberline {2.56}\textcolor {teal}{Construcción}:{Obra gruesa (OG)}}{27}{}%
+\contentsline {subsection}{\numberline {2.57}\textcolor {teal}{Construcción}:{Oficina de partes (electrónica)}}{27}{}%
+\contentsline {subsection}{\numberline {2.58}\textcolor {teal}{Construcción}:{Órdenes de compra}}{27}{}%
+\contentsline {subsection}{\numberline {2.59}\textcolor {teal}{Construcción}:{Parámetro de costo mano de obra UF/M2 total}}{28}{}%
+\contentsline {subsection}{\numberline {2.60}\textcolor {teal}{Construcción}:{Parámetro de costo UF/HD}}{28}{}%
+\contentsline {subsection}{\numberline {2.61}\textcolor {teal}{Construcción}:{Parámetro de costo UF/M2 Edificio}}{28}{}%
+\contentsline {subsection}{\numberline {2.62}\textcolor {teal}{Construcción}:{Parámetro de costo UF/M2 total}}{28}{}%
+\contentsline {subsection}{\numberline {2.63}\textcolor {teal}{Construcción}:{Parámetro de costo UF/M2 Util}}{28}{}%
+\contentsline {subsection}{\numberline {2.64}\textcolor {teal}{Construcción}:{Parámetro de rendimiento HD/M2 Total}}{28}{}%
+\contentsline {subsection}{\numberline {2.65}\textcolor {teal}{Construcción}:{Parámetros mano de obra}}{28}{}%
+\contentsline {subsection}{\numberline {2.66}\textcolor {teal}{Construcción}:{Pedidos de materiales I-Construye}}{28}{}%
+\contentsline {subsection}{\numberline {2.67}\textcolor {teal}{Construcción}:{Perfiles IConstruye}}{28}{}%
+\contentsline {subsection}{\numberline {2.68}\textcolor {teal}{Construcción}:{Planificación de control de producción (PCP)}}{28}{}%
+\contentsline {subsection}{\numberline {2.69}\textcolor {teal}{Construcción}:{Planificación intermedia de obra}}{29}{}%
+\contentsline {subsection}{\numberline {2.70}\textcolor {teal}{Construcción}:{Planificación semanal de obra}}{29}{}%
+\contentsline {subsection}{\numberline {2.71}\textcolor {teal}{Construcción}:{Plazos avanzados/proyectados por actividad/obra}}{29}{}%
+\contentsline {subsection}{\numberline {2.72}\textcolor {teal}{Construcción}:{Plazos oficiales obra gruesa}}{29}{}%
+\contentsline {subsection}{\numberline {2.73}\textcolor {teal}{Construcción}:{Plazos oficiales terminaciones}}{29}{}%
+\contentsline {subsection}{\numberline {2.74}\textcolor {teal}{Construcción}:{Plazos preliminares obra gruesa}}{29}{}%
+\contentsline {subsection}{\numberline {2.75}\textcolor {teal}{Construcción}:{Plazos preliminares terminaciones}}{29}{}%
+\contentsline {subsection}{\numberline {2.76}\textcolor {teal}{Construcción}:{Presupuesto}}{29}{}%
+\contentsline {subsection}{\numberline {2.77}\textcolor {teal}{Construcción}:{Presupuesto entibaciones}}{29}{}%
+\contentsline {subsection}{\numberline {2.78}\textcolor {teal}{Construcción}:{Presupuesto inmobiliaria}}{30}{}%
+\contentsline {subsection}{\numberline {2.79}\textcolor {teal}{Construcción}:{Presupuesto obra}}{30}{}%
+\contentsline {subsection}{\numberline {2.80}\textcolor {teal}{Construcción}:{Presupuesto obra gruesa}}{30}{}%
+\contentsline {subsection}{\numberline {2.81}\textcolor {teal}{Construcción}:{Presupuesto obras extras}}{30}{}%
+\contentsline {subsection}{\numberline {2.82}\textcolor {teal}{Construcción}:{Presupuesto obras preliminares}}{30}{}%
+\contentsline {subsection}{\numberline {2.83}\textcolor {teal}{Construcción}:{Presupuesto terminaciones}}{30}{}%
+\contentsline {subsection}{\numberline {2.84}\textcolor {teal}{Construcción}:{Proveedores integrados a I-Construye}}{30}{}%
+\contentsline {subsection}{\numberline {2.85}\textcolor {teal}{Construcción}:{Proyección de costos por familia}}{30}{}%
+\contentsline {subsection}{\numberline {2.86}\textcolor {teal}{Construcción}:{Proyección de termino de actividad/obra}}{30}{}%
+\contentsline {subsection}{\numberline {2.87}\textcolor {teal}{Construcción}:{Recepción de materiales}}{31}{}%
+\contentsline {subsection}{\numberline {2.88}\textcolor {teal}{Construcción}:{Rendimiento de actividades críticas (m2/hd)}}{31}{}%
+\contentsline {subsection}{\numberline {2.89}\textcolor {teal}{Construcción}:{Rendimiento mano de obra por especialidad (obra gruesa y terminaciones)}}{31}{}%
+\contentsline {subsection}{\numberline {2.90}\textcolor {teal}{Construcción}:{Rendimiento obra gruesa (m2/hd)}}{31}{}%
+\contentsline {subsection}{\numberline {2.91}\textcolor {teal}{Construcción}:{Reportes I-Construye}}{31}{}%
+\contentsline {subsection}{\numberline {2.92}\textcolor {teal}{Construcción}:{Resultados mano de obra}}{31}{}%
+\contentsline {subsection}{\numberline {2.93}\textcolor {teal}{Construcción}:{Retenciones provisionadas por obra}}{31}{}%
+\contentsline {subsection}{\numberline {2.94}\textcolor {teal}{Construcción}:{Ritmo de avance de obra}}{31}{}%
+\contentsline {subsection}{\numberline {2.95}\textcolor {teal}{Construcción}:{Roles IConstruye}}{31}{}%
+\contentsline {subsection}{\numberline {2.96}\textcolor {teal}{Construcción}:{Subcontrato proveedores}}{32}{}%
+\contentsline {subsection}{\numberline {2.97}\textcolor {teal}{Construcción}:{Terminaciones y revestimientos}}{32}{}%
+\contentsline {subsection}{\numberline {2.98}\textcolor {teal}{Construcción}:{Usuarios IConstruye}}{32}{}%
+\contentsline {subsection}{\numberline {2.99}\textcolor {teal}{Construcción}:{Valor ganado obra}}{32}{}%
+\contentsline {subsection}{\numberline {2.100}\textcolor {teal}{Construcción}:{Valor proforma (VPF)}}{32}{}%
+\contentsline {section}{\numberline {3}\textcolor {blue}{Contabilidad}}{32}{}%
+\contentsline {subsection}{\numberline {3.1}\textcolor {teal}{Contabilidad}:{Flujo de aprobación - Rindegastos}}{32}{}%
+\contentsline {subsection}{\numberline {3.2}\textcolor {teal}{Contabilidad}:{Fondo fijo - Rindegasto}}{32}{}%
+\contentsline {subsection}{\numberline {3.3}\textcolor {teal}{Contabilidad}:{Informe de gastos - Rindegastos}}{33}{}%
+\contentsline {subsection}{\numberline {3.4}\textcolor {teal}{Contabilidad}:{Política de gastos - Rindegastos}}{33}{}%
+\contentsline {subsection}{\numberline {3.5}\textcolor {teal}{Contabilidad}:{Rendidores - Rindegastos}}{33}{}%
+\contentsline {subsection}{\numberline {3.6}\textcolor {teal}{Contabilidad}:{UF}}{33}{}%
+\contentsline {section}{\numberline {4}\textcolor {blue}{Finanzas}}{33}{}%
+\contentsline {subsection}{\numberline {4.1}\textcolor {teal}{Finanzas}:{AFR}}{33}{}%
+\contentsline {subsection}{\numberline {4.2}\textcolor {teal}{Finanzas}:{Amortización a Deuda}}{33}{}%
+\contentsline {subsection}{\numberline {4.3}\textcolor {teal}{Finanzas}:{Aprobación Bancaria}}{33}{}%
+\contentsline {subsection}{\numberline {4.4}\textcolor {teal}{Finanzas}:{Banco Alzante}}{33}{}%
+\contentsline {subsection}{\numberline {4.5}\textcolor {teal}{Finanzas}:{BCU/BCP}}{34}{}%
+\contentsline {subsection}{\numberline {4.6}\textcolor {teal}{Finanzas}:{Boleta de Garantía}}{34}{}%
+\contentsline {subsection}{\numberline {4.7}\textcolor {teal}{Finanzas}:{Boleta de garantía pagadera a 30 días}}{34}{}%
+\contentsline {subsection}{\numberline {4.8}\textcolor {teal}{Finanzas}:{Boleta de garantía pagadera a la vista}}{34}{}%
+\contentsline {subsection}{\numberline {4.9}\textcolor {teal}{Finanzas}:{Borrador}}{34}{}%
+\contentsline {subsection}{\numberline {4.10}\textcolor {teal}{Finanzas}:{Cambio Oferente}}{34}{}%
+\contentsline {subsection}{\numberline {4.11}\textcolor {teal}{Finanzas}:{Carta de crédito}}{34}{}%
+\contentsline {subsection}{\numberline {4.12}\textcolor {teal}{Finanzas}:{Carta de resguardo}}{34}{}%
+\contentsline {subsection}{\numberline {4.13}\textcolor {teal}{Finanzas}:{Carta Pie}}{34}{}%
+\contentsline {subsection}{\numberline {4.14}\textcolor {teal}{Finanzas}:{Carta Resguardo}}{35}{}%
+\contentsline {subsection}{\numberline {4.15}\textcolor {teal}{Finanzas}:{Cesión de derechos}}{35}{}%
+\contentsline {subsection}{\numberline {4.16}\textcolor {teal}{Finanzas}:{Cierre de Condiciones}}{35}{}%
+\contentsline {subsection}{\numberline {4.17}\textcolor {teal}{Finanzas}:{Codeudor}}{35}{}%
+\contentsline {subsection}{\numberline {4.18}\textcolor {teal}{Finanzas}:{Compañía de Seguros}}{35}{}%
+\contentsline {subsection}{\numberline {4.19}\textcolor {teal}{Finanzas}:{Compensación}}{35}{}%
+\contentsline {subsection}{\numberline {4.20}\textcolor {teal}{Finanzas}:{Conservador de Bienes y Raíces o CBR}}{35}{}%
+\contentsline {subsection}{\numberline {4.21}\textcolor {teal}{Finanzas}:{Copia Maestra}}{35}{}%
+\contentsline {subsection}{\numberline {4.22}\textcolor {teal}{Finanzas}:{Copropiedad}}{35}{}%
+\contentsline {subsection}{\numberline {4.23}\textcolor {teal}{Finanzas}:{Corredor de Seguros}}{36}{}%
+\contentsline {subsection}{\numberline {4.24}\textcolor {teal}{Finanzas}:{Costear/ Cerrar un proyecto}}{36}{}%
+\contentsline {subsection}{\numberline {4.25}\textcolor {teal}{Finanzas}:{Cotitular}}{36}{}%
+\contentsline {subsection}{\numberline {4.26}\textcolor {teal}{Finanzas}:{Crédito Hipotecario}}{36}{}%
+\contentsline {subsection}{\numberline {4.27}\textcolor {teal}{Finanzas}:{Curse}}{36}{}%
+\contentsline {subsection}{\numberline {4.28}\textcolor {teal}{Finanzas}:{Declaración Personal de Salud o DPS}}{36}{}%
+\contentsline {subsection}{\numberline {4.29}\textcolor {teal}{Finanzas}:{Depósito a Plazo}}{36}{}%
+\contentsline {subsection}{\numberline {4.30}\textcolor {teal}{Finanzas}:{Desistimiento}}{36}{}%
+\contentsline {subsection}{\numberline {4.31}\textcolor {teal}{Finanzas}:{Desistimiento de cobro}}{36}{}%
+\contentsline {subsection}{\numberline {4.32}\textcolor {teal}{Finanzas}:{Escritura de Alzamiento}}{37}{}%
+\contentsline {subsection}{\numberline {4.33}\textcolor {teal}{Finanzas}:{Estado Resultados EERR}}{37}{}%
+\contentsline {subsection}{\numberline {4.34}\textcolor {teal}{Finanzas}:{Estudio de títulos}}{37}{}%
+\contentsline {subsection}{\numberline {4.35}\textcolor {teal}{Finanzas}:{Flujo de aprobación (Rindegastos)}}{37}{}%
+\contentsline {subsection}{\numberline {4.36}\textcolor {teal}{Finanzas}:{Flujo Largo de Caja}}{37}{}%
+\contentsline {subsection}{\numberline {4.37}\textcolor {teal}{Finanzas}:{Fondos fijos (Rindegastos)}}{37}{}%
+\contentsline {subsection}{\numberline {4.38}\textcolor {teal}{Finanzas}:{Fondos Mutuos}}{37}{}%
+\contentsline {subsection}{\numberline {4.39}\textcolor {teal}{Finanzas}:{Forward}}{37}{}%
+\contentsline {subsection}{\numberline {4.40}\textcolor {teal}{Finanzas}:{Glosa boleta garantía}}{37}{}%
+\contentsline {subsection}{\numberline {4.41}\textcolor {teal}{Finanzas}:{GP}}{37}{}%
+\contentsline {subsection}{\numberline {4.42}\textcolor {teal}{Finanzas}:{Hipoteca}}{38}{}%
+\contentsline {subsection}{\numberline {4.43}\textcolor {teal}{Finanzas}:{IMACEC}}{38}{}%
+\contentsline {subsection}{\numberline {4.44}\textcolor {teal}{Finanzas}:{Índices Inmobiliarios}}{38}{}%
+\contentsline {subsection}{\numberline {4.45}\textcolor {teal}{Finanzas}:{Inflación}}{38}{}%
+\contentsline {subsection}{\numberline {4.46}\textcolor {teal}{Finanzas}:{Informe de gastos (Rindegastos)}}{38}{}%
+\contentsline {subsection}{\numberline {4.47}\textcolor {teal}{Finanzas}:{Instrucciones Notariales}}{38}{}%
+\contentsline {subsection}{\numberline {4.48}\textcolor {teal}{Finanzas}:{Lanzamiento}}{38}{}%
+\contentsline {subsection}{\numberline {4.49}\textcolor {teal}{Finanzas}:{Leasing habitacional}}{38}{}%
+\contentsline {subsection}{\numberline {4.50}\textcolor {teal}{Finanzas}:{Leasing operativo}}{38}{}%
+\contentsline {subsection}{\numberline {4.51}\textcolor {teal}{Finanzas}:{Liquidación de crédito}}{39}{}%
+\contentsline {subsection}{\numberline {4.52}\textcolor {teal}{Finanzas}:{Liquidador de Seguros}}{39}{}%
+\contentsline {subsection}{\numberline {4.53}\textcolor {teal}{Finanzas}:{Márgenes Promesados}}{39}{}%
+\contentsline {subsection}{\numberline {4.54}\textcolor {teal}{Finanzas}:{Novación}}{39}{}%
+\contentsline {subsection}{\numberline {4.55}\textcolor {teal}{Finanzas}:{Pactos Financieros}}{39}{}%
+\contentsline {subsection}{\numberline {4.56}\textcolor {teal}{Finanzas}:{Pagaré}}{39}{}%
+\contentsline {subsection}{\numberline {4.57}\textcolor {teal}{Finanzas}:{PIB}}{39}{}%
+\contentsline {subsection}{\numberline {4.58}\textcolor {teal}{Finanzas}:{Política de gastos (Rindegastos)}}{39}{}%
+\contentsline {subsection}{\numberline {4.59}\textcolor {teal}{Finanzas}:{Póliza de Seguro}}{40}{}%
+\contentsline {subsection}{\numberline {4.60}\textcolor {teal}{Finanzas}:{Póliza de Urbanización}}{40}{}%
+\contentsline {subsection}{\numberline {4.61}\textcolor {teal}{Finanzas}:{Post Venta}}{40}{}%
+\contentsline {subsection}{\numberline {4.62}\textcolor {teal}{Finanzas}:{Preaprobación bancaria}}{40}{}%
+\contentsline {subsection}{\numberline {4.63}\textcolor {teal}{Finanzas}:{Real Proyectado (RP)}}{40}{}%
+\contentsline {subsection}{\numberline {4.64}\textcolor {teal}{Finanzas}:{Recepción Municipal (RM)}}{40}{}%
+\contentsline {subsection}{\numberline {4.65}\textcolor {teal}{Finanzas}:{Redenominación}}{40}{}%
+\contentsline {subsection}{\numberline {4.66}\textcolor {teal}{Finanzas}:{Rendidores (Rindegastos)}}{40}{}%
+\contentsline {subsection}{\numberline {4.67}\textcolor {teal}{Finanzas}:{Renovación}}{40}{}%
+\contentsline {subsection}{\numberline {4.68}\textcolor {teal}{Finanzas}:{Reparos}}{41}{}%
+\contentsline {subsection}{\numberline {4.69}\textcolor {teal}{Finanzas}:{Saldo Caja}}{41}{}%
+\contentsline {subsection}{\numberline {4.70}\textcolor {teal}{Finanzas}:{Seguro de AP}}{41}{}%
+\contentsline {subsection}{\numberline {4.71}\textcolor {teal}{Finanzas}:{Seguro de Equipos Móviles}}{41}{}%
+\contentsline {subsection}{\numberline {4.72}\textcolor {teal}{Finanzas}:{Seguro de garantía de Venta en Verde}}{41}{}%
+\contentsline {subsection}{\numberline {4.73}\textcolor {teal}{Finanzas}:{Seguro de Incendio}}{41}{}%
+\contentsline {subsection}{\numberline {4.74}\textcolor {teal}{Finanzas}:{Seguro de RC}}{41}{}%
+\contentsline {subsection}{\numberline {4.75}\textcolor {teal}{Finanzas}:{Seguro desgravamen}}{41}{}%
+\contentsline {subsection}{\numberline {4.76}\textcolor {teal}{Finanzas}:{Seguro TRC}}{42}{}%
+\contentsline {subsection}{\numberline {4.77}\textcolor {teal}{Finanzas}:{Seguros de Vehículos}}{42}{}%
+\contentsline {subsection}{\numberline {4.78}\textcolor {teal}{Finanzas}:{Set de finanzas}}{42}{}%
+\contentsline {subsection}{\numberline {4.79}\textcolor {teal}{Finanzas}:{Swaps}}{42}{}%
+\contentsline {subsection}{\numberline {4.80}\textcolor {teal}{Finanzas}:{TAB}}{42}{}%
+\contentsline {subsection}{\numberline {4.81}\textcolor {teal}{Finanzas}:{Tasa Nominal}}{42}{}%
+\contentsline {subsection}{\numberline {4.82}\textcolor {teal}{Finanzas}:{Tasación}}{42}{}%
+\contentsline {subsection}{\numberline {4.83}\textcolor {teal}{Finanzas}:{Titular}}{42}{}%
+\contentsline {subsection}{\numberline {4.84}\textcolor {teal}{Finanzas}:{TPM}}{42}{}%
+\contentsline {subsection}{\numberline {4.85}\textcolor {teal}{Finanzas}:{Vale vista}}{42}{}%
+\contentsline {subsection}{\numberline {4.86}\textcolor {teal}{Finanzas}:{Vencimiento de Intereses}}{43}{}%
+\contentsline {subsection}{\numberline {4.87}\textcolor {teal}{Finanzas}:{Visado}}{43}{}%
+\contentsline {section}{\numberline {5}\textcolor {blue}{Gobierno de Datos}}{43}{}%
+\contentsline {subsection}{\numberline {5.1}\textcolor {teal}{Gobierno de Datos}:{Administración de Bases de Datos (Database Management)}}{43}{}%
+\contentsline {subsection}{\numberline {5.2}\textcolor {teal}{Gobierno de Datos}:{Almacén de Datos (Data Warehouse)}}{43}{}%
+\contentsline {subsection}{\numberline {5.3}\textcolor {teal}{Gobierno de Datos}:{Almacenamiento de Datos (Data Storage)}}{43}{}%
+\contentsline {subsection}{\numberline {5.4}\textcolor {teal}{Gobierno de Datos}:{Aprendizaje Automático (Machine Learning)}}{43}{}%
+\contentsline {subsection}{\numberline {5.5}\textcolor {teal}{Gobierno de Datos}:{Aprendizaje Profundo (Deep Learning)}}{43}{}%
+\contentsline {subsection}{\numberline {5.6}\textcolor {teal}{Gobierno de Datos}:{Arquitectura de Datos (Data Architecture)}}{44}{}%
+\contentsline {subsection}{\numberline {5.7}\textcolor {teal}{Gobierno de Datos}:{Base de Datos (Database)}}{44}{}%
+\contentsline {subsection}{\numberline {5.8}\textcolor {teal}{Gobierno de Datos}:{Calidad del Dato (Data quality)}}{44}{}%
+\contentsline {subsection}{\numberline {5.9}\textcolor {teal}{Gobierno de Datos}:{Catalogación de Datos (Data Cataloging)}}{44}{}%
+\contentsline {subsection}{\numberline {5.10}\textcolor {teal}{Gobierno de Datos}:{Ciencia de Datos (Data Science)}}{44}{}%
+\contentsline {subsection}{\numberline {5.11}\textcolor {teal}{Gobierno de Datos}:{COBIT}}{44}{}%
+\contentsline {subsection}{\numberline {5.12}\textcolor {teal}{Gobierno de Datos}:{Custodio de Datos (Data Steward)}}{44}{}%
+\contentsline {subsection}{\numberline {5.13}\textcolor {teal}{Gobierno de Datos}:{Custodio Técnico de Datos (Technical Data Steward)}}{45}{}%
+\contentsline {subsection}{\numberline {5.14}\textcolor {teal}{Gobierno de Datos}:{DAMA (Data Managment Association)}}{45}{}%
+\contentsline {subsection}{\numberline {5.15}\textcolor {teal}{Gobierno de Datos}:{Dato (Data)}}{45}{}%
+\contentsline {subsection}{\numberline {5.16}\textcolor {teal}{Gobierno de Datos}:{Dato Personal}}{45}{}%
+\contentsline {subsection}{\numberline {5.17}\textcolor {teal}{Gobierno de Datos}:{Datos masivos/ Macrodatos (Big Data)}}{45}{}%
+\contentsline {subsection}{\numberline {5.18}\textcolor {teal}{Gobierno de Datos}:{Datos personales sensibles}}{45}{}%
+\contentsline {subsection}{\numberline {5.19}\textcolor {teal}{Gobierno de Datos}:{Derecho de acceso (Ley de datos personales)}}{45}{}%
+\contentsline {subsection}{\numberline {5.20}\textcolor {teal}{Gobierno de Datos}:{Derecho de cancelación (Ley de datos personales)}}{46}{}%
+\contentsline {subsection}{\numberline {5.21}\textcolor {teal}{Gobierno de Datos}:{Derecho de oposición (Ley de datos personales)}}{46}{}%
+\contentsline {subsection}{\numberline {5.22}\textcolor {teal}{Gobierno de Datos}:{Derecho de portabilidad de los datos personales (Ley de datos personales)}}{46}{}%
+\contentsline {subsection}{\numberline {5.23}\textcolor {teal}{Gobierno de Datos}:{Derecho de rectificación (Ley de datos personales)}}{46}{}%
+\contentsline {subsection}{\numberline {5.24}\textcolor {teal}{Gobierno de Datos}:{Derechos ARCO (Ley de datos personales)}}{46}{}%
+\contentsline {subsection}{\numberline {5.25}\textcolor {teal}{Gobierno de Datos}:{Dueño de Datos (Data Owner)}}{46}{}%
+\contentsline {subsection}{\numberline {5.26}\textcolor {teal}{Gobierno de Datos}:{Encriptación de Datos (Data encryption)}}{46}{}%
+\contentsline {subsection}{\numberline {5.27}\textcolor {teal}{Gobierno de Datos}:{Enmascaramiento de Datos (Data Masking)}}{47}{}%
+\contentsline {subsection}{\numberline {5.28}\textcolor {teal}{Gobierno de Datos}:{Escape de Datos (Data Breach)}}{47}{}%
+\contentsline {subsection}{\numberline {5.29}\textcolor {teal}{Gobierno de Datos}:{ETL (Extract, transform and load)}}{47}{}%
+\contentsline {subsection}{\numberline {5.30}\textcolor {teal}{Gobierno de Datos}:{Fuentes de acceso público}}{47}{}%
+\contentsline {subsection}{\numberline {5.31}\textcolor {teal}{Gobierno de Datos}:{Gestión de Datos (Data Management)}}{47}{}%
+\contentsline {subsection}{\numberline {5.32}\textcolor {teal}{Gobierno de Datos}:{Gestión de Metadatos (Metadata Management)}}{47}{}%
+\contentsline {subsection}{\numberline {5.33}\textcolor {teal}{Gobierno de Datos}:{Gobernanza de Datos (Data Governance)}}{47}{}%
+\contentsline {subsection}{\numberline {5.34}\textcolor {teal}{Gobierno de Datos}:{Hurto/Robo de Datos (Data Theft)}}{48}{}%
+\contentsline {subsection}{\numberline {5.35}\textcolor {teal}{Gobierno de Datos}:{Información Sensible (Sensitive Information)}}{48}{}%
+\contentsline {subsection}{\numberline {5.36}\textcolor {teal}{Gobierno de Datos}:{Integración de Datos (Data Integration)}}{48}{}%
+\contentsline {subsection}{\numberline {5.37}\textcolor {teal}{Gobierno de Datos}:{Inteligencia Artificial (Artificial Intelligence)}}{48}{}%
+\contentsline {subsection}{\numberline {5.38}\textcolor {teal}{Gobierno de Datos}:{Inteligencia de Negocios (Business Intelligence) }}{48}{}%
+\contentsline {subsection}{\numberline {5.39}\textcolor {teal}{Gobierno de Datos}:{Lago de Datos (Data Lake)}}{48}{}%
+\contentsline {subsection}{\numberline {5.40}\textcolor {teal}{Gobierno de Datos}:{Limpieza de Datos (Data Cleansing)}}{48}{}%
+\contentsline {subsection}{\numberline {5.41}\textcolor {teal}{Gobierno de Datos}:{Linaje del Dato (Data Lineage) }}{49}{}%
+\contentsline {subsection}{\numberline {5.42}\textcolor {teal}{Gobierno de Datos}:{Mapeo de Datos (Data Mapping)}}{49}{}%
+\contentsline {subsection}{\numberline {5.43}\textcolor {teal}{Gobierno de Datos}:{Metadato (Metadata)}}{49}{}%
+\contentsline {subsection}{\numberline {5.44}\textcolor {teal}{Gobierno de Datos}:{Migración de Datos (Data Migration)}}{49}{}%
+\contentsline {subsection}{\numberline {5.45}\textcolor {teal}{Gobierno de Datos}:{Minería de datos (Data Mining)}}{49}{}%
+\contentsline {subsection}{\numberline {5.46}\textcolor {teal}{Gobierno de Datos}:{Modelado de Datos (Data Modeling)}}{49}{}%
+\contentsline {subsection}{\numberline {5.47}\textcolor {teal}{Gobierno de Datos}:{NoSQL}}{49}{}%
+\contentsline {subsection}{\numberline {5.48}\textcolor {teal}{Gobierno de Datos}:{Nube (Cloud)}}{50}{}%
+\contentsline {subsection}{\numberline {5.49}\textcolor {teal}{Gobierno de Datos}:{Paisaje de Datos (Data Landscape)}}{50}{}%
+\contentsline {subsection}{\numberline {5.50}\textcolor {teal}{Gobierno de Datos}:{Perfilamiento de Datos (Data Profiling)}}{50}{}%
+\contentsline {subsection}{\numberline {5.51}\textcolor {teal}{Gobierno de Datos}:{Política de Datos (Data Policy)}}{50}{}%
+\contentsline {subsection}{\numberline {5.52}\textcolor {teal}{Gobierno de Datos}:{Proceso de anonimización o disociación}}{50}{}%
+\contentsline {subsection}{\numberline {5.53}\textcolor {teal}{Gobierno de Datos}:{Reconocimiento / Conciencia de los Datos (Data awareness)}}{50}{}%
+\contentsline {subsection}{\numberline {5.54}\textcolor {teal}{Gobierno de Datos}:{Repositorio de Datos (Data Repository)}}{50}{}%
+\contentsline {subsection}{\numberline {5.55}\textcolor {teal}{Gobierno de Datos}:{Respaldo de Seguridad (Backup)}}{51}{}%
+\contentsline {subsection}{\numberline {5.56}\textcolor {teal}{Gobierno de Datos}:{Seguridad de Datos (Data Security)}}{51}{}%
+\contentsline {subsection}{\numberline {5.57}\textcolor {teal}{Gobierno de Datos}:{Silo de Datos (Data Silo)}}{51}{}%
+\contentsline {subsection}{\numberline {5.58}\textcolor {teal}{Gobierno de Datos}:{Sistema de Gestión de Bases de Datos (Database Management System o DBMS)}}{51}{}%
+\contentsline {subsection}{\numberline {5.59}\textcolor {teal}{Gobierno de Datos}:{SQL}}{51}{}%
+\contentsline {subsection}{\numberline {5.60}\textcolor {teal}{Gobierno de Datos}:{Titular de datos o titular}}{51}{}%
+\contentsline {subsection}{\numberline {5.61}\textcolor {teal}{Gobierno de Datos}:{Transmisión de Datos (Data Streaming)}}{51}{}%
+\contentsline {subsection}{\numberline {5.62}\textcolor {teal}{Gobierno de Datos}:{Tratamiento de datos}}{52}{}%
+\contentsline {section}{\numberline {6}\textcolor {blue}{Inmobiliaria}}{52}{}%
+\contentsline {subsection}{\numberline {6.1}\textcolor {teal}{Inmobiliaria}:{Arquitecto CABIDA proyecto}}{52}{}%
+\contentsline {subsection}{\numberline {6.2}\textcolor {teal}{Inmobiliaria}:{CABIDA}}{52}{}%
+\contentsline {subsection}{\numberline {6.3}\textcolor {teal}{Inmobiliaria}:{Carta gantt proyecto}}{52}{}%
+\contentsline {subsection}{\numberline {6.4}\textcolor {teal}{Inmobiliaria}:{Categoría de proyecto}}{52}{}%
+\contentsline {subsection}{\numberline {6.5}\textcolor {teal}{Inmobiliaria}:{CIP}}{52}{}%
+\contentsline {subsection}{\numberline {6.6}\textcolor {teal}{Inmobiliaria}:{Código PCT/ Carpeta física}}{52}{}%
+\contentsline {subsection}{\numberline {6.7}\textcolor {teal}{Inmobiliaria}:{Datos del mercado inmobiliario}}{52}{}%
+\contentsline {subsection}{\numberline {6.8}\textcolor {teal}{Inmobiliaria}:{Datos del proyecto}}{53}{}%
+\contentsline {subsection}{\numberline {6.9}\textcolor {teal}{Inmobiliaria}:{Datos del terreno}}{53}{}%
+\contentsline {subsection}{\numberline {6.10}\textcolor {teal}{Inmobiliaria}:{Datos descripción del proyecto}}{53}{}%
+\contentsline {subsection}{\numberline {6.11}\textcolor {teal}{Inmobiliaria}:{Datos Financieros del Proyecto}}{53}{}%
+\contentsline {subsection}{\numberline {6.12}\textcolor {teal}{Inmobiliaria}:{EECC}}{53}{}%
+\contentsline {subsection}{\numberline {6.13}\textcolor {teal}{Inmobiliaria}:{Estado proyecto}}{53}{}%
+\contentsline {subsection}{\numberline {6.14}\textcolor {teal}{Inmobiliaria}:{Metraje departamento}}{53}{}%
+\contentsline {subsection}{\numberline {6.15}\textcolor {teal}{Inmobiliaria}:{Mix departamento}}{53}{}%
+\contentsline {subsection}{\numberline {6.16}\textcolor {teal}{Inmobiliaria}:{ODI}}{53}{}%
+\contentsline {subsection}{\numberline {6.17}\textcolor {teal}{Inmobiliaria}:{Plancheta}}{54}{}%
+\contentsline {subsection}{\numberline {6.18}\textcolor {teal}{Inmobiliaria}:{Proyecto inmobiliario}}{54}{}%
+\contentsline {subsection}{\numberline {6.19}\textcolor {teal}{Inmobiliaria}:{Temblor}}{54}{}%
+\contentsline {subsection}{\numberline {6.20}\textcolor {teal}{Inmobiliaria}:{Temblor compra}}{54}{}%
+\contentsline {subsection}{\numberline {6.21}\textcolor {teal}{Inmobiliaria}:{Temblor lanzamiento}}{54}{}%
+\contentsline {subsection}{\numberline {6.22}\textcolor {teal}{Inmobiliaria}:{Temblor piso tipo}}{54}{}%
+\contentsline {subsection}{\numberline {6.23}\textcolor {teal}{Inmobiliaria}:{Tipología Departamento}}{54}{}%
+\contentsline {subsection}{\numberline {6.24}\textcolor {teal}{Inmobiliaria}:{Unidades departamento}}{54}{}%
+\contentsline {section}{\numberline {7}\textcolor {blue}{Lean}}{54}{}%
+\contentsline {subsection}{\numberline {7.1}\textcolor {teal}{Lean}:{ 5 por qué}}{54}{}%
+\contentsline {subsection}{\numberline {7.2}\textcolor {teal}{Lean}:{Panel de Control}}{55}{}%
+\contentsline {subsection}{\numberline {7.3}\textcolor {teal}{Lean}:{SIPOC}}{55}{}%
+\contentsline {subsection}{\numberline {7.4}\textcolor {teal}{Lean}:{Sistema 5S}}{55}{}%
+\contentsline {subsection}{\numberline {7.5}\textcolor {teal}{Lean}:{Takt Time}}{55}{}%
+\contentsline {subsection}{\numberline {7.6}\textcolor {teal}{Lean}:{Value Stream Mapping (VSM) / Mapeo del flujo de valor}}{55}{}%
+\contentsline {section}{\numberline {8}\textcolor {blue}{RRHH}}{56}{}%
+\contentsline {subsection}{\numberline {8.1}\textcolor {teal}{RRHH}:{Administración de la Compensación}}{56}{}%
+\contentsline {subsection}{\numberline {8.2}\textcolor {teal}{RRHH}:{Anexo de Contrato}}{56}{}%
+\contentsline {subsection}{\numberline {8.3}\textcolor {teal}{RRHH}:{Área}}{56}{}%
+\contentsline {subsection}{\numberline {8.4}\textcolor {teal}{RRHH}:{Asignaciones}}{56}{}%
+\contentsline {subsection}{\numberline {8.5}\textcolor {teal}{RRHH}:{Ausentismo}}{56}{}%
+\contentsline {subsection}{\numberline {8.6}\textcolor {teal}{RRHH}:{Autoevaluación de Desempeño}}{56}{}%
+\contentsline {subsection}{\numberline {8.7}\textcolor {teal}{RRHH}:{Base de datos personales}}{56}{}%
+\contentsline {subsection}{\numberline {8.8}\textcolor {teal}{RRHH}:{Bono}}{56}{}%
+\contentsline {subsection}{\numberline {8.9}\textcolor {teal}{RRHH}:{Calculadora de Cargo}}{57}{}%
+\contentsline {subsection}{\numberline {8.10}\textcolor {teal}{RRHH}:{Capacitación laboral}}{57}{}%
+\contentsline {subsection}{\numberline {8.11}\textcolor {teal}{RRHH}:{Cargo}}{57}{}%
+\contentsline {subsection}{\numberline {8.12}\textcolor {teal}{RRHH}:{Cargo operativo obra}}{57}{}%
+\contentsline {subsection}{\numberline {8.13}\textcolor {teal}{RRHH}:{Cargo sujeto a evaluación de desempeño}}{57}{}%
+\contentsline {subsection}{\numberline {8.14}\textcolor {teal}{RRHH}:{Carta oferta laboral}}{57}{}%
+\contentsline {subsection}{\numberline {8.15}\textcolor {teal}{RRHH}:{Clima Organizacional}}{57}{}%
+\contentsline {subsection}{\numberline {8.16}\textcolor {teal}{RRHH}:{Comisiones}}{57}{}%
+\contentsline {subsection}{\numberline {8.17}\textcolor {teal}{RRHH}:{Competencia crítica}}{57}{}%
+\contentsline {subsection}{\numberline {8.18}\textcolor {teal}{RRHH}:{Competencia deseable}}{58}{}%
+\contentsline {subsection}{\numberline {8.19}\textcolor {teal}{RRHH}:{Competencias}}{58}{}%
+\contentsline {subsection}{\numberline {8.20}\textcolor {teal}{RRHH}:{Competencias específicas}}{58}{}%
+\contentsline {subsection}{\numberline {8.21}\textcolor {teal}{RRHH}:{Competencias transversales}}{58}{}%
+\contentsline {subsection}{\numberline {8.22}\textcolor {teal}{RRHH}:{Conductas}}{58}{}%
+\contentsline {subsection}{\numberline {8.23}\textcolor {teal}{RRHH}:{Contrato de Trabajo}}{58}{}%
+\contentsline {subsection}{\numberline {8.24}\textcolor {teal}{RRHH}:{Contrato Indefinido}}{59}{}%
+\contentsline {subsection}{\numberline {8.25}\textcolor {teal}{RRHH}:{Contrato por Obra o Faena}}{59}{}%
+\contentsline {subsection}{\numberline {8.26}\textcolor {teal}{RRHH}:{Curriculum Vitae (CV)}}{59}{}%
+\contentsline {subsection}{\numberline {8.27}\textcolor {teal}{RRHH}:{Datos Académicos}}{59}{}%
+\contentsline {subsection}{\numberline {8.28}\textcolor {teal}{RRHH}:{Datos de contacto del empleado}}{59}{}%
+\contentsline {subsection}{\numberline {8.29}\textcolor {teal}{RRHH}:{Datos de emergencia del empleado}}{59}{}%
+\contentsline {subsection}{\numberline {8.30}\textcolor {teal}{RRHH}:{Datos de identificación del empleado}}{59}{}%
+\contentsline {subsection}{\numberline {8.31}\textcolor {teal}{RRHH}:{Datos para depósito del empleado}}{59}{}%
+\contentsline {subsection}{\numberline {8.32}\textcolor {teal}{RRHH}:{Datos previsionales del empleado}}{60}{}%
+\contentsline {subsection}{\numberline {8.33}\textcolor {teal}{RRHH}:{Datos relación de parentesco familiar dentro de la empresa}}{60}{}%
+\contentsline {subsection}{\numberline {8.34}\textcolor {teal}{RRHH}:{Departamento}}{60}{}%
+\contentsline {subsection}{\numberline {8.35}\textcolor {teal}{RRHH}:{Descuentos}}{60}{}%
+\contentsline {subsection}{\numberline {8.36}\textcolor {teal}{RRHH}:{Desempeño Histórico}}{60}{}%
+\contentsline {subsection}{\numberline {8.37}\textcolor {teal}{RRHH}:{Dimensión de la competencia}}{60}{}%
+\contentsline {subsection}{\numberline {8.38}\textcolor {teal}{RRHH}:{Elemento PEP}}{60}{}%
+\contentsline {subsection}{\numberline {8.39}\textcolor {teal}{RRHH}:{Empresa}}{60}{}%
+\contentsline {subsection}{\numberline {8.40}\textcolor {teal}{RRHH}:{Estructura Organizacional}}{61}{}%
+\contentsline {subsection}{\numberline {8.41}\textcolor {teal}{RRHH}:{Evaluación de Desempeño}}{61}{}%
+\contentsline {subsection}{\numberline {8.42}\textcolor {teal}{RRHH}:{Familia de cargo KPI}}{61}{}%
+\contentsline {subsection}{\numberline {8.43}\textcolor {teal}{RRHH}:{Familia de cargo Memoria}}{61}{}%
+\contentsline {subsection}{\numberline {8.44}\textcolor {teal}{RRHH}:{Feriado legal/ Vacaciones}}{61}{}%
+\contentsline {subsection}{\numberline {8.45}\textcolor {teal}{RRHH}:{Ficha de Ingreso del Trabajador}}{61}{}%
+\contentsline {subsection}{\numberline {8.46}\textcolor {teal}{RRHH}:{Firma Electrónica}}{61}{}%
+\contentsline {subsection}{\numberline {8.47}\textcolor {teal}{RRHH}:{Fortaleza (competencias)}}{61}{}%
+\contentsline {subsection}{\numberline {8.48}\textcolor {teal}{RRHH}:{Fuero maternal}}{62}{}%
+\contentsline {subsection}{\numberline {8.49}\textcolor {teal}{RRHH}:{Gerencia}}{62}{}%
+\contentsline {subsection}{\numberline {8.50}\textcolor {teal}{RRHH}:{Gratificación legal}}{62}{}%
+\contentsline {subsection}{\numberline {8.51}\textcolor {teal}{RRHH}:{Grupo Familiar}}{62}{}%
+\contentsline {subsection}{\numberline {8.52}\textcolor {teal}{RRHH}:{GX}}{62}{}%
+\contentsline {subsection}{\numberline {8.53}\textcolor {teal}{RRHH}:{Haberes}}{62}{}%
+\contentsline {subsection}{\numberline {8.54}\textcolor {teal}{RRHH}:{Habilidades conductuales-relacionales a capacitar (Resultado evaluación de desempeño)}}{62}{}%
+\contentsline {subsection}{\numberline {8.55}\textcolor {teal}{RRHH}:{Habilidades técnicas a capacitar (Resultado evaluación de desempeño)}}{62}{}%
+\contentsline {subsection}{\numberline {8.56}\textcolor {teal}{RRHH}:{Horas extraordinarias}}{63}{}%
+\contentsline {subsection}{\numberline {8.57}\textcolor {teal}{RRHH}:{Indicadores de eficacia capacitación mensual/anual}}{63}{}%
+\contentsline {subsection}{\numberline {8.58}\textcolor {teal}{RRHH}:{Indicadores económicos capacitación mensual/anual}}{63}{}%
+\contentsline {subsection}{\numberline {8.59}\textcolor {teal}{RRHH}:{InfoNómina}}{63}{}%
+\contentsline {subsection}{\numberline {8.60}\textcolor {teal}{RRHH}:{Información aula virtual GESOC}}{63}{}%
+\contentsline {subsection}{\numberline {8.61}\textcolor {teal}{RRHH}:{Información cursos }}{63}{}%
+\contentsline {subsection}{\numberline {8.62}\textcolor {teal}{RRHH}:{Información laboral}}{63}{}%
+\contentsline {subsection}{\numberline {8.63}\textcolor {teal}{RRHH}:{Información proveedores de capacitación (OTEC)}}{64}{}%
+\contentsline {subsection}{\numberline {8.64}\textcolor {teal}{RRHH}:{Jefatura}}{64}{}%
+\contentsline {subsection}{\numberline {8.65}\textcolor {teal}{RRHH}:{Jefe Evaluador}}{64}{}%
+\contentsline {subsection}{\numberline {8.66}\textcolor {teal}{RRHH}:{Licencia Médica}}{64}{}%
+\contentsline {subsection}{\numberline {8.67}\textcolor {teal}{RRHH}:{Licencia médica postnatal}}{64}{}%
+\contentsline {subsection}{\numberline {8.68}\textcolor {teal}{RRHH}:{Licencia médica prenatal}}{64}{}%
+\contentsline {subsection}{\numberline {8.69}\textcolor {teal}{RRHH}:{Liquidación de Sueldo}}{64}{}%
+\contentsline {subsection}{\numberline {8.70}\textcolor {teal}{RRHH}:{Marca}}{64}{}%
+\contentsline {subsection}{\numberline {8.71}\textcolor {teal}{RRHH}:{Matriz de talento (Nine box)}}{65}{}%
+\contentsline {subsection}{\numberline {8.72}\textcolor {teal}{RRHH}:{Modelo de gestión por competencias}}{65}{}%
+\contentsline {subsection}{\numberline {8.73}\textcolor {teal}{RRHH}:{Necesidades de capacitación (Resultado evaluación de desempeño)}}{65}{}%
+\contentsline {subsection}{\numberline {8.74}\textcolor {teal}{RRHH}:{Nivel de conducta}}{65}{}%
+\contentsline {subsection}{\numberline {8.75}\textcolor {teal}{RRHH}:{Nivel de talento}}{65}{}%
+\contentsline {subsection}{\numberline {8.76}\textcolor {teal}{RRHH}:{Nivel HAY}}{65}{}%
+\contentsline {subsection}{\numberline {8.77}\textcolor {teal}{RRHH}:{Oportunidad de mejora (competencias)}}{66}{}%
+\contentsline {subsection}{\numberline {8.78}\textcolor {teal}{RRHH}:{Organigrama}}{66}{}%
+\contentsline {subsection}{\numberline {8.79}\textcolor {teal}{RRHH}:{Organismo técnico de capacitación (OTEC)}}{66}{}%
+\contentsline {subsection}{\numberline {8.80}\textcolor {teal}{RRHH}:{Perfil de cargo}}{66}{}%
+\contentsline {subsection}{\numberline {8.81}\textcolor {teal}{RRHH}:{Perfil de línea conductual}}{66}{}%
+\contentsline {subsection}{\numberline {8.82}\textcolor {teal}{RRHH}:{Perfil meta}}{66}{}%
+\contentsline {subsection}{\numberline {8.83}\textcolor {teal}{RRHH}:{Persona sujeta a evaluación}}{66}{}%
+\contentsline {subsection}{\numberline {8.84}\textcolor {teal}{RRHH}:{Personal activo}}{66}{}%
+\contentsline {subsection}{\numberline {8.85}\textcolor {teal}{RRHH}:{Personal directivo obra}}{66}{}%
+\contentsline {subsection}{\numberline {8.86}\textcolor {teal}{RRHH}:{Personal inactivo}}{67}{}%
+\contentsline {subsection}{\numberline {8.87}\textcolor {teal}{RRHH}:{Plataforma 5.dec}}{67}{}%
+\contentsline {subsection}{\numberline {8.88}\textcolor {teal}{RRHH}:{Posición}}{67}{}%
+\contentsline {subsection}{\numberline {8.89}\textcolor {teal}{RRHH}:{Puntaje Evaluación de Desempeño}}{67}{}%
+\contentsline {subsection}{\numberline {8.90}\textcolor {teal}{RRHH}:{Puntaje Evaluación de Desempeño Calibrado}}{67}{}%
+\contentsline {subsection}{\numberline {8.91}\textcolor {teal}{RRHH}:{Puntaje responsabilidad para el cargo (Metodología HAY)}}{67}{}%
+\contentsline {subsection}{\numberline {8.92}\textcolor {teal}{RRHH}:{Puntaje saber para el cargo (Metodología HAY)}}{67}{}%
+\contentsline {subsection}{\numberline {8.93}\textcolor {teal}{RRHH}:{Puntaje solución de problemas para el cargo (Metodología HAY)}}{67}{}%
+\contentsline {subsection}{\numberline {8.94}\textcolor {teal}{RRHH}:{Remuneración}}{67}{}%
+\contentsline {subsection}{\numberline {8.95}\textcolor {teal}{RRHH}:{Remuneración fija}}{68}{}%
+\contentsline {subsection}{\numberline {8.96}\textcolor {teal}{RRHH}:{Remuneración variable}}{68}{}%
+\contentsline {subsection}{\numberline {8.97}\textcolor {teal}{RRHH}:{Retroalimentación laboral (Feedback)}}{68}{}%
+\contentsline {subsection}{\numberline {8.98}\textcolor {teal}{RRHH}:{Saldos de Vacaciones}}{68}{}%
+\contentsline {subsection}{\numberline {8.99}\textcolor {teal}{RRHH}:{Sistema Uno}}{68}{}%
+\contentsline {subsection}{\numberline {8.100}\textcolor {teal}{RRHH}:{Solicitudes de formación}}{68}{}%
+\contentsline {subsection}{\numberline {8.101}\textcolor {teal}{RRHH}:{Subordinado}}{68}{}%
+\contentsline {subsection}{\numberline {8.102}\textcolor {teal}{RRHH}:{Sueldo Imponible}}{68}{}%
+\contentsline {subsection}{\numberline {8.103}\textcolor {teal}{RRHH}:{Sueldo Líquido}}{69}{}%
+\contentsline {subsection}{\numberline {8.104}\textcolor {teal}{RRHH}:{SUMASU}}{69}{}%
+\contentsline {subsection}{\numberline {8.105}\textcolor {teal}{RRHH}:{Teletrabajo}}{69}{}%
+\contentsline {subsection}{\numberline {8.106}\textcolor {teal}{RRHH}:{Tipo de Contrato}}{69}{}%
+\contentsline {subsection}{\numberline {8.107}\textcolor {teal}{RRHH}:{Total Imponible}}{69}{}%
+\contentsline {subsection}{\numberline {8.108}\textcolor {teal}{RRHH}:{Total Tributable}}{69}{}%
+\contentsline {subsection}{\numberline {8.109}\textcolor {teal}{RRHH}:{UEN}}{69}{}%
+\contentsline {section}{\numberline {9}\textcolor {blue}{Sistemas TI}}{69}{}%
+\contentsline {subsection}{\numberline {9.1}\textcolor {teal}{Sistemas TI}:{Agile-Agilidad}}{69}{}%
+\contentsline {subsection}{\numberline {9.2}\textcolor {teal}{Sistemas TI}:{DevOps}}{70}{}%

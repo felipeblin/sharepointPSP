@@ -183,7 +183,6 @@
     $web.BreakRoleInheritance($true, $true)
     Write-Host "Herencia de permisos rota" -ForegroundColor Green
 
-    
     Invoke-CustomScript -ScriptPath "$PSScriptRoot/crea-estructura.ps1" 
     Write-Host "✓ Estructura creada exitosamente" -ForegroundColor Green
 

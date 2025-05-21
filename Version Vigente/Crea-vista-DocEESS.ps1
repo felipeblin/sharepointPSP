@@ -48,12 +48,17 @@ try {
         
         $view = Get-PnPView -List  $listName -Identity $viewName
         # $view.ViewType = "GALLERY"
+        Set-PnPView -List $listName -Identity $view.Id -Values @{
+            ViewType2   = "TILES"
+            DefaultView = $true
+        }
     
         Write-Host "Vista básica creada exitosamente" -ForegroundColor Green
      
 # Primero almacenamos el JSON original
 $jsonFormat = @'
-{"tileProps":{
+{"tileProps":
+        {
   "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
   "width": 200,
   "height": 130,
@@ -62,9 +67,6 @@ $jsonFormat = @'
   "overflow": "visible",
   "formatter": {
     "elmType": "div",
-    "attributes": {
-      "class": "sp-card-container"
-    },
     "style": {
       "display": "flex",
       "flex-direction": "column",
@@ -90,14 +92,14 @@ $jsonFormat = @'
           {
             "elmType": "img",
             "attributes": {
-              "src": "=if([$File_x0020_Type] == '', if([$FolderChildCount] > 0, '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-si-PSP.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/documento-no-PSP.png'), if([$File_x0020_Type] == 'pdf', '/sites/PSP-EESS/PruebaPSP/SiteAssets/pdf.png', if([$File_x0020_Type] == 'xlsx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/xls.png', if([$File_x0020_Type] == 'docx', '/sites/PSP-EESS/PruebaPSP/SiteAssets/docx.png', '/sites/PSP-EESS/PruebaPSP/SiteAssets/blank.png'))))",
-              "title": "=if([$File_x0020_Type] == '', [$Clase], '')"
+              "src": "=if([$File_x0020_Type] == '', if([$FolderChildCount] > 0, '/sites/PSP-EESS/proyecto-prueba-4/SiteAssets/documento-si-PSP.png', '/sites/PSP-EESS/proyecto-prueba-4/SiteAssets/documento-no-PSP.png'), if([$File_x0020_Type] == 'pdf', '/sites/PSP-EESS/proyecto-prueba-4/SiteAssets/pdf.png', if([$File_x0020_Type] == 'xlsx', '/sites/PSP-EESS/proyecto-prueba-4/SiteAssets/xls.png', if([$File_x0020_Type] == 'docx', '/sites/PSP-EESS/proyecto-prueba-4/SiteAssets/docx.png', '/sites/PSP-EESS/proyecto-prueba-4/SiteAssets/blank.png'))))",
+              "title": "=if([$File_x0020_Type] == '', [$Clase], '')",
+              "alt": "=if([$File_x0020_Type] == '', 'Icono de carpeta ' + [$FileLeafRef], 'Icono de ' + [$File_x0020_Type])"
             },
             "style": {
               "width": "40px",
               "height": "40px",
               "object-fit": "contain",
-              
               "border": "none"
             }
           },
@@ -228,9 +230,6 @@ $jsonFormat = @'
       },
       {
         "elmType": "p",
-        "attributes": {
-          "class": "ms-fontColor-gray150 sp-card-subtitle"
-        },
         "style": {
           "text-align": "center",
           "font-size": "9px",
@@ -244,7 +243,30 @@ $jsonFormat = @'
           "font-weight": "bold"
         },
         "txtContent": "=if([$File_x0020_Type] == '', if(length([$Clase]) > 20, substring([$Clase], 0, 20) + '...', [$Clase]), '')"
+      },
+      {
+        "elmType": "button",
+        "attributes": {
+          "class": "sp-card-defaultClickButton",
+          "role": "presentation",
+          "aria-label": "Abrir"
+        },
+        "style": {
+          "position": "absolute",
+          "top": "0",
+          "left": "0",
+          "width": "100%",
+          "height": "100%",
+          "background-color": "transparent",
+          "border": "none",
+          "cursor": "pointer",
+          "z-index": "0"
+        },
+        "customRowAction": { "action": "defaultClick" }
       }
+    ]
+  }
+}
     ]
   }
 }

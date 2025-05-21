@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{makeidx}
+\definecolor{sectionColor}{RGB}{0,51,102}
+\definecolor{subsectionColor}{RGB}{51,102,153}
+\definecolor{termColor}{RGB}{153,0,0}
+\hypersetup{colorlinks=true,linkcolor=blue,filecolor=magenta,urlcolor=cyan,pdftitle={Glosario de Términos Técnicos}}
+\titleformat{\section}{\color{sectionColor}\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\color{subsectionColor}\large\bfseries}{\thesubsection}{1em}{}
+\makeindex
+\title{\textbf{Glosario de Términos por Área}}
+\author{Glosario Técnico Profesional}
+\date{\today}
+\begin{document}
+\maketitle
+\tableofcontents
+\section*{Presentación}
+\addcontentsline{toc}{section}{Presentación}
+Este documento presenta un \textbf{Glosario de Términos por Área}, organizado de manera sistemática para facilitar la comprensión de conceptos técnicos y profesionales en diferentes ámbitos.
+\section*{Abreviaturas y Siglas}
+\addcontentsline{toc}{section}{Abreviaturas y Siglas}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.2\textwidth}>{\raggedright\arraybackslash}p{0.7\textwidth}}
+\toprule
+\textbf{Sigla} & \textbf{Significado} \\ \midrule
+\endheadDevOps & DevOps es un t\\'ermino usado para una metodolog\\'ia que facilita el desarrollo y el despliegue a producci\\'on de forma r\\'apida y continua. \\ UF & Unidad de Fomento que reajusta con el IPC acumulado del mes. Fuentes Banco Central \\ \bottomrule\end{longtable}\section{Contabilidad}\index{UF}\subsection{UF}{\color{termColor}\textbf{Definición:}} Unidad de Fomento que reajusta con el IPC acumulado del mes. Fuentes Banco \\ Central\section{RRHH}\index{Nivel HAY}\subsection{Nivel HAY}{\color{termColor}\textbf{Definición:}} Sistema para la medici\\'on de un cargo en base a puntajes en tres dimensiones \\ relacionadas con la obtenci\\'on de resultados de un puesto: actuar, \\ responsabilidad y saber.\section{Sistemas TI}\index{DevOps}\subsection{DevOps}{\color{termColor}\textbf{Definición:}} DevOps es un t\\'ermino usado para una metodolog\\'ia que facilita el desarrollo \\ y el despliegue a producci\\'on de forma r\\'apida y continua.\printindex\section*{Referencias Cruzadas}\addcontentsline{toc}{section}{Referencias Cruzadas}\begin{itemize}\item \textbf{UF} --- Ver sección: \hyperref[sec:Contabilidad]{Contabilidad}\item \textbf{Nivel HAY} --- Ver sección: \hyperref[sec:RRHH]{RRHH}\item \textbf{DevOps} --- Ver sección: \hyperref[sec:Sistemas TI]{Sistemas TI}\end{itemize}\end{document}
