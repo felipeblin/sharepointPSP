@@ -9,9 +9,10 @@ $UrlProyecto = $yaml_.Datos.UrlProyecto
 $IdProyecto = $yaml_.Datos.IdProyecto
 $Marca = $yaml_.Datos.Marca
 $Comuna = $yaml_.Datos.Comuna
+$ArchivoCSV = $yaml_.Datos.ArchivoCSV
 
 # Importar y limpiar los datos del CSV
-$csvData = Import-Csv "Version Vigente/EstructuraArquitectura3.csv" | ForEach-Object {
+$csvData = Import-Csv "$PSScriptRoot/$ArchivoCSV" -Delimiter ";" | ForEach-Object {
     $cleanProperties = @{}
     # Iterar sobre cada propiedad del objeto
     $_.PSObject.Properties | ForEach-Object {
@@ -266,7 +267,7 @@ $EditListItems = "ViewListItems, AddListItems, EditListItems,BrowseDirectories"
 
 # Procesar los datos del CSV
 foreach ($row in $csvData) {
-    $folderPath = $row.SUBCATEGORIA
+    ve$folderPath = $row.SUBCATEGORIA
     if ($row.SUBCATEGORIA2) {
         $folderPath += "/$($row.SUBCATEGORIA2)"
     }

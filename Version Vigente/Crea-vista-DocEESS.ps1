@@ -266,10 +266,7 @@ $jsonFormat = @'
       }
     ]
   }
-}
-    ]
-  }
-}
+      }
 }
 '@
 # Reemplazar PruebaPSP con el valor de $UrlProyecto

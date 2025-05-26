@@ -8,6 +8,9 @@ try {
     exit
 }
 
+$yaml_ = Get-Content -Path "$PSScriptRoot/config.yaml"| ConvertFrom-Yaml
+$ArchivoCSV = $yaml_.Datos.ArchivoCSV
+
 # Obtener la URL relativa del servidor del sitio web actual
 $webUrl = (Get-PnPWeb).ServerRelativeUrl
 Write-Host "URL relativa del sitio web: $webUrl" -ForegroundColor Cyan
@@ -46,7 +49,7 @@ EnsureField -ListTitle $listTitle -FieldName "Clase" -FieldType "Text"
 EnsureField -ListTitle $listTitle -FieldName "TipoDocumento2" -FieldType "Text"
 
 # Leer CSV
-$csvPath = "/Users/felipeblin/vscode/sharepoint/sharepointPSP/EstructuraArquitectura.csv"
+$csvPath = "$PSScriptRoot/$ArchivoCSV"
 Write-Host "Leyendo archivo CSV: $csvPath" -ForegroundColor Cyan
 $csvData = Import-Csv -Path $csvPath
 Write-Host "Archivo CSV leído exitosamente. Procesando $(($csvData | Measure-Object).Count) filas." -ForegroundColor Green
